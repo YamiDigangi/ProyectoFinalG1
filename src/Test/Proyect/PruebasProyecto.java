@@ -5,6 +5,7 @@
  */
 package Test.Proyect;
 
+import ClasesData.ClienteData;
 import ClasesModelo.*;
 
 
@@ -18,10 +19,21 @@ public class PruebasProyecto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+    //////////////////AGREGAR CLIENTE//////////////////////////////    
+        Cliente cli = new Cliente(33029917,"Santigo","Farioli",true);
+        ClienteData c = new ClienteData();
         
-        Cliente cli = new Cliente(3525,"pepe","alcaraz",true);
-        System.out.println(cli);
+        c.agregarCliente(cli);
+        c.borrarCliente(1);
+        c.modificarCliente(cli);
+//-------------------------------------------------------------------------------
+
+ 
+      
+        
+    
+    
     }
     
 }

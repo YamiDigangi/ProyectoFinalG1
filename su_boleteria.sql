@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2022 a las 16:07:06
+-- Tiempo de generación: 21-10-2022 a las 22:41:27
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -147,13 +147,25 @@ ALTER TABLE `sala`
 --
 ALTER TABLE `tiket`
   ADD PRIMARY KEY (`idTiket`),
+  ADD KEY `idProyeccion` (`idProyeccion`),
   ADD KEY `idCliente` (`idCliente`),
-  ADD KEY `idButaca` (`idButaca`),
-  ADD KEY `idProyeccion` (`idProyeccion`);
+  ADD KEY `idButaca` (`idButaca`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `butaca`
+--
+ALTER TABLE `butaca`
+  MODIFY `idButaca` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `pelicula`
@@ -200,9 +212,9 @@ ALTER TABLE `proyeccion`
 -- Filtros para la tabla `tiket`
 --
 ALTER TABLE `tiket`
-  ADD CONSTRAINT `tiket_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`),
-  ADD CONSTRAINT `tiket_ibfk_2` FOREIGN KEY (`idButaca`) REFERENCES `butaca` (`idButaca`),
-  ADD CONSTRAINT `tiket_ibfk_3` FOREIGN KEY (`idProyeccion`) REFERENCES `proyeccion` (`idProyeccion`);
+  ADD CONSTRAINT `tiket_ibfk_3` FOREIGN KEY (`idProyeccion`) REFERENCES `proyeccion` (`idProyeccion`),
+  ADD CONSTRAINT `tiket_ibfk_4` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`),
+  ADD CONSTRAINT `tiket_ibfk_5` FOREIGN KEY (`idButaca`) REFERENCES `butaca` (`idButaca`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

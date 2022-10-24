@@ -5,7 +5,7 @@
  */
 package Test.Proyect;
 
-import ClasesData.ClienteData;
+import ClasesData.*;
 import ClasesModelo.*;
 
 
@@ -21,17 +21,23 @@ public class PruebasProyecto {
     public static void main(String[] args) {
 
     //////////////////AGREGAR CLIENTE//////////////////////////////    
-        Cliente cli = new Cliente(33029917,"Santigo","Farioli",true);
+        Cliente cli = new Cliente(4,33029917,"Santigo","Farioli",true);
         ClienteData c = new ClienteData();
         
-        c.agregarCliente(cli);
-        c.borrarCliente(1);
-        c.modificarCliente(cli);
+//        c.agregarCliente(cli);
+//        c.borrarCliente(1);
+//        c.modificarCliente(cli);
 //-------------------------------------------------------------------------------
 
- 
+      //////////////////Pelicula//////////////////
       
+      //
         
+    Pelicula peli = new Pelicula("Volver al Futuro VI", true);
+    
+    PeliculaData peliD = new PeliculaData();
+    
+    peliD.agregarPelicula(peli);
     
     
     }

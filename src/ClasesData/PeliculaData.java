@@ -19,7 +19,7 @@ public class PeliculaData {
     
     public void agregarPelicula(Pelicula pelicula) {
         
-        String sql = "INSERT INTO pelicula ( nombrePeli, estado) VALUES (?,?)";
+        String sql = "INSERT INTO pelicula (nombrePeli, estado) VALUES (?,?)";
         
         try {
             PreparedStatement ps= con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);

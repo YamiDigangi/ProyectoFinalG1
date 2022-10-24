@@ -25,7 +25,7 @@ public class PruebasProyecto {
         ClienteData c = new ClienteData();
         
         c.agregarCliente(cli);
-        c.borrarCliente(1);
+        c.borrarCliente(4);
         c.modificarCliente(cli);
 //-------------------------------------------------------------------------------
 

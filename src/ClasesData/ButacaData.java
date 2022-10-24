@@ -5,10 +5,25 @@
  */
 package ClasesData;
 
+import ClasesModelo.Conexion;
+import java.sql.Connection;
+
 /**
  *
  * @author yamic
  */
 public class ButacaData {
+    
+    private Connection con;
+
+    
+    public ButacaData() {
+        this.con = Conexion.getConexion();
+    }
+    
+    
+    
+    
+    
     
 }

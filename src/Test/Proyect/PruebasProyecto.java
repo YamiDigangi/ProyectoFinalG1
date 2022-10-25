@@ -7,7 +7,8 @@ package Test.Proyect;
 
 import ClasesData.*;
 import ClasesModelo.*;
-
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,33 +20,43 @@ public class PruebasProyecto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        
 
     //////////////////AGREGAR CLIENTE//////////////////////////////    
-        Cliente cli = new Cliente(4,33029917,"Santigo","Farioli",true);
+        Cliente cli = new Cliente(33089673,"Javier","Torres",true);
         ClienteData c = new ClienteData();
         
-//<<<<<<< HEAD
+//
 //        c.agregarCliente(cli);
 //        c.borrarCliente(1);
 //        c.modificarCliente(cli);
-//=======
+
 //        c.agregarCliente(cli);
 //        c.borrarCliente(4);
 //        c.modificarCliente(cli);
-//>>>>>>> ab62b186e0b7024b0c567cc2de688b64db1c1dfd
 //-------------------------------------------------------------------------------
 
-      //////////////////Pelicula//////////////////
+      //////////////////-Pelicula-//////////////////
+      ///-Alta/Baja/Modificaciones/ listados de Películas///
       
-      //
         
-//    Pelicula peli = new Pelicula("Volver al Futuro VI", true);
-//    
-//    PeliculaData peliD = new PeliculaData();
-//    
-//    peliD.agregarPelicula(peli);
-//    
-//    
-    }
+//    Pelicula peli = new Pelicula(1,"Volver al Futuro", true);
+//    Pelicula peli = new Pelicula(2,"Volver al Futuro II", true);
     
+//    PeliculaData pelis = new PeliculaData();
+     
+//           
+//        });
+//    pelis.altaPelicula(peli);
+//    pelis.modificarPelicula(peli);
+//    pelis.borrarPelis(1);
+
+//    pelis.obtenerPelis().forEach(Pelicula->{
+//         JOptionPane.showMessageDialog(null, Pelicula);
+//        
+//    });
+  
+//    JOptionPane.showMessageDialog(null, pelis.obtenerPelisPorId(2));      
+}
 }

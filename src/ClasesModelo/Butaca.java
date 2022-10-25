@@ -14,22 +14,22 @@ import java.util.logging.Logger;
 public class Butaca {
     
     private int idButaca;
-    private int idSala;
-    private int fila;
+    private Sala sala;
+    private String fila;
     private int columna;
 
     public Butaca() {
     }
 
-    public Butaca(int idButaca, int idSala, int fila, int columna) {
+    public Butaca(int idButaca, Sala sala, String fila, int columna) {
         this.idButaca = idButaca;
-        this.idSala = idSala;
+        this.sala = sala;
         this.fila = fila;
         this.columna = columna;
     }
 
-    public Butaca(int idSala, int fila, int columna) {
-        this.idSala = idSala;
+    public Butaca(Sala sala, String fila, int columna) {
+        this.sala = sala;
         this.fila = fila;
         this.columna = columna;
     }
@@ -42,19 +42,19 @@ public class Butaca {
         this.idButaca = idButaca;
     }
 
-    public int getIdSala() {
-        return idSala;
+    public Sala getSala() {
+        return sala;
     }
 
-    public void setIdSala(int idSala) {
-        this.idSala = idSala;
+    public void setSala(Sala sala) {
+        this.sala = sala;
     }
 
-    public int getFila() {
+    public String getFila() {
         return fila;
     }
 
-    public void setFila(int fila) {
+    public void setFila(String fila) {
         this.fila = fila;
     }
 
@@ -68,7 +68,7 @@ public class Butaca {
 
     @Override
     public String toString() {
-        return "Butaca{" + "idButaca=" + idButaca + ", idSala=" + idSala + ", fila=" + fila + ", columna=" + columna + '}';
+        return "Butaca{" + "idButaca=" + idButaca + ", idSala=" + sala + ", fila=" + fila + ", columna=" + columna + '}';
     }
   
     

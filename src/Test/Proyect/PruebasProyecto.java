@@ -42,9 +42,9 @@ public class PruebasProyecto {
       
         
 //    Pelicula peli = new Pelicula(1,"Volver al Futuro", true);
-//    Pelicula peli = new Pelicula(2,"Volver al Futuro II", true);
+    Pelicula peli = new Pelicula(2,"Volver al Futuro II", true);
     
-//    PeliculaData pelis = new PeliculaData();
+    PeliculaData pelis = new PeliculaData();
      
 //           
 //        });
@@ -57,6 +57,30 @@ public class PruebasProyecto {
 //        
 //    });
   
-//    JOptionPane.showMessageDialog(null, pelis.obtenerPelisPorId(2));      
+//    JOptionPane.showMessageDialog(null, pelis.obtenerPelisPorId(2));  
+
+//------------------------------------------------------------------------------
+
+      Sala sa = new Sala(2,"Villa Mercedes", "San Luis", true);
+      SalaData s = new SalaData();
+      
+     // s.altaSala(sa);
+     // s.bajaSala(2);
+     // s.modificarSala(sa);
+     
+     
+     Butaca bu= new Butaca(sa,"A",3);
+     ButacaData b = new ButacaData();
+
+
+     b.agregarButaca(bu);
+
+
+
+
+
+
+
+
 }
 }

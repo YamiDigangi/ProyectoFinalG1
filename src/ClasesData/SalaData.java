@@ -46,7 +46,7 @@ public class SalaData {
                 
                 sala.setIdSala(rs.getInt(1));
                 
-                JOptionPane.showMessageDialog(null, "Sala encontrada");
+                JOptionPane.showMessageDialog(null, "Sala creada exitosamente");
             }
             
         } catch (SQLException ex) {

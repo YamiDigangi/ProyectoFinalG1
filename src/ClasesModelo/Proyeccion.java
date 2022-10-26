@@ -5,6 +5,7 @@
  */
 package ClasesModelo;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 /**
@@ -15,13 +16,13 @@ public class Proyeccion {
     private int idProyeccion;
     private Sala sala;
     private Pelicula pelicula;
-    private LocalDate inicioPro,finPro;
+    private  Timestamp inicioPro,finPro;
     private boolean estadoPro;
 
     public Proyeccion() {
     }
 
-    public Proyeccion(int idProyeccion, Sala sala, Pelicula pelicula, LocalDate inicioPro, LocalDate finPro, boolean estadoPro) {
+    public Proyeccion(int idProyeccion, Sala sala, Pelicula pelicula, Timestamp inicioPro, Timestamp finPro, boolean estadoPro) {
         this.idProyeccion = idProyeccion;
         this.sala = sala;
         this.pelicula = pelicula;
@@ -30,7 +31,7 @@ public class Proyeccion {
         this.estadoPro = estadoPro;
     }
 
-    public Proyeccion(Sala sala, Pelicula pelicula, LocalDate inicioPro, LocalDate finPro, boolean estadoPro) {
+    public Proyeccion(Sala sala, Pelicula pelicula, Timestamp inicioPro, Timestamp finPro, boolean estadoPro) {
         this.sala = sala;
         this.pelicula = pelicula;
         this.inicioPro = inicioPro;
@@ -62,19 +63,19 @@ public class Proyeccion {
         this.pelicula = pelicula;
     }
 
-    public LocalDate getInicioPro() {
+    public Timestamp getInicioPro() {
         return inicioPro;
     }
 
-    public void setInicioPro(LocalDate inicioPro) {
+    public void setInicioPro(Timestamp inicioPro) {
         this.inicioPro = inicioPro;
     }
 
-    public LocalDate getFinPro() {
+    public Timestamp getFinPro() {
         return finPro;
     }
 
-    public void setFinPro(LocalDate finPro) {
+    public void setFinPro(Timestamp finPro) {
         this.finPro = finPro;
     }
 

@@ -8,6 +8,9 @@ package Test.Proyect;
 import ClasesData.*;
 import ClasesModelo.*;
 import java.sql.Connection;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.Month;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,13 +27,13 @@ public class PruebasProyecto {
         
 
     //////////////////AGREGAR CLIENTE//////////////////////////////    
-        Cliente cli = new Cliente(33089673,"Javier","Torres",true);
+        Cliente cli = new Cliente(5,33089673,"Javier","Torres",true);
         ClienteData c = new ClienteData();
         
 //
-//        c.agregarCliente(cli);
-//        c.borrarCliente(1);
-//        c.modificarCliente(cli);
+      // c.agregarCliente(cli);
+ //      c.borrarCliente(5);
+  //      c.modificarCliente(cli);
 
 //        c.agregarCliente(cli);
 //        c.borrarCliente(4);
@@ -41,16 +44,17 @@ public class PruebasProyecto {
       ///-Alta/Baja/Modificaciones/ listados de Películas///
       
         
-//    Pelicula peli = new Pelicula(1,"Volver al Futuro", true);
-    Pelicula peli = new Pelicula(2,"Volver al Futuro II", true);
+      Pelicula peli = new Pelicula(1,"Volver al Futuro", true);
+      Pelicula peliss = new Pelicula(2,"Volver al Futuro II", true);
     
-    PeliculaData pelis = new PeliculaData();
+      PeliculaData pelis = new PeliculaData();
      
 //           
-//        });
-//    pelis.altaPelicula(peli);
-//    pelis.modificarPelicula(peli);
-//    pelis.borrarPelis(1);
+//        
+//   pelis.altaPelicula(peli);
+  // pelis.modificarPelicula(peliss);
+  // pelis.modificarPelicula(peli);
+   //pelis.borrarPelis(2);
 
 //    pelis.obtenerPelis().forEach(Pelicula->{
 //         JOptionPane.showMessageDialog(null, Pelicula);
@@ -68,12 +72,27 @@ public class PruebasProyecto {
      // s.bajaSala(2);
      // s.modificarSala(sa);
      
-     
+ //-----------------------------------------------------------------------------
+ 
+ 
      Butaca bu= new Butaca(sa,"A",3);
      ButacaData b = new ButacaData();
 
 
-     b.agregarButaca(bu);
+     //b.agregarButaca(bu);
+//------------------------------------------------------------------------------
+
+      LocalDateTime inic = LocalDateTime.of(2022, Month.OCTOBER, 26, 16, 30, 00);
+      LocalDateTime fin = LocalDateTime.of(2022, Month.OCTOBER, 26, 18, 00, 00);
+      Proyeccion pro = new Proyeccion(sa,peliss,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
+      Proyeccion proo = new Proyeccion(sa,peli,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
+      ProyeccionData pd= new ProyeccionData();
+      
+      pd.agregarProyeccion(pro);
+      pd.agregarProyeccion(proo);
+      pd.borrarProyeccion(2);
+
+     
 
 
 

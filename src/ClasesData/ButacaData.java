@@ -39,7 +39,7 @@ public class ButacaData {
         String sql = "INSERT INTO butaca (idSala, fila, columna) VALUES (?,?,?)";
         
         try {
-            PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
             ps.setInt(1, butaca.getSala().getIdSala());
             ps.setString(2, butaca.getFila());
@@ -57,12 +57,15 @@ public class ButacaData {
                         
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ButacaData sentencia SQL erronea - agregarButaca");
+            JOptionPane.showMessageDialog(null, "ButacaData sentencia SQL erronea - agregarButaca"+ ex.getMessage());
         }
         
     }
     
-    
+    public void borrarButaca(int id) {
+        
+        
+    }
     
     
     

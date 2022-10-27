@@ -114,5 +114,9 @@ public class Ticket {
         return "Ticket{" + "idTicket=" + idTicket + ", cliente=" + cliente + ", proyeccion=" + proyeccion + ", butaca=" + butaca + ", fechaCompra=" + fechaCompra + ", monto=" + monto + ", formaPago=" + formaPago + ", estadoTicket=" + estadoTicket + '}';
     }
 
+    public void setIdProyeccion(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
 }

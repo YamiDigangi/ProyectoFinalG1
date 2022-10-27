@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
+import java.time.zone.ZoneOffsetTransitionRule;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -74,7 +75,28 @@ public class ProyeccionData {
         }
     }
     
-    
+    public void modificarProyeccion(Proyeccion proyeccion){
+        String sql="UPDATE proyeccion SET idSala = ?, idPelicula = ?, inicioPro = ?, finPro = ?, estadoPro = ?, WHERE idProyeccu = ?";
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            
+           
+           ps.setInt(1, proyeccion.getSala().getIdSala());
+           ps.setInt(2, proyeccion.getPelicula().getIdPelicula());
+           ps.setTimestamp(3, proyeccion.getInicioPro());
+           ps.setTimestamp(4, proyeccion.getInicioPro());
+           ps.setBoolean(5, true);
+         
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "La Proyeccion seleccioanda fue actualizada");
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ProyeccionData Sentencia SQL erronea-actualizarProyeccion");
+        }
+    }
     
     
 }

@@ -82,15 +82,16 @@ public class PruebasProyecto {
      //b.agregarButaca(bu);
 //------------------------------------------------------------------------------
 
-      LocalDateTime inic = LocalDateTime.of(2022, Month.OCTOBER, 26, 16, 30, 00);
-      LocalDateTime fin = LocalDateTime.of(2022, Month.OCTOBER, 26, 18, 00, 00);
+      LocalDateTime inic = LocalDateTime.of(2022, Month.OCTOBER, 20, 16, 30, 00);
+      LocalDateTime fin = LocalDateTime.of(2022, Month.OCTOBER, 21, 18, 00, 00);
       Proyeccion pro = new Proyeccion(sa,peliss,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
       Proyeccion proo = new Proyeccion(sa,peli,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
       ProyeccionData pd= new ProyeccionData();
       
       pd.agregarProyeccion(pro);
-      pd.agregarProyeccion(proo);
-      pd.borrarProyeccion(2);
+//      pd.agregarProyeccion(proo);
+//      pd.borrarProyeccion(2);
+//      pd.modificarProyeccion(proo);
 
      
 

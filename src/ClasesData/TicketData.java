@@ -68,7 +68,7 @@ public class TicketData {
     }
     
     public void modificarTicket(Ticket ticket){
-        String sql="UPDATE proyeccion SET idCliente = ?, idProyeccion = ?, idButaca = ?, fechaCompra = ?, monto = ?, formaPago = ?, estadoTicket = ? WHERE idTicket = ?";
+        String sql="UPDATE ticket SET idCliente = ?, idProyeccion = ?, idButaca = ?, fechaCompra = ?, monto = ?, formaPago = ?, estadoTicket = ? WHERE idTicket = ?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             

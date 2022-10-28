@@ -53,7 +53,7 @@ public class TicketData {
     }
     
     public void borrarTicket(int id) {
-        String sql = "UPDATE ticket SET estadoPro=0 WHERE idTicket=?";
+        String sql = "UPDATE ticket SET estadoTicket= 0 WHERE idTicket=?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);

@@ -5,6 +5,7 @@
  */
 package ClasesModelo;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 /**
@@ -16,7 +17,7 @@ public class Ticket {
     private Cliente cliente;
     private Proyeccion proyeccion;
     private Butaca butaca;
-    private LocalDate fechaCompra;
+    private Timestamp fechaCompra;
     private double monto;
     private String formaPago;
     private boolean estadoTicket;
@@ -24,7 +25,7 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(int idTicket, Cliente cliente, Proyeccion proyeccion, Butaca butaca, LocalDate fechaCompra, double monto, String formaPago, boolean estadoTicket) {
+    public Ticket(int idTicket, Cliente cliente, Proyeccion proyeccion, Butaca butaca, Timestamp fechaCompra, double monto, String formaPago, boolean estadoTicket) {
         this.idTicket = idTicket;
         this.cliente = cliente;
         this.proyeccion = proyeccion;
@@ -35,7 +36,7 @@ public class Ticket {
         this.estadoTicket = estadoTicket;
     }
 
-    public Ticket(Cliente cliente, Proyeccion proyeccion, Butaca butaca, LocalDate fechaCompra, double monto, String formaPago, boolean estadoTicket) {
+    public Ticket(Cliente cliente, Proyeccion proyeccion, Butaca butaca, Timestamp fechaCompra, double monto, String formaPago, boolean estadoTicket) {
         this.cliente = cliente;
         this.proyeccion = proyeccion;
         this.butaca = butaca;
@@ -77,11 +78,11 @@ public class Ticket {
         this.butaca = butaca;
     }
 
-    public LocalDate getFechaCompra() {
+    public Timestamp getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(LocalDate fechaCompra) {
+    public void setFechaCompra(Timestamp fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 
@@ -114,9 +115,9 @@ public class Ticket {
         return "Ticket{" + "idTicket=" + idTicket + ", cliente=" + cliente + ", proyeccion=" + proyeccion + ", butaca=" + butaca + ", fechaCompra=" + fechaCompra + ", monto=" + monto + ", formaPago=" + formaPago + ", estadoTicket=" + estadoTicket + '}';
     }
 
-    public void setIdProyeccion(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    public void setIdProyeccion(int aInt) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    
-}
+

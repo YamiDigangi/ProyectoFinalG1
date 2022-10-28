@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2022 a las 16:16:53
+-- Tiempo de generación: 28-10-2022 a las 17:06:23
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -60,7 +60,8 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idCliente`, `dni`, `nombre`, `apellido`, `estado`) VALUES
-(5, 33089673, 'Javier', 'Torres', 1);
+(5, 33089673, 'Javier', 'Torres', 1),
+(7, 33029917, 'Santiago', 'Farioli', 1);
 
 -- --------------------------------------------------------
 
@@ -128,18 +129,18 @@ INSERT INTO `sala` (`idSala`, `ubicacion`, `localidad`, `estadoSala`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tiket`
+-- Estructura de tabla para la tabla `ticket`
 --
 
-CREATE TABLE `tiket` (
-  `idTiket` int(11) NOT NULL,
+CREATE TABLE `ticket` (
+  `idTicket` int(11) NOT NULL,
   `idCliente` int(11) NOT NULL,
   `idProyeccion` int(11) NOT NULL,
   `idButaca` int(11) NOT NULL,
-  `fechaCompra` date NOT NULL,
+  `fechaCompra` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `monto` double NOT NULL,
   `formaPago` varchar(50) NOT NULL,
-  `estadoTiket` tinyint(4) NOT NULL
+  `estadoTicket` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -181,10 +182,10 @@ ALTER TABLE `sala`
   ADD PRIMARY KEY (`idSala`);
 
 --
--- Indices de la tabla `tiket`
+-- Indices de la tabla `ticket`
 --
-ALTER TABLE `tiket`
-  ADD PRIMARY KEY (`idTiket`),
+ALTER TABLE `ticket`
+  ADD PRIMARY KEY (`idTicket`),
   ADD KEY `idProyeccion` (`idProyeccion`),
   ADD KEY `idCliente` (`idCliente`),
   ADD KEY `idButaca` (`idButaca`);
@@ -203,7 +204,7 @@ ALTER TABLE `butaca`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `pelicula`
@@ -224,10 +225,10 @@ ALTER TABLE `sala`
   MODIFY `idSala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `tiket`
+-- AUTO_INCREMENT de la tabla `ticket`
 --
-ALTER TABLE `tiket`
-  MODIFY `idTiket` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ticket`
+  MODIFY `idTicket` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -247,12 +248,12 @@ ALTER TABLE `proyeccion`
   ADD CONSTRAINT `proyeccion_ibfk_2` FOREIGN KEY (`idSala`) REFERENCES `sala` (`idSala`);
 
 --
--- Filtros para la tabla `tiket`
+-- Filtros para la tabla `ticket`
 --
-ALTER TABLE `tiket`
-  ADD CONSTRAINT `tiket_ibfk_3` FOREIGN KEY (`idProyeccion`) REFERENCES `proyeccion` (`idProyeccion`),
-  ADD CONSTRAINT `tiket_ibfk_4` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`),
-  ADD CONSTRAINT `tiket_ibfk_5` FOREIGN KEY (`idButaca`) REFERENCES `butaca` (`idButaca`);
+ALTER TABLE `ticket`
+  ADD CONSTRAINT `ticket_ibfk_3` FOREIGN KEY (`idProyeccion`) REFERENCES `proyeccion` (`idProyeccion`),
+  ADD CONSTRAINT `ticket_ibfk_4` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`),
+  ADD CONSTRAINT `ticket_ibfk_5` FOREIGN KEY (`idButaca`) REFERENCES `butaca` (`idButaca`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -26,11 +26,14 @@ public class PruebasProyecto {
         
         
 
-    //////////////////AGREGAR CLIENTE//////////////////////////////    
+    //////////////////AGREGAR CLIENTE//////////////////////////////  
+        Cliente cl = new Cliente(33029917,"Santiago","Farioli",true);
         Cliente cli = new Cliente(5,33089673,"Javier","Torres",true);
+        Cliente  c3= new Cliente(123456,"Yamila Belen","Di Gangi",true);
         ClienteData c = new ClienteData();
         
-//
+        
+       //  c.agregarCliente(c3);
       // c.agregarCliente(cli);
  //      c.borrarCliente(5);
   //      c.modificarCliente(cli);
@@ -75,7 +78,7 @@ public class PruebasProyecto {
  //-----------------------------------------------------------------------------
  
  
-     Butaca bu= new Butaca(sa,"A",3);
+     Butaca bu= new Butaca(4,sa,"A",3);
      ButacaData b = new ButacaData();
 
 
@@ -84,14 +87,25 @@ public class PruebasProyecto {
 
       LocalDateTime inic = LocalDateTime.of(2022, Month.OCTOBER, 20, 16, 30, 00);
       LocalDateTime fin = LocalDateTime.of(2022, Month.OCTOBER, 21, 18, 00, 00);
-      Proyeccion pro = new Proyeccion(sa,peliss,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
-      Proyeccion proo = new Proyeccion(sa,peli,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
+      Proyeccion pro = new Proyeccion(2,sa,peliss,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
+      Proyeccion proo = new Proyeccion(1,sa,peli,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
       ProyeccionData pd= new ProyeccionData();
       
-      pd.agregarProyeccion(pro);
+ //     pd.agregarProyeccion(pro);
 //      pd.agregarProyeccion(proo);
 //      pd.borrarProyeccion(2);
 //      pd.modificarProyeccion(proo);
+
+//------------------------------------------------------------------------------
+
+    LocalDateTime fcom = LocalDateTime.of(2022, Month.OCTOBER, 28, 13, 20, 0);
+    Ticket ti = new Ticket(cli,proo,bu,Timestamp.valueOf(fcom),500,"Debito",true);
+    
+    TicketData td= new TicketData();
+    
+    //td.agregarTicket(ti);
+    
+    td.modificarTicket(ti);
 
      
 

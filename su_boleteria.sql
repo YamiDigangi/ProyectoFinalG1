@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2022 a las 22:41:27
+-- Tiempo de generación: 28-10-2022 a las 16:16:53
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -30,9 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `butaca` (
   `idButaca` int(11) NOT NULL,
   `idSala` int(11) NOT NULL,
-  `fila` int(10) NOT NULL,
+  `fila` varchar(10) NOT NULL,
   `columna` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `butaca`
+--
+
+INSERT INTO `butaca` (`idButaca`, `idSala`, `fila`, `columna`) VALUES
+(4, 2, 'A', 3);
 
 -- --------------------------------------------------------
 
@@ -48,6 +55,13 @@ CREATE TABLE `cliente` (
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`idCliente`, `dni`, `nombre`, `apellido`, `estado`) VALUES
+(5, 33089673, 'Javier', 'Torres', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -60,6 +74,14 @@ CREATE TABLE `pelicula` (
   `estadoPeli` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `pelicula`
+--
+
+INSERT INTO `pelicula` (`idPelicula`, `nombrePeli`, `estadoPeli`) VALUES
+(1, 'Volver al Futuro', 1),
+(2, 'Volver al Futuro II', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -70,10 +92,18 @@ CREATE TABLE `proyeccion` (
   `idProyeccion` int(11) NOT NULL,
   `idSala` int(11) NOT NULL,
   `idPelicula` int(11) NOT NULL,
-  `inicioPro` date NOT NULL,
-  `finPro` date NOT NULL,
+  `inicioPro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `finPro` timestamp NOT NULL DEFAULT current_timestamp(),
   `estadoPro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `proyeccion`
+--
+
+INSERT INTO `proyeccion` (`idProyeccion`, `idSala`, `idPelicula`, `inicioPro`, `finPro`, `estadoPro`) VALUES
+(1, 2, 1, '2022-10-26 22:30:00', '2022-10-26 23:51:17', 1),
+(2, 2, 2, '2022-10-26 21:20:35', '2022-10-27 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -87,6 +117,13 @@ CREATE TABLE `sala` (
   `localidad` varchar(50) NOT NULL,
   `estadoSala` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `sala`
+--
+
+INSERT INTO `sala` (`idSala`, `ubicacion`, `localidad`, `estadoSala`) VALUES
+(2, 'Villa Mercedes', 'San Luis', 1);
 
 -- --------------------------------------------------------
 
@@ -120,7 +157,8 @@ ALTER TABLE `butaca`
 -- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`idCliente`);
+  ADD PRIMARY KEY (`idCliente`),
+  ADD UNIQUE KEY `dni` (`dni`);
 
 --
 -- Indices de la tabla `pelicula`
@@ -159,31 +197,31 @@ ALTER TABLE `tiket`
 -- AUTO_INCREMENT de la tabla `butaca`
 --
 ALTER TABLE `butaca`
-  MODIFY `idButaca` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idButaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
-  MODIFY `idPelicula` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `proyeccion`
 --
 ALTER TABLE `proyeccion`
-  MODIFY `idProyeccion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProyeccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `idSala` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tiket`

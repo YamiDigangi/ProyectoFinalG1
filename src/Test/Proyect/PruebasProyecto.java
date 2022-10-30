@@ -31,9 +31,10 @@ public class PruebasProyecto {
         Cliente cli = new Cliente(5,33089673,"Javier","Torres",true);
         Cliente  c3= new Cliente(123456,"Yamila Belen","Di Gangi",true);
         ClienteData c = new ClienteData();
+        Cliente c2 = new Cliente(36548952,"Roberto","Gimenez",true);
         
         
-       //  c.agregarCliente(c3);
+         c.agregarCliente(c3);
       // c.agregarCliente(cli);
  //      c.borrarCliente(5);
   //      c.modificarCliente(cli);
@@ -105,7 +106,7 @@ public class PruebasProyecto {
     
     //td.agregarTicket(ti);
     
-    td.modificarTicket(ti);
+//    td.modificarTicket(ti);
 
      
 

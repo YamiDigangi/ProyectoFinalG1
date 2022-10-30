@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2022 a las 17:06:23
+-- Tiempo de generación: 30-10-2022 a las 16:21:46
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -39,7 +39,15 @@ CREATE TABLE `butaca` (
 --
 
 INSERT INTO `butaca` (`idButaca`, `idSala`, `fila`, `columna`) VALUES
-(4, 2, 'A', 3);
+(4, 2, 'A', 1),
+(5, 2, 'A', 2),
+(6, 2, 'A', 3),
+(7, 3, 'A', 1),
+(8, 3, 'A', 2),
+(9, 3, 'A', 3),
+(10, 4, 'A', 1),
+(11, 4, 'A', 2),
+(12, 4, 'A', 3);
 
 -- --------------------------------------------------------
 
@@ -61,7 +69,9 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`idCliente`, `dni`, `nombre`, `apellido`, `estado`) VALUES
 (5, 33089673, 'Javier', 'Torres', 1),
-(7, 33029917, 'Santiago', 'Farioli', 1);
+(7, 33029917, 'Santiago', 'Farioli', 1),
+(9, 123456, 'Yamila Belen', 'Di Gangi', 1),
+(13, 2645484, 'Nico', 'Perez', 1);
 
 -- --------------------------------------------------------
 
@@ -81,7 +91,9 @@ CREATE TABLE `pelicula` (
 
 INSERT INTO `pelicula` (`idPelicula`, `nombrePeli`, `estadoPeli`) VALUES
 (1, 'Volver al Futuro', 1),
-(2, 'Volver al Futuro II', 0);
+(2, 'Volver al Futuro II', 1),
+(3, 'Hombre en Llamas', 1),
+(4, 'Thor', 1);
 
 -- --------------------------------------------------------
 
@@ -103,8 +115,12 @@ CREATE TABLE `proyeccion` (
 --
 
 INSERT INTO `proyeccion` (`idProyeccion`, `idSala`, `idPelicula`, `inicioPro`, `finPro`, `estadoPro`) VALUES
-(1, 2, 1, '2022-10-26 22:30:00', '2022-10-26 23:51:17', 1),
-(2, 2, 2, '2022-10-26 21:20:35', '2022-10-27 00:00:00', 0);
+(1, 2, 1, '2022-10-30 13:00:00', '2022-10-26 23:51:17', 1),
+(2, 2, 2, '2022-10-30 13:00:00', '2022-10-27 00:00:00', 1),
+(3, 4, 3, '2022-10-30 13:00:00', '2022-10-30 15:30:00', 1),
+(4, 3, 3, '2022-10-30 13:00:00', '2022-10-30 15:30:00', 1),
+(5, 4, 1, '2022-10-30 13:00:00', '2022-10-30 16:00:00', 1),
+(6, 3, 2, '2022-10-30 13:00:00', '2022-10-30 15:30:00', 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +140,9 @@ CREATE TABLE `sala` (
 --
 
 INSERT INTO `sala` (`idSala`, `ubicacion`, `localidad`, `estadoSala`) VALUES
-(2, 'Villa Mercedes', 'San Luis', 1);
+(2, 'Villa Mercedes', 'San Luis', 1),
+(3, 'La Punta', 'San Luis', 1),
+(4, 'San Luis', 'San Luis', 1);
 
 -- --------------------------------------------------------
 
@@ -142,6 +160,15 @@ CREATE TABLE `ticket` (
   `formaPago` varchar(50) NOT NULL,
   `estadoTicket` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `ticket`
+--
+
+INSERT INTO `ticket` (`idTicket`, `idCliente`, `idProyeccion`, `idButaca`, `fechaCompra`, `monto`, `formaPago`, `estadoTicket`) VALUES
+(3, 5, 1, 4, '2022-10-28 19:20:00', 500.1, 'Debito', 1),
+(4, 7, 4, 7, '2022-10-30 13:00:00', 500, 'credito', 1),
+(5, 13, 6, 8, '2022-10-30 13:00:00', 500, 'debito', 1);
 
 --
 -- Índices para tablas volcadas
@@ -198,37 +225,37 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT de la tabla `butaca`
 --
 ALTER TABLE `butaca`
-  MODIFY `idButaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idButaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
-  MODIFY `idPelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `proyeccion`
 --
 ALTER TABLE `proyeccion`
-  MODIFY `idProyeccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idProyeccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `idSala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idSala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `idTicket` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTicket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

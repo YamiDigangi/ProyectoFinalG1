@@ -4,6 +4,8 @@ package ClasesData;
 import ClasesModelo.Cliente;
 import ClasesModelo.Conexion;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -79,5 +81,28 @@ public class ClienteData {
             JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea - modificarCliente");
         }
         
+    }
+    
+    public Cliente obtenerClientePorDni(int dni){
+     String sql= "SELECT * FROM cliente WHERE estado = 1, dni = ?";
+        Cliente cli = new Cliente();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                cli.setIdCliente(rs.getInt("idCliente"));
+                cli.setDni(dni);
+                cli.setNombre(rs.getString("nombre"));
+                cli.setApellido(rs.getString("apellido"));
+                cli.setEstado(rs.getBoolean("estado"));
+                
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-obtenerClientePorDni"+ex.getMessage());
+        }
+     return cli;
     }
 }

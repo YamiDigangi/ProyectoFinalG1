@@ -34,7 +34,7 @@ public class PruebasProyecto {
         Cliente c2 = new Cliente(36548952,"Roberto","Gimenez",true);
         
         
-         c.agregarCliente(c3);
+       //  c.agregarCliente(c2);
       // c.agregarCliente(cli);
  //      c.borrarCliente(5);
   //      c.modificarCliente(cli);
@@ -42,6 +42,8 @@ public class PruebasProyecto {
 //        c.agregarCliente(cli);
 //        c.borrarCliente(4);
 //        c.modificarCliente(cli);
+          c.obtenerClientePorDni(123456);
+          System.out.println(c);
 //-------------------------------------------------------------------------------
 
       //////////////////-Pelicula-//////////////////

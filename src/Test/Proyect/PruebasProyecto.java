@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,8 +43,9 @@ public class PruebasProyecto {
 //        c.agregarCliente(cli);
 //        c.borrarCliente(4);
 //        c.modificarCliente(cli);
-          c.obtenerClientePorDni(123456);
-          System.out.println(c);
+          
+        // c.obtenerClientePorDni(33089673);
+         
 //-------------------------------------------------------------------------------
 
       //////////////////-Pelicula-//////////////////
@@ -93,7 +95,17 @@ public class PruebasProyecto {
       Proyeccion pro = new Proyeccion(2,sa,peliss,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
       Proyeccion proo = new Proyeccion(1,sa,peli,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
       ProyeccionData pd= new ProyeccionData();
+      LocalDateTime lala = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 30, 00);
       
+      
+      ArrayList<Pelicula> list = new ArrayList();
+    
+    list = pd.obtenerPelisProyectadas(3, Timestamp.valueOf(lala));
+    
+    for(Pelicula ppro:list) {
+        
+        JOptionPane.showMessageDialog(null, list);
+    }
  //     pd.agregarProyeccion(pro);
 //      pd.agregarProyeccion(proo);
 //      pd.borrarProyeccion(2);
@@ -101,10 +113,28 @@ public class PruebasProyecto {
 
 //------------------------------------------------------------------------------
 
-    LocalDateTime fcom = LocalDateTime.of(2022, Month.OCTOBER, 28, 13, 20, 0);
+    LocalDateTime fcom = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 00, 0);
     Ticket ti = new Ticket(cli,proo,bu,Timestamp.valueOf(fcom),500,"Debito",true);
     
     TicketData td= new TicketData();
+    
+   /* ArrayList<Butaca> list = new ArrayList();
+    
+    list = td.butacaOcupada(Timestamp.valueOf(fcom));
+    
+    for(Butaca but:list) {
+        
+        JOptionPane.showMessageDialog(null, but);          
+    
+    
+    td.butacaOcupada(Timestamp.valueOf(fcom)).forEach(butaca->{
+        JOptionPane.showMessageDialog(null, butaca);
+    }); */
+    
+    
+
+    
+    //td.butacaOcupada(Timestamp.valueOf(fcom));
     
     //td.agregarTicket(ti);
     

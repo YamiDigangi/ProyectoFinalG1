@@ -5,15 +5,19 @@
  */
 package ClasesData;
 
+import ClasesModelo.Butaca;
 import ClasesModelo.Conexion;
+import ClasesModelo.Pelicula;
 import ClasesModelo.Proyeccion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.zone.ZoneOffsetTransitionRule;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -99,6 +103,37 @@ public class ProyeccionData {
     }
     
     
+     public ArrayList<Pelicula> obtenerPelisProyectadas(int sala, Timestamp hora){
+        
+        ArrayList<Pelicula> listaPelis = new ArrayList();
+        
+        String sql="SELECT pe.nombrePeli FROM pelicula pe, sala s, proyeccion p WHERE pe.idPelicula = p.idPelicula and s.idSala = p.idSala and p.idSala = ? AND p.inicioPro = ?";
+        
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1,sala);
+            ps.setTimestamp(2, hora);
+            
+            ResultSet rs=ps.executeQuery();
+            Pelicula pelis;
+            
+            while(rs.next()){
+            
+                pelis = new Pelicula();
+                
+                pelis.setNombrePeli(rs.getString("nombrePeli"));
+                
+                
+                listaPelis.add(pelis);
+            }
+            JOptionPane.showMessageDialog(null, listaPelis);
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ProyeccionData Sentencia SQL erronea-obtenerPelisProyectadas");
+        }
+     return listaPelis;
+    }
 }
 
 

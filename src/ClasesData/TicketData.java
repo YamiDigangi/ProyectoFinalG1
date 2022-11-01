@@ -7,6 +7,7 @@ package ClasesData;
 
 import ClasesModelo.*;
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -92,5 +93,36 @@ public class TicketData {
             JOptionPane.showMessageDialog(null, "TicketData Sentencia SQL erronea-actualizarTicket"+ex.getMessage());
         }
     }
+    
+    
+    /* public ArrayList<Butaca> butacaOcupada(Timestamp inicio) {
+        
+    
+    ArrayList<Butaca> but = new ArrayList(); 
+    String sql = "SELECT t.idButaca from butaca b, proyeccion p, sala s, ticket t WHERE t.idProyeccion=p.idProyeccion and t.idButaca= b.idButaca and p.idSala = s.idSala and s.idSala=b.idSala and p.inicioPro BETWEEN = ? AND  = ? ";
+    
+        try {
+            PreparedStatement ps= con.prepareStatement(sql);
+            ps.setTimestamp(1, inicio);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            Butaca b;
+            while(rs.next()){
+                b= new Butaca();
+                b.setIdButaca(rs.getInt("idButaca"));
+                but.add(b);
+            }
+            
+            JOptionPane.showMessageDialog(null, but);
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"No hay butacas ocupadas" + ex.getMessage());
+        }
+        
+    return but;
+    
+    }*/
     
 }

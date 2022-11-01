@@ -84,7 +84,7 @@ public class ClienteData {
     }
     
     public Cliente obtenerClientePorDni(int dni){
-     String sql= "SELECT * FROM cliente WHERE estado = 1, dni = ?";
+     String sql= "SELECT * FROM cliente WHERE dni = ?";
         Cliente cli = new Cliente();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -99,6 +99,9 @@ public class ClienteData {
                 cli.setEstado(rs.getBoolean("estado"));
                 
             }
+            
+            JOptionPane.showMessageDialog(null, cli);
+            
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-obtenerClientePorDni"+ex.getMessage());

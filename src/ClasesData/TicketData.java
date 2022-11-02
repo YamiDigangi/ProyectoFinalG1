@@ -95,11 +95,11 @@ public class TicketData {
     }
     
     
-    /* public ArrayList<Butaca> butacaOcupada(Timestamp inicio) {
+     public ArrayList<Ticket> ticketEmitidos(Timestamp fcompra) {
         
+    ArrayList<Ticket> listaTicket = new ArrayList(); 
     
-    ArrayList<Butaca> but = new ArrayList(); 
-    String sql = "SELECT t.idButaca from butaca b, proyeccion p, sala s, ticket t WHERE t.idProyeccion=p.idProyeccion and t.idButaca= b.idButaca and p.idSala = s.idSala and s.idSala=b.idSala and p.inicioPro BETWEEN = ? AND  = ? ";
+    String sql = " ";
     
         try {
             PreparedStatement ps= con.prepareStatement(sql);
@@ -123,6 +123,6 @@ public class TicketData {
         
     return but;
     
-    }*/
+    }
     
 }

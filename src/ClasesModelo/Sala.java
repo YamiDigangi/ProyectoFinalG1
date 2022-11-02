@@ -65,7 +65,7 @@ public class Sala {
 
     @Override
     public String toString() {
-        return "Sala{" + "idSala=" + idSala + ", ubicacion=" + ubicacion + ", localidad=" + localidad + ", sala=" + estadoSala + '}';
+        return "Ubicacion: " + ubicacion + "\nlocalidad: " + localidad;
     }
 
     

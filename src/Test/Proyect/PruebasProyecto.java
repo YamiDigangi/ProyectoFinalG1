@@ -54,15 +54,17 @@ public class PruebasProyecto {
         
       Pelicula peli = new Pelicula(1,"Volver al Futuro", true);
       Pelicula peliss = new Pelicula(2,"Volver al Futuro II", true);
+      Pelicula pel = new Pelicula(5,"50 Sombras", true);
+      
     
       PeliculaData pelis = new PeliculaData();
      
 //           
 //        
-//   pelis.altaPelicula(peli);
+//   pelis.altaPelicula(pel);
   // pelis.modificarPelicula(peliss);
   // pelis.modificarPelicula(peli);
-   //pelis.borrarPelis(2);
+//   pelis.borrarPelis(6);
 
 //    pelis.obtenerPelis().forEach(Pelicula->{
 //         JOptionPane.showMessageDialog(null, Pelicula);
@@ -73,12 +75,14 @@ public class PruebasProyecto {
 
 //------------------------------------------------------------------------------
 
-      Sala sa = new Sala(2,"Villa Mercedes", "San Luis", true);
+      Sala sa = new Sala(2,"Sala Uno", "San Luis", true);
+      Sala sla = new Sala(5,"Sala Cuatro", "San Luis", true);
+      
       SalaData s = new SalaData();
       
-     // s.altaSala(sa);
-     // s.bajaSala(2);
-     // s.modificarSala(sa);
+//      s.altaSala(sla);
+//      s.bajaSala(2);
+//      s.modificarSala(sa);
      
  //-----------------------------------------------------------------------------
  
@@ -88,65 +92,71 @@ public class PruebasProyecto {
 
 
      //b.agregarButaca(bu);
-//------------------------------------------------------------------------------
+//----------------------------------PROYECCION--------------------------------------------
 
-      LocalDateTime inic = LocalDateTime.of(2022, Month.OCTOBER, 20, 16, 30, 00);
-      LocalDateTime fin = LocalDateTime.of(2022, Month.OCTOBER, 21, 18, 00, 00);
-      Proyeccion pro = new Proyeccion(2,sa,peliss,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
+      LocalDateTime inic = LocalDateTime.of(2022, Month.NOVEMBER, 01, 20, 30, 00);
+      LocalDateTime fin = LocalDateTime.of(2022, Month.NOVEMBER, 02, 22, 45, 00);
+      
+      Proyeccion pro = new Proyeccion(sa,peliss,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
       Proyeccion proo = new Proyeccion(1,sa,peli,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
+      Proyeccion pr = new Proyeccion(sla,pel,Timestamp.valueOf(inic),Timestamp.valueOf(fin),true);
+      
       ProyeccionData pd= new ProyeccionData();
-      LocalDateTime lala = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 30, 00);
+      
+      LocalDateTime lala = LocalDateTime.of(2022, Month.OCTOBER, 30, 6, 30, 00);
       
       
-      ArrayList<Pelicula> list = new ArrayList();
-    
-    list = pd.obtenerPelisProyectadas(3, Timestamp.valueOf(lala));
-    
-    for(Pelicula ppro:list) {
-        
-        JOptionPane.showMessageDialog(null, list);
-    }
- //     pd.agregarProyeccion(pro);
+//      ArrayList<Pelicula> list = new ArrayList();
+//    
+//    list = pd.obtenerPelisProyectadas(3, Timestamp.valueOf(lala));
+//        System.out.println(Timestamp.valueOf(lala));
+//    for(Pelicula ppro:list) {
+//        
+//        JOptionPane.showMessageDialog(null, ppro);
+//    }
+//      pd.agregarProyeccion(pr);
 //      pd.agregarProyeccion(proo);
 //      pd.borrarProyeccion(2);
 //      pd.modificarProyeccion(proo);
 
+//    ArrayList<Sala> lista = new ArrayList();
+//    lista = pd.obtenerSalaProyeccion(3);
+//    
+//        for (Sala sal: lista) {
+//            
+//            JOptionPane.showMessageDialog(null, sal);
+//            
+//        }
+
+
 //------------------------------------------------------------------------------
 
-    LocalDateTime fcom = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 00, 0);
-    Ticket ti = new Ticket(cli,proo,bu,Timestamp.valueOf(fcom),500,"Debito",true);
-    
-    TicketData td= new TicketData();
-    
-   /* ArrayList<Butaca> list = new ArrayList();
-    
-    list = td.butacaOcupada(Timestamp.valueOf(fcom));
-    
-    for(Butaca but:list) {
-        
-        JOptionPane.showMessageDialog(null, but);          
-    
-    
-    td.butacaOcupada(Timestamp.valueOf(fcom)).forEach(butaca->{
-        JOptionPane.showMessageDialog(null, butaca);
-    }); */
-    
-    
-
-    
-    //td.butacaOcupada(Timestamp.valueOf(fcom));
-    
-    //td.agregarTicket(ti);
-    
+//    LocalDateTime fcom = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00, 0);
+//    Ticket ti = new Ticket(cli,proo,bu,Timestamp.valueOf(fcom),500,"Debito",true);
+//    
+//    TicketData td= new TicketData();
+//    
+//  ArrayList<Butaca> list = new ArrayList();
+//    
+//    list = td.butacaOcupada(Timestamp.valueOf(fcom));
+//    
+//    for(Butaca but:list) {
+//        
+//        JOptionPane.showMessageDialog(null, but);          
+//    }
+//    
+//    
+//    td.butacaOcupada(Timestamp.valueOf(fcom)).forEach(butaca->{
+//        JOptionPane.showMessageDialog(null, butaca);
+//    });
+//    
+//    
+//    td.butacaOcupada(Timestamp.valueOf(fcom));
+//    
+//    td.agregarTicket(ti);
+//    
 //    td.modificarTicket(ti);
-
-     
-
-
-
-
-
-
+//
 
 
 }

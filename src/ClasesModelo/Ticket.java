@@ -112,7 +112,7 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket{" + "idTicket=" + idTicket + ", cliente=" + cliente + ", proyeccion=" + proyeccion + ", butaca=" + butaca + ", fechaCompra=" + fechaCompra + ", monto=" + monto + ", formaPago=" + formaPago + ", estadoTicket=" + estadoTicket + '}';
+        return "idTicket=" + idTicket + ", cliente: " + cliente.getIdCliente() + ", proyeccion: " + proyeccion.getIdProyeccion() + ", butaca: " + butaca.getIdButaca() + ", fechaCompra: " + fechaCompra + ", monto: " + monto + ", formaPago: " + formaPago + ", estadoTicket: " + estadoTicket;
     }
 
 //    public void setIdProyeccion(int aInt) {

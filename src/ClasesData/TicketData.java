@@ -8,6 +8,8 @@ package ClasesData;
 import ClasesModelo.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,10 +19,13 @@ import javax.swing.JOptionPane;
 public class TicketData {
     private Connection con;
     
+    
 
     public TicketData() {
         this.con = Conexion.getConexion();
+        
     }
+    
     public void agregarTicket (Ticket ticket) {
         String sql = "INSERT INTO ticket (idCliente, idProyeccion, idButaca, fechaCompra, monto, formaPago, estadoTicket) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
         
@@ -95,7 +100,7 @@ public class TicketData {
     }
     
     
-     public ArrayList<Ticket> ticketEmitidos(Timestamp fcompra) {
+    /* public ArrayList<Ticket> ticketEmitidos(Timestamp fcompra) {
         
     ArrayList<Ticket> listaTicket = new ArrayList(); 
     
@@ -123,6 +128,46 @@ public class TicketData {
         
     return but;
     
+    }*/
+    
+    
+    public Ticket ticketEmitidosPorFecha (Timestamp fcompra){
+        
+        String sql = "SELECT * FROM `ticket` WHERE fechaCompra = ?";
+        Ticket t = new Ticket();
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setTimestamp(1, fcompra);
+            
+            ResultSet rs = ps.executeQuery();
+            Cliente c = new Cliente();
+            Proyeccion p = new Proyeccion();
+            Butaca b = new Butaca();
+            
+            if(rs.next()){
+                c.setIdCliente(rs.getInt("idCliente"));
+                p.setIdProyeccion(rs.getInt("idProyeccion"));
+                b.setIdButaca(rs.getInt("idButaca"));
+                
+                t.setCliente(c);
+                t.setProyeccion(p);
+                t.setButaca(b);
+                
+                t.setIdTicket(rs.getInt("idTicket"));
+                t.setFechaCompra(rs.getTimestamp("fechaCompra"));
+                t.setMonto(rs.getDouble("monto"));
+                t.setFormaPago(rs.getString("formaPago"));
+                t.setEstadoTicket(rs.getBoolean("estadoTicket"));
+                
+                
+            }
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "TicketData Sentencia SQL erronea - ticketEmitidosPorFecha"+ ex.getMessage());
+        }
+        return t;   
     }
     
 }

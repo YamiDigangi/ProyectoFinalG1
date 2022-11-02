@@ -89,7 +89,7 @@ public class Proyeccion {
 
     @Override
     public String toString() {
-        return "Proyeccion{" + "idProyeccion=" + idProyeccion + ", sala=" + sala + ", pelicula=" + pelicula + ", inicioPro=" + inicioPro + ", finPro=" + finPro + ", estadoPro=" + estadoPro + '}';
+        return "idProyeccion: " + idProyeccion + ", sala: " + sala.getIdSala() + ", pelicula: " + pelicula.getIdPelicula() + ", inicioPro: " + inicioPro + ", finPro: " + finPro + ", estadoPro: " + estadoPro;
     }
 
    

@@ -92,9 +92,36 @@ public class SalaData {
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "SalaData sentencia SQL erronea - modificarSala");
-        }
-        
-        
+        }    
         
     }
-}
+    
+    
+    public Sala obtenerSalaPorId(int idSala) {
+        String sql= "SELECT * FROM sala WHERE idSala = ?";
+        Sala s = new Sala();
+        
+        try{
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, idSala);
+            ResultSet rs=ps.executeQuery();
+            
+            if(rs.next()){              
+                s.setIdSala(idSala);
+                s.setUbicacion(rs.getString("ubicacion"));
+                s.setLocalidad(rs.getString("localidad"));
+                s.setEstadoSala(rs.getBoolean("estadoSala"));     
+                
+            }
+        ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "SalaData Sentencia SQL erronea-obtenerSalaPorId"+ex.getMessage());
+        }
+        return s;
+         
+    }
+        
+  }
+    
+

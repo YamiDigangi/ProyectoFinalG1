@@ -8,6 +8,7 @@ package ClasesData;
 
 import ClasesModelo.Butaca;
 import ClasesModelo.Conexion;
+import ClasesModelo.Sala;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,14 +25,14 @@ import javax.swing.JOptionPane;
 public class ButacaData {
     
     private Connection con;
-    //private SalaData salaData;
+    
     
     
 
     
     public ButacaData() {
         this.con = Conexion.getConexion();
-       // this.salaData= new SalaData();
+        
     }
     
     
@@ -62,12 +63,39 @@ public class ButacaData {
         
     }
     
-    public void borrarButaca(int id) {
-        
+    public Butaca obtenerButacaPorId(int idButaca) {
+        String sql= "SELECT * FROM butaca WHERE idButaca = ?";
+        Butaca b = new Butaca();
+             
+        try{
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, idButaca);
+            ResultSet rs=ps.executeQuery();
+            
+            Sala s = new Sala();
+            
+            if(rs.next()){   
+                
+                s.setIdSala(rs.getInt("idSala"));               
+                
+                b.setSala(s);
+                b.setIdButaca(idButaca);
+                b.setFila(rs.getString("fila"));
+                b.setColumna(rs.getInt("columna"));
+                      
+            }
+        ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ButacaData Sentencia SQL erronea-obtenerButacaPorId"+ ex.getMessage());
+        }
+        return b;
+         
+    }
         
     }
     
+        
     
     
-    
-}
+

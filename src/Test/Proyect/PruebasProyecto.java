@@ -80,10 +80,12 @@ public class PruebasProyecto {
       
       SalaData s = new SalaData();
       
+      
+      
 //      s.altaSala(sla);
 //      s.bajaSala(2);
 //      s.modificarSala(sa);
-     
+//     System.out.println(s.obtenerSalaPorId(2));
  //-----------------------------------------------------------------------------
  
  
@@ -92,6 +94,8 @@ public class PruebasProyecto {
 
 
      //b.agregarButaca(bu);
+     // System.out.println(b.obtenerButacaPorid(5));
+        
 //----------------------------------PROYECCION--------------------------------------------
 
       LocalDateTime inic = LocalDateTime.of(2022, Month.NOVEMBER, 01, 20, 30, 00);
@@ -104,6 +108,8 @@ public class PruebasProyecto {
       ProyeccionData pd= new ProyeccionData();
       
       LocalDateTime lala = LocalDateTime.of(2022, Month.OCTOBER, 30, 6, 30, 00);
+      
+       // System.out.println(pd.obtenerProyeccionPorId(1));
       
       
 //      ArrayList<Pelicula> list = new ArrayList();
@@ -131,11 +137,18 @@ public class PruebasProyecto {
 
 //------------------------------------------------------------------------------
 
-//    LocalDateTime fcom = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00, 0);
-//    Ticket ti = new Ticket(cli,proo,bu,Timestamp.valueOf(fcom),500,"Debito",true);
-//    
-//    TicketData td= new TicketData();
-//    
+    LocalDateTime fcom = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00, 0);
+    Ticket ti = new Ticket(cli,proo,bu,Timestamp.valueOf(fcom),500,"Debito",true);
+    
+    TicketData td= new TicketData();
+
+    LocalDateTime hora = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00,00);
+    
+        System.out.println(td.ticketEmitidosPorFecha(Timestamp.valueOf(hora)));
+
+
+
+    
 //  ArrayList<Butaca> list = new ArrayList();
 //    
 //    list = td.butacaOcupada(Timestamp.valueOf(fcom));

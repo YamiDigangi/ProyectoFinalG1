@@ -75,6 +75,7 @@ public class TicketData {
     
     public void modificarTicket(Ticket ticket){
         String sql="UPDATE ticket SET idCliente = ?, idProyeccion = ?, idButaca = ?, fechaCompra = ?, monto = ?, formaPago = ?, estadoTicket = ? WHERE idTicket = ?";
+        
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             
@@ -103,8 +104,7 @@ public class TicketData {
     public ArrayList<Ticket> ticketEmitidosPorFecha (Timestamp fechaCompra){
         ArrayList<Ticket> listaTicket = new ArrayList();
         String sql = "SELECT * FROM ticket WHERE fechaCompra = ?";
-        
-        
+                
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setTimestamp(1, fechaCompra);
@@ -147,4 +147,34 @@ public class TicketData {
         return listaTicket;   
     }
     
+    
+    
+    public ArrayList<Butaca> butacaOcupada(Timestamp inicio, Timestamp fin) {
+          
+    ArrayList<Butaca> but = new ArrayList(); 
+    String sql = "SELECT t.idButaca from butaca b, proyeccion p, sala s, ticket t WHERE t.idProyeccion=p.idProyeccion and t.idButaca= b.idButaca and p.idSala = s.idSala and s.idSala=b.idSala and p.inicioPro BETWEEN ? AND ?";
+    
+        try {
+            PreparedStatement ps= con.prepareStatement(sql);
+            ps.setTimestamp(1, inicio);
+            ps.setTimestamp(2, fin);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            Butaca b;
+            while(rs.next()){
+                b= new Butaca();
+                b.setIdButaca(rs.getInt("idButaca"));
+                but.add(b);
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"No hay butacas ocupadas" + ex.getMessage());
+        }
+        
+    return but;
+    
+    }
 }

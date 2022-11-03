@@ -68,7 +68,7 @@ public class Butaca {
 
     @Override
     public String toString() {
-        return "idButaca: " + idButaca + ", idSala: " + sala.getIdSala() + ", fila: " + fila + ", columna: " + columna;
+        return "idButaca: " + idButaca;
     }
   
     

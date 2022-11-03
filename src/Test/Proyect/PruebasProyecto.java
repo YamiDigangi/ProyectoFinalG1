@@ -142,33 +142,38 @@ public class PruebasProyecto {
     
     TicketData td= new TicketData();
 
-    LocalDateTime hora = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00,00);
+    LocalDateTime hora = LocalDateTime.of(2022, Month.OCTOBER, 31, 07, 00,00);
     
      //   System.out.println(td.ticketEmitidosPorFecha(Timestamp.valueOf(hora)));
 //JOptionPane.showMessageDialog(null, td.ticketEmitidosPorFecha(Timestamp.valueOf(hora)));
 
 
 
-     ArrayList<Ticket> lista = new ArrayList();
-     
-    lista = td.ticketEmitidosPorFecha(Timestamp.valueOf(hora));
-    
-        for (Ticket t: lista) {
-            
-            JOptionPane.showMessageDialog(null, t);
-            
-        }
+//     ArrayList<Ticket> lista = new ArrayList();
+//     
+//    lista = td.ticketEmitidosPorFecha(Timestamp.valueOf(hora));
+//    
+//        for (Ticket t: lista) {
+//            
+//            JOptionPane.showMessageDialog(null, t);
+//            
+//        }
         
         
+  //------------------------ButacasOcupadas------------------------------------- 
+  LocalDateTime ipro = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00, 0);
+  LocalDateTime fpro = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 00,00);
+  
+  ArrayList<Butaca> list = new ArrayList();
     
-//  ArrayList<Butaca> list = new ArrayList();
-//    
-//    list = td.butacaOcupada(Timestamp.valueOf(fcom));
-//    
-//    for(Butaca but:list) {
-//        
-//        JOptionPane.showMessageDialog(null, but);          
-//    }
+    list = td.butacaOcupada(Timestamp.valueOf(ipro), Timestamp.valueOf(fpro));
+    
+    for(Butaca but:list) {
+        
+        JOptionPane.showMessageDialog(null, but);          
+    }
+    
+    //--------------------------------------------------------------------------
 //    
 //    
 //    td.butacaOcupada(Timestamp.valueOf(fcom)).forEach(butaca->{

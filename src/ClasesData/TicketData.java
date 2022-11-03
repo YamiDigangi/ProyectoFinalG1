@@ -98,42 +98,11 @@ public class TicketData {
             JOptionPane.showMessageDialog(null, "TicketData Sentencia SQL erronea-actualizarTicket"+ex.getMessage());
         }
     }
-    
-    
-    /* public ArrayList<Ticket> ticketEmitidos(Timestamp fcompra) {
-        
-    ArrayList<Ticket> listaTicket = new ArrayList(); 
-    
-    String sql = " ";
-    
-        try {
-            PreparedStatement ps= con.prepareStatement(sql);
-            ps.setTimestamp(1, inicio);
-            
-            ResultSet rs = ps.executeQuery();
-            
-            Butaca b;
-            while(rs.next()){
-                b= new Butaca();
-                b.setIdButaca(rs.getInt("idButaca"));
-                but.add(b);
-            }
-            
-            JOptionPane.showMessageDialog(null, but);
-            ps.close();
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"No hay butacas ocupadas" + ex.getMessage());
-        }
-        
-    return but;
-    
-    }*/
-    
+      
     
     public ArrayList<Ticket> ticketEmitidosPorFecha (Timestamp fechaCompra){
         ArrayList<Ticket> listaTicket = new ArrayList();
-        String sql = "SELECT t.idTicket, t.idCliente, t.idProyeccion, t.idButaca, t.fechaCompra, t.monto, t.formaPago, t.estadoTicket FROM ticket t, cliente c, proyeccion p, butaca b WHERE c.idCliente = t.idCliente and p.idProyeccion = t.idProyeccion AND b.idButaca = t.idButaca and fechaCompra = ?";
+        String sql = "SELECT * FROM ticket WHERE fechaCompra = ?";
         
         
         try {
@@ -147,7 +116,7 @@ public class TicketData {
             Proyeccion p;
             Butaca b;
             
-            if(rs.next()){
+            while(rs.next()){
                 t = new Ticket();
                 c = new Cliente();         
                 p = new Proyeccion();
@@ -170,6 +139,7 @@ public class TicketData {
                 
             }
             
+            ps.close();
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "TicketData Sentencia SQL erronea - ticketEmitidosPorFecha"+ ex.getMessage());

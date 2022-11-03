@@ -144,10 +144,22 @@ public class PruebasProyecto {
 
     LocalDateTime hora = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00,00);
     
-        System.out.println(td.ticketEmitidosPorFecha(Timestamp.valueOf(hora)));
+     //   System.out.println(td.ticketEmitidosPorFecha(Timestamp.valueOf(hora)));
+//JOptionPane.showMessageDialog(null, td.ticketEmitidosPorFecha(Timestamp.valueOf(hora)));
 
 
 
+     ArrayList<Ticket> lista = new ArrayList();
+     
+    lista = td.ticketEmitidosPorFecha(Timestamp.valueOf(hora));
+    
+        for (Ticket t: lista) {
+            
+            JOptionPane.showMessageDialog(null, t);
+            
+        }
+        
+        
     
 //  ArrayList<Butaca> list = new ArrayList();
 //    

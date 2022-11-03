@@ -131,21 +131,28 @@ public class TicketData {
     }*/
     
     
-    public Ticket ticketEmitidosPorFecha (Timestamp fcompra){
+    public ArrayList<Ticket> ticketEmitidosPorFecha (Timestamp fechaCompra){
+        ArrayList<Ticket> listaTicket = new ArrayList();
+        String sql = "SELECT t.idTicket, t.idCliente, t.idProyeccion, t.idButaca, t.fechaCompra, t.monto, t.formaPago, t.estadoTicket FROM ticket t, cliente c, proyeccion p, butaca b WHERE c.idCliente = t.idCliente and p.idProyeccion = t.idProyeccion AND b.idButaca = t.idButaca and fechaCompra = ?";
         
-        String sql = "SELECT * FROM `ticket` WHERE fechaCompra = ?";
-        Ticket t = new Ticket();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setTimestamp(1, fcompra);
+            ps.setTimestamp(1, fechaCompra);
             
             ResultSet rs = ps.executeQuery();
-            Cliente c = new Cliente();
-            Proyeccion p = new Proyeccion();
-            Butaca b = new Butaca();
+            
+            Ticket t;
+            Cliente c;         
+            Proyeccion p;
+            Butaca b;
             
             if(rs.next()){
+                t = new Ticket();
+                c = new Cliente();         
+                p = new Proyeccion();
+                b = new Butaca();
+       
                 c.setIdCliente(rs.getInt("idCliente"));
                 p.setIdProyeccion(rs.getInt("idProyeccion"));
                 b.setIdButaca(rs.getInt("idButaca"));
@@ -159,7 +166,7 @@ public class TicketData {
                 t.setMonto(rs.getDouble("monto"));
                 t.setFormaPago(rs.getString("formaPago"));
                 t.setEstadoTicket(rs.getBoolean("estadoTicket"));
-                
+                listaTicket.add(t);
                 
             }
             
@@ -167,7 +174,7 @@ public class TicketData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "TicketData Sentencia SQL erronea - ticketEmitidosPorFecha"+ ex.getMessage());
         }
-        return t;   
+        return listaTicket;   
     }
     
 }

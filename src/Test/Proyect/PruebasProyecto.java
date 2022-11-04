@@ -160,15 +160,15 @@ public class PruebasProyecto {
 //        }
        //////////////-------------------//////////////
         
-    ArrayList<Ticket> lista = new ArrayList();
-     
-    lista = td.ticketEmitidosPorPelicula(peli);
-    
-        for (Ticket t: lista) {
-            
-            JOptionPane.showMessageDialog(null, t);
-            
-        }
+//    ArrayList<Ticket> lista = new ArrayList();
+//     
+//    lista = td.ticketEmitidosPorPelicula(peli);
+//    
+//        for (Ticket t: lista) {
+//            
+//            JOptionPane.showMessageDialog(null, t);
+//            
+//        }
         
   //------------------------ButacasOcupadas------------------------------------- 
   LocalDateTime ipro = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00, 0);
@@ -183,12 +183,17 @@ public class PruebasProyecto {
 //        JOptionPane.showMessageDialog(null, but);          
 //    }
     
-    //--------------------------------------------------------------------------
-//    
-//    
-//    td.butacaOcupada(Timestamp.valueOf(fcom)).forEach(butaca->{
-//        JOptionPane.showMessageDialog(null, butaca);
-//    });
+    //--------------------ButacasLibres------------------------------------------------------
+   
+    ArrayList<Butaca> lists = new ArrayList();
+    
+    lists = td.butacasLibres(Timestamp.valueOf(ipro));
+    
+    for(Butaca but:lists) {
+        
+        JOptionPane.showMessageDialog(null, but);          
+    }
+    
 //    
 //    
 //    td.butacaOcupada(Timestamp.valueOf(fcom));

@@ -158,7 +158,7 @@ public class TicketData {
             ResultSet rs = ps.executeQuery();
             
             Ticket t = new Ticket();
-            Cliente c = new Cliente();          
+            Cliente c = new Cliente();           // PROBAR INSTANCIANDO LAS CLASES EN LA SENTENCIA WHILE!!
             Proyeccion p = new Proyeccion();
             Butaca b = new Butaca();
             
@@ -222,4 +222,45 @@ public class TicketData {
     return but;
     
     }
-}
+    
+    
+    public ArrayList<Butaca> butacasLibres(Timestamp inicio) {
+        
+        ArrayList<Butaca> but = new ArrayList();
+        String sql = "SELECT b.idButaca, b.fila,b.columna FROM butaca b WHERE b.idButaca NOT IN (SELECT t.idButaca from butaca b, proyeccion p, sala s, ticket t WHERE t.idProyeccion=p.idProyeccion and t.idButaca= b.idButaca and p.idSala = s.idSala and p.inicioPro = ?)";
+        
+        
+          try {
+      
+               PreparedStatement ps = con.prepareStatement(sql);
+               ps.setTimestamp(1, inicio);
+               
+               ResultSet rs = ps.executeQuery();
+               
+                Butaca b;
+                while(rs.next()){
+                b= new Butaca();
+                b.setIdButaca(rs.getInt("idButaca"));
+                but.add(b);
+            }
+               
+               ps.close();
+    
+          } catch (SQLException ex) {
+            Logger.getLogger(TicketData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    return but;
+    
+    }
+    
+} 
+    
+    
+    
+    
+    
+    
+    
+    
+

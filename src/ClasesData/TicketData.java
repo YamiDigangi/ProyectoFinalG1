@@ -147,6 +147,51 @@ public class TicketData {
         return listaTicket;   
     }
     
+    public ArrayList<Ticket> ticketEmitidosPorPelicula (Pelicula pelicula){
+        ArrayList<Ticket> listaTicket = new ArrayList();
+        String sql = "SELECT * FROM Ticket t, Proyeccion p, pelicula peli WHERE t.idProyeccion = p.idProyeccion AND p.idPelicula = peli.idPelicula and peli.nombrePeli = ?";
+                
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, pelicula.getNombrePeli());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            Ticket t = new Ticket();
+            Cliente c = new Cliente();          
+            Proyeccion p = new Proyeccion();
+            Butaca b = new Butaca();
+            
+            while(rs.next()){
+                
+                        
+                c.setIdCliente(rs.getInt("idCliente"));
+                p.setIdProyeccion(rs.getInt("idProyeccion"));
+                b.setIdButaca(rs.getInt("idButaca"));
+                
+                t.setCliente(c);
+                t.setProyeccion(p);
+                t.setButaca(b);
+                
+                t.setIdTicket(rs.getInt("idTicket"));
+                t.setFechaCompra(rs.getTimestamp("fechaCompra"));
+                t.setMonto(rs.getDouble("monto"));
+                t.setFormaPago(rs.getString("formaPago"));
+                t.setEstadoTicket(rs.getBoolean("estadoTicket"));
+                
+                
+                listaTicket.add(t);
+                
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "TicketData Sentencia SQL erronea - ticketEmitidosPorPelicula"+ ex.getMessage());
+        }
+        return listaTicket;   
+    }
+    
     
     
     public ArrayList<Butaca> butacaOcupada(Timestamp inicio, Timestamp fin) {

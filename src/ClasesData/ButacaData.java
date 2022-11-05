@@ -87,6 +87,7 @@ public class ButacaData {
         ps.close();
             
         } catch (SQLException ex) {
+            
             JOptionPane.showMessageDialog(null, "ButacaData Sentencia SQL erronea-obtenerButacaPorId"+ ex.getMessage());
         }
         return b;

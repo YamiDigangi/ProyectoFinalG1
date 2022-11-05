@@ -64,7 +64,7 @@ public class PeliculaData {
         }
     }
     
-    public ArrayList<Pelicula> obtenerPelis(){
+    public ArrayList<Pelicula> obtenerPeliculas(){
         
         ArrayList<Pelicula> listaPelis=new ArrayList();
         

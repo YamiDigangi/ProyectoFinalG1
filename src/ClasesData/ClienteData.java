@@ -56,6 +56,7 @@ public class ClienteData {
             ps.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente");
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ClienteData Sentencia SQL erronea-borrarCliente");
         }

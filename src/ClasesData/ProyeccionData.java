@@ -58,6 +58,7 @@ public class ProyeccionData {
         
     }
     
+    
     public void borrarProyeccion (int id) {
         String sql = "UPDATE proyeccion SET estadoPro=0 WHERE idProyeccion=?";
         
@@ -72,6 +73,7 @@ public class ProyeccionData {
             JOptionPane.showMessageDialog(null, "ProyeccionData sentencia SQL erronea - borrarProyeccion" + ex.getMessage());
         }
     }
+    
     
     public void modificarProyeccion(Proyeccion proyeccion){
         String sql="UPDATE proyeccion SET idSala = ?, idPelicula = ?, inicioPro = ?, finPro = ?, estadoPro = ?, WHERE idProyeccu = ?";
@@ -95,9 +97,9 @@ public class ProyeccionData {
             JOptionPane.showMessageDialog(null, "ProyeccionData Sentencia SQL erronea-actualizarProyeccion");
         }
     }
+       
     
-    
-     public ArrayList<Pelicula> obtenerPelisProyectadas(int sala, Timestamp hora){
+     public ArrayList<Pelicula> obtenerPeliculasProyectadas(int sala, Timestamp hora){
         
         ArrayList<Pelicula> listaPelis = new ArrayList();
         
@@ -120,7 +122,7 @@ public class ProyeccionData {
                 
                 listaPelis.add(pelis);
             }
-            JOptionPane.showMessageDialog(null, listaPelis);
+            
             ps.close();
             
         } catch (SQLException ex) {
@@ -129,6 +131,7 @@ public class ProyeccionData {
      return listaPelis;
     }
      
+         
      public ArrayList<Sala> obtenerSalaProyeccion(int idPeli){
         
         ArrayList<Sala> listSala = new ArrayList();
@@ -162,43 +165,5 @@ public class ProyeccionData {
         }
      return listSala;
     }
-     
-     public Proyeccion obtenerProyeccionPorId(int idProyeccion) {
-        String sql= "SELECT * FROM proyeccion WHERE idProyeccion = ?";
-        Proyeccion  p = new Proyeccion();
-             
-        try{
-            PreparedStatement ps=con.prepareStatement(sql);
-            ps.setInt(1, idProyeccion);
-            ResultSet rs=ps.executeQuery();
-            
-            Sala s = new Sala();
-            Pelicula pe = new Pelicula();
-            
-            if(rs.next()){   
-                
-                s.setIdSala(rs.getInt("idSala"));
-                pe.setIdPelicula(rs.getInt("idPelicula"));
-                
-                p.setSala(s);
-                p.setPelicula(pe);
-                
-                p.setIdProyeccion(rs.getInt(idProyeccion));
-                p.setInicioPro(rs.getTimestamp("inicioPro"));
-                p.setFinPro(rs.getTimestamp("finPro"));
-                p.setEstadoPro(rs.getBoolean("estadoPro"));
-                      
-            }
-        ps.close();
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ProyeccionData Sentencia SQL erronea-obtenerProyeccionPorId"+ ex.getMessage());
-        }
-        return p;
-         
-    }
-     
 }
-
-
-
+     

@@ -246,7 +246,7 @@ public class TicketData {
                
                ps.close();
     
-          } catch (SQLException ex) {
+          } catch (SQLException ex) {             
             Logger.getLogger(TicketData.class.getName()).log(Level.SEVERE, null, ex);
         }
     

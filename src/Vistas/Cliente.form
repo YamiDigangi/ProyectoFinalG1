@@ -112,7 +112,7 @@
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jbBuscar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                      <EmptySpace pref="38" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jtfId" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -122,7 +122,7 @@
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jtfNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                      <EmptySpace pref="38" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jtfApellido" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -245,7 +245,7 @@
           <Color blue="ff" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\yamic\OneDrive\Documentos\NetBeansProjects\ProyectoFinalG1\imagenes cine\buscar usuario.png"/>
+          <Image iconType="3" name="/ImgVistas/buscar usuario.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="BUSCAR"/>
       </Properties>
@@ -259,7 +259,7 @@
           <Color blue="ff" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\yamic\OneDrive\Documentos\NetBeansProjects\ProyectoFinalG1\imagenes cine\disco duro animado.png"/>
+          <Image iconType="3" name="/ImgVistas/disco duro animado.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
@@ -273,7 +273,7 @@
           <Color blue="ff" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\yamic\OneDrive\Documentos\NetBeansProjects\ProyectoFinalG1\imagenes cine\modificar con lapiz.png"/>
+          <Image iconType="3" name="/ImgVistas/modificar con lapiz.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Actualizar"/>
       </Properties>
@@ -287,7 +287,7 @@
           <Color blue="ff" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\yamic\OneDrive\Documentos\NetBeansProjects\ProyectoFinalG1\imagenes cine\salir.png"/>
+          <Image iconType="3" name="/ImgVistas/salir.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>

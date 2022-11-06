@@ -50,7 +50,7 @@ public class Boleteria extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 0, 204));
         jLabel1.setForeground(new java.awt.Color(255, 51, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\fondo minions.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/fondo minions.jpg"))); // NOI18N
 
         escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -65,7 +65,7 @@ public class Boleteria extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jmiCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\usuarios hombre y mujer.png")); // NOI18N
+        jmiCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/usuarios hombre y mujer.png"))); // NOI18N
         jmiCliente.setText("Cliente");
         jmiCliente.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
 
@@ -81,7 +81,7 @@ public class Boleteria extends javax.swing.JFrame {
 
         jMenuBar1.add(jmiCliente);
 
-        jmProgramacion.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\cine .png")); // NOI18N
+        jmProgramacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/cine .png"))); // NOI18N
         jmProgramacion.setText("Programacion");
         jmProgramacion.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
 
@@ -117,7 +117,7 @@ public class Boleteria extends javax.swing.JFrame {
 
         jMenuBar1.add(jmProgramacion);
 
-        jmTicket.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\ticket de colores.png")); // NOI18N
+        jmTicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/ticket de colores.png"))); // NOI18N
         jmTicket.setText("Ticket");
         jmTicket.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
 
@@ -133,7 +133,7 @@ public class Boleteria extends javax.swing.JFrame {
 
         jMenuBar1.add(jmTicket);
 
-        jmSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\Downloads\\imagenes cine\\salir.png")); // NOI18N
+        jmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/salir.png"))); // NOI18N
         jmSalir.setText("Salir ");
         jmSalir.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {

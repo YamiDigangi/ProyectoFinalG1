@@ -87,22 +87,22 @@ public class Cliente extends javax.swing.JInternalFrame {
 
         jbBuscar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbBuscar.setForeground(new java.awt.Color(0, 0, 255));
-        jbBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\buscar usuario.png")); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/buscar usuario.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
 
         jbGuardar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbGuardar.setForeground(new java.awt.Color(0, 0, 255));
-        jbGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\disco duro animado.png")); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/disco duro animado.png"))); // NOI18N
         jbGuardar.setText("Guardar");
 
         jbActualizar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbActualizar.setForeground(new java.awt.Color(0, 0, 255));
-        jbActualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\modificar con lapiz.png")); // NOI18N
+        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/modificar con lapiz.png"))); // NOI18N
         jbActualizar.setText("Actualizar");
 
         jbSalir.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(0, 0, 255));
-        jbSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\salir.png")); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/salir.png"))); // NOI18N
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +174,7 @@ public class Cliente extends javax.swing.JInternalFrame {
                             .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -182,7 +182,7 @@ public class Cliente extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jtfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

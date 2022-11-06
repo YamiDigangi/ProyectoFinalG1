@@ -113,12 +113,12 @@ public class Proyeccion extends javax.swing.JInternalFrame {
 
         jbGuardar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbGuardar.setForeground(new java.awt.Color(0, 0, 255));
-        jbGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\disco duro animado.png")); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/disco duro animado.png"))); // NOI18N
         jbGuardar.setText("Guardar");
 
         jbModificar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbModificar.setForeground(new java.awt.Color(0, 0, 255));
-        jbModificar.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\modificar con lapiz.png")); // NOI18N
+        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/modificar con lapiz.png"))); // NOI18N
         jbModificar.setText("Modificar");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +128,7 @@ public class Proyeccion extends javax.swing.JInternalFrame {
 
         jbSalir.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(0, 0, 255));
-        jbSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\OneDrive\\Documentos\\NetBeansProjects\\ProyectoFinalG1\\imagenes cine\\salir.png")); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/salir.png"))); // NOI18N
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

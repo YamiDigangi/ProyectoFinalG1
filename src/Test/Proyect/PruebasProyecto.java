@@ -235,19 +235,16 @@ Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
 
 ////////////////////////BORRAR TICKET////////////////////////////////////////
     
-    
-    
+//           td.borrarTicket(3);
+
+//------------------------------------------------------------------------------
    
+////////////////////////Ticket Emitidos Por Fecha///////////////////////////////
 
-//    LocalDateTime hora = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00,00);
-//    
-//     //   System.out.println(td.ticketEmitidosPorFecha(Timestamp.valueOf(hora)));
-////JOptionPane.showMessageDialog(null, td.ticketEmitidosPorFecha(Timestamp.valueOf(hora)));
-
-
-
-//     ArrayList<Ticket> lista = new ArrayList();
-//     
+    LocalDateTime hora = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00,00);
+    
+     ArrayList<Ticket> lista = new ArrayList();
+     
 //    lista = td.ticketEmitidosPorFecha(Timestamp.valueOf(hora));
 //    
 //        for (Ticket t: lista) {
@@ -255,32 +252,56 @@ Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
 //            JOptionPane.showMessageDialog(null, t);
 //            
 //        }
-       //////////////-------------------//////////////
-        
-//    ArrayList<Ticket> lista = new ArrayList();
+//        
+//------------------------------------------------------------------------------
+   
+////////////////////////Ticket Emitidos Por Peliculas///////////////////////////
+
+
+//    ArrayList<Ticket> listaPeli = new ArrayList();
 //     
-//    lista = td.ticketEmitidosPorPelicula(peli);
+//    listaPeli = td.ticketEmitidosPorPelicula(p2);
 //    
-//        for (Ticket t: lista) {
+//        for (Ticket t: listaPeli) {
 //            
 //            JOptionPane.showMessageDialog(null, t);
 //            
 //        }
+//
+//------------------------------------------------------------------------------
+////////////////////////Ticket Emitidos Por Fecha///////////////////////////
+
+
         
-  //------------------------ButacasOcupadas------------------------------------- 
+// LocalDateTime fecha = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00, 00);
+//      
+//      
+//      ArrayList<Cliente> listC = new ArrayList();
+//    
+//      listC = td.obtenerClientesPorFecha(Timestamp.valueOf(fecha));
+//    
+//    for(Cliente c:listC) {
+//        
+//        JOptionPane.showMessageDialog(null, c);
+//    }
+
+//------------------------------------------------------------------------------
+
+////////////////////////////////Butacas Ocupadas////////////////////////////////
+
   LocalDateTime ipro = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00, 0);
   LocalDateTime fpro = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 00,00);
   
-//  ArrayList<Butaca> list = new ArrayList();
+  ArrayList<Butaca> list = new ArrayList();
     
 //    list = td.butacaOcupada(Timestamp.valueOf(ipro), Timestamp.valueOf(fpro));
-//    
+    
 //    for(Butaca but:list) {
 //        
 //        JOptionPane.showMessageDialog(null, but);          
 //    }
-    
-    //--------------------ButacasLibres------------------------------------------------------
+//    
+////////////////////////////////Butacas Libres////////////////////////////////
    
 //    ArrayList<Butaca> lists = new ArrayList();
 //    
@@ -290,16 +311,7 @@ Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
 //        
 //        JOptionPane.showMessageDialog(null, but);          
 //    }
-    
 //    
-//    
-//    td.butacaOcupada(Timestamp.valueOf(fcom));
-//    
-//    
-//    
-//    td.modificarTicket(ti);
-//
-
-
+//------------------------------------------------------------------------------
 }
 }

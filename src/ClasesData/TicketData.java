@@ -66,6 +66,7 @@ public class TicketData {
             ps.setInt(1, id);
             ps.executeUpdate();
             
+                      
             JOptionPane.showMessageDialog(null, "Ticket borrada exitosamente");
             
         } catch (SQLException ex) {
@@ -157,14 +158,18 @@ public class TicketData {
             
             ResultSet rs = ps.executeQuery();
             
-            Ticket t = new Ticket();
-            Cliente c = new Cliente();           // PROBAR INSTANCIANDO LAS CLASES EN LA SENTENCIA WHILE!!
-            Proyeccion p = new Proyeccion();
-            Butaca b = new Butaca();
+            Ticket t;
+            Cliente c;           
+            Proyeccion p;
+            Butaca b;
             
             while(rs.next()){
                 
-                        
+                t = new Ticket();
+                c = new Cliente();
+                p = new Proyeccion();
+                b = new Butaca();
+
                 c.setIdCliente(rs.getInt("idCliente"));
                 p.setIdProyeccion(rs.getInt("idProyeccion"));
                 b.setIdButaca(rs.getInt("idButaca"));
@@ -210,6 +215,7 @@ public class TicketData {
             while(rs.next()){
                 b= new Butaca();
                 b.setIdButaca(rs.getInt("idButaca"));
+               
                 but.add(b);
             }
             
@@ -253,6 +259,46 @@ public class TicketData {
     return but;
     
     }
+    
+    //
+    public ArrayList<Cliente> obtenerClientesPorFecha(Timestamp fechaCompra) {
+
+        ArrayList<Cliente> listaC = new ArrayList<>();
+
+        String sql = "SELECT * FROM cliente WHERE idCliente IN(SELECT c.idCliente FROM cliente c, ticket t WHERE c.idCliente = t.idCliente AND t.fechaCompra = ?)";
+
+       try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setTimestamp(1, fechaCompra);
+            
+            ResultSet rs = ps.executeQuery();
+            
+           
+            Cliente c;         
+                        
+            while(rs.next()){
+                
+                c = new Cliente();         
+//                
+                c.setIdCliente(rs.getInt("idCliente"));                
+                c.setApellido(rs.getString("apellido"));
+                c.setNombre(rs.getString("nombre"));
+                c.setDni(rs.getInt("dni"));
+                c.setEstado(rs.getBoolean("estado"));
+
+                listaC.add(c);
+                
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "TicketData Sentencia SQL erronea - obtenerClientesPorFecha"+ ex.getMessage());
+        }
+        return listaC;   
+    }
+    
     
 } 
     

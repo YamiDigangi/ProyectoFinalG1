@@ -68,7 +68,7 @@ public class Butaca {
 
     @Override
     public String toString() {
-        return "idButaca: " + idButaca;
+        return "Número de Butaca: " + idButaca ;
     }
   
     

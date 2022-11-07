@@ -171,7 +171,7 @@ public class Boleteria extends javax.swing.JFrame {
     private void jmiNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNuevoClienteActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        Cliente c = new Cliente();
+        Clientes c = new Clientes();
         c.setVisible(true);
         escritorio.add(c);
     }//GEN-LAST:event_jmiNuevoClienteActionPerformed

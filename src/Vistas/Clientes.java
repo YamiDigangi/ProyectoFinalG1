@@ -6,16 +6,18 @@
 package Vistas;
 
 import ClasesData.ClienteData;
-import ClasesModelo.*;
+import ClasesModelo.Conexion;
+import ClasesModelo.Cliente;
+
 import java.sql.Connection;
 
 
-public class Cliente extends javax.swing.JInternalFrame {
+public class Clientes extends javax.swing.JInternalFrame {
     private ClienteData clienteData;
     private Connection con;
 
    
-    public Cliente() {
+    public Clientes() {
         initComponents();
         jtfDni.requestFocus();
         
@@ -214,14 +216,13 @@ public class Cliente extends javax.swing.JInternalFrame {
        int dni = Integer.parseInt(jtfDni.getText());
        String nombre = jtfNombre.getText();
        String apellido = jtfApellido.getText();
-       Boolean estado = jboxEstado.isEnabled();
+       boolean estado = jboxEstado.isEnabled();
        
        
-       Cliente cliente = new Cliente(dni,nombre,apellido,estado);
+       Cliente cliente = new Cliente(dni, nombre, apellido, estado);
        
-     
+       clienteData.agregarCliente(cliente);
        
-      
        
     }//GEN-LAST:event_jbGuardarActionPerformed
 

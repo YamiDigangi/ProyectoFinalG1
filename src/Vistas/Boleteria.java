@@ -182,7 +182,7 @@ public class Boleteria extends javax.swing.JFrame {
     private void jmiProyeccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProyeccionesActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        Proyeccion pro = new Proyeccion();
+        Proyecciones pro = new Proyecciones();
         pro.setVisible(true);
         escritorio.add(pro);
     }//GEN-LAST:event_jmiProyeccionesActionPerformed
@@ -190,7 +190,7 @@ public class Boleteria extends javax.swing.JFrame {
     private void jmiSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSalasActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        Sala s = new Sala();
+        Salas s = new Salas();
         s.setVisible(true);
         escritorio.add(s);
     }//GEN-LAST:event_jmiSalasActionPerformed
@@ -206,7 +206,7 @@ public class Boleteria extends javax.swing.JFrame {
     private void jmiTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiTicketActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        Ticket t = new Ticket();
+        Tickets t = new Tickets();
         t.setVisible(true);
         escritorio.add(t);
     }//GEN-LAST:event_jmiTicketActionPerformed

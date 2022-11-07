@@ -9,12 +9,12 @@ package Vistas;
  *
  * @author yamic
  */
-public class Proyeccion extends javax.swing.JInternalFrame {
+public class Proyecciones extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Proyeccion
      */
-    public Proyeccion() {
+    public Proyecciones() {
         initComponents();
     }
 

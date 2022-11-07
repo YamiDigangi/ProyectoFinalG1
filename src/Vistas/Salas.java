@@ -9,12 +9,12 @@ package Vistas;
  *
  * @author yamic
  */
-public class Sala extends javax.swing.JInternalFrame {
+public class Salas extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Sala
      */
-    public Sala() {
+    public Salas() {
         initComponents();
     }
 

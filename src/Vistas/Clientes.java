@@ -10,6 +10,7 @@ import ClasesModelo.Conexion;
 import ClasesModelo.Cliente;
 
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 
 public class Clientes extends javax.swing.JInternalFrame {
@@ -19,7 +20,7 @@ public class Clientes extends javax.swing.JInternalFrame {
    
     public Clientes() {
         initComponents();
-        jtfDni.requestFocus();
+        
         
         this.con = Conexion.getConexion();
         this.clienteData = new ClienteData();
@@ -81,9 +82,16 @@ public class Clientes extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 255));
         jLabel6.setText("Estado activo:");
 
+        jtfId.setEnabled(false);
         jtfId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfIdActionPerformed(evt);
+            }
+        });
+
+        jtfDni.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfDniFocusLost(evt);
             }
         });
 
@@ -91,6 +99,11 @@ public class Clientes extends javax.swing.JInternalFrame {
         jbBuscar.setForeground(new java.awt.Color(0, 0, 255));
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/buscar usuario.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbGuardar.setForeground(new java.awt.Color(0, 0, 255));
@@ -106,6 +119,11 @@ public class Clientes extends javax.swing.JInternalFrame {
         jbActualizar.setForeground(new java.awt.Color(0, 0, 255));
         jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/modificar con lapiz.png"))); // NOI18N
         jbActualizar.setText("Actualizar");
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
 
         jbSalir.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(0, 0, 255));
@@ -126,14 +144,16 @@ public class Clientes extends javax.swing.JInternalFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbBuscar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(jboxEstado)))
+                        .addComponent(jboxEstado)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jtfApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbBuscar)))
                 .addGap(122, 122, 122))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +181,7 @@ public class Clientes extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +196,7 @@ public class Clientes extends javax.swing.JInternalFrame {
                             .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,7 +204,7 @@ public class Clientes extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jtfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -219,12 +239,63 @@ public class Clientes extends javax.swing.JInternalFrame {
        boolean estado = jboxEstado.isEnabled();
        
        
-       Cliente cliente = new Cliente(dni, nombre, apellido, estado);
-       
+       Cliente cliente = new Cliente(dni, nombre, apellido, estado);     
        clienteData.agregarCliente(cliente);
+       jtfId.setText(cliente.getIdCliente()+"");
+       
+       jtfDni.setText("");
+       jtfId.setText("");
+       jtfNombre.setText("");
+       jtfApellido.setText("");
+       jboxEstado.setEnabled(false);
        
        
     }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        
+        int dni = Integer.parseInt(jtfDni.getText());
+        Cliente c = clienteData.obtenerClientePorDni(dni);
+        if (c.getDni()>0){
+            
+            try{
+               jtfId.setText(c.getIdCliente()+"");
+               jtfDni.setText(c.getDni()+"");
+               jtfNombre.setText(c.getNombre());
+               jtfApellido.setText(c.getApellido());
+               jboxEstado.setSelected(c.isEstado());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Ud debe ingresar un Numero de Documento");                
+                jtfDni.requestFocus();
+            
+            } 
+            }else {
+                 JOptionPane.showMessageDialog(this, "Cliente no encontrado");               
+        }
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jtfDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfDniFocusLost
+        try {
+            Integer.parseInt(jtfDni.getText());
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Debe ingresar un numero");
+            jtfDni.setText("");
+            jtfDni.requestFocus();
+        }
+    }//GEN-LAST:event_jtfDniFocusLost
+
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        if (jtfId.getText() != null) {
+            int idCliente = Integer.parseInt(jtfId.getText());
+            int dni = Integer.parseInt(jtfDni.getText());
+            String nombre = jtfNombre.getText();
+            String apellido = jtfApellido.getText();
+            boolean estado= jboxEstado.isEnabled();
+            
+            Cliente cliente = new Cliente(idCliente,dni,nombre,apellido,estado);
+            clienteData.modificarCliente(cliente);
+        }
+    }//GEN-LAST:event_jbActualizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

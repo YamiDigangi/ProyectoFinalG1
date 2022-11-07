@@ -42,7 +42,6 @@ public class Boleteria extends javax.swing.JFrame {
         jmSalir = new javax.swing.JMenu();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\yamic\\Downloads\\imagenes cine\\Fondo (10).jpg")); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

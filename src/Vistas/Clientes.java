@@ -48,6 +48,7 @@ public class Clientes extends javax.swing.JInternalFrame {
         jbGuardar = new javax.swing.JButton();
         jbActualizar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
+        jbBorrar = new javax.swing.JButton();
 
         jTextField4.setText("jTextField4");
 
@@ -135,6 +136,13 @@ public class Clientes extends javax.swing.JInternalFrame {
             }
         });
 
+        jbBorrar.setText("Borrar");
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,28 +155,30 @@ public class Clientes extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jboxEstado)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 435, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jtfApellido, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtfNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbBuscar)))
-                .addGap(122, 122, 122))
+                        .addComponent(jbBuscar)
+                        .addGap(122, 122, 122))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jbGuardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbActualizar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbSalir))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(187, 187, 187)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSeparator1)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jbGuardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbActualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbSalir))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +191,7 @@ public class Clientes extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,8 +205,8 @@ public class Clientes extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
-                            .addComponent(jbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                            .addComponent(jbBuscar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -204,20 +214,21 @@ public class Clientes extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jtfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
+                        .addGap(29, 29, 29)
                         .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jboxEstado)))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbGuardar)
+                    .addComponent(jbActualizar)
+                    .addComponent(jbSalir)
+                    .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
 
@@ -295,7 +306,18 @@ public class Clientes extends javax.swing.JInternalFrame {
             Cliente cliente = new Cliente(idCliente,dni,nombre,apellido,estado);
             clienteData.modificarCliente(cliente);
         }
+        
+        jtfDni.setText("");
+        jtfId.setText("");
+        jtfNombre.setText("");
+        jtfApellido.setText("");
+        jboxEstado.setEnabled(false);
     }//GEN-LAST:event_jbActualizarActionPerformed
+
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        int idCliente = Integer.parseInt(jtfId.getText());
+        clienteData.borrarCliente(idCliente);
+    }//GEN-LAST:event_jbBorrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -308,6 +330,7 @@ public class Clientes extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JButton jbActualizar;
+    private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbSalir;

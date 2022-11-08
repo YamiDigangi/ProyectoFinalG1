@@ -65,6 +65,7 @@ public class Proyecciones extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -178,10 +179,12 @@ public class Proyecciones extends javax.swing.JInternalFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 255));
         jLabel8.setText("Estado:");
 
+        buttonGroup1.add(jrbActivo);
         jrbActivo.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jrbActivo.setForeground(new java.awt.Color(0, 0, 255));
         jrbActivo.setText("Activo");
 
+        buttonGroup1.add(jrbInactivo);
         jrbInactivo.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jrbInactivo.setForeground(new java.awt.Color(0, 0, 255));
         jrbInactivo.setText("Inactivo");
@@ -189,6 +192,8 @@ public class Proyecciones extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 255));
         jLabel9.setText("Codigo Proyeccion");
+
+        jtfIdProyeccion.setEditable(false);
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 255));
 
@@ -320,6 +325,7 @@ public class Proyecciones extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

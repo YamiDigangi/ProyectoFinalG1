@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class Conexion {
     
-    private static String url = "jdbc:mysql://localhost/su_boleteria";
+    private static String url = "jdbc:mysql://localhost/cinerd_world";
     private static String usuario = "root";
     private static String password = "";
     private static Conexion conexion=null;

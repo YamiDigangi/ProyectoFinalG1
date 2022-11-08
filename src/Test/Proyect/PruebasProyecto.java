@@ -241,10 +241,10 @@ Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
    
 ////////////////////////Ticket Emitidos Por Fecha///////////////////////////////
 
-    LocalDateTime hora = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00,00);
-    
-     ArrayList<Ticket> lista = new ArrayList();
-     
+//    LocalDateTime hora = LocalDateTime.of(2022, Month.NOVEMBER, 07, 11, 40,04);
+//    
+//     ArrayList<Ticket> lista = new ArrayList();
+//     
 //    lista = td.ticketEmitidosPorFecha(Timestamp.valueOf(hora));
 //    
 //        for (Ticket t: lista) {

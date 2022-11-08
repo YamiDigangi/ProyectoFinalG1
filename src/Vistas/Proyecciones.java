@@ -5,17 +5,55 @@
  */
 package Vistas;
 
+import ClasesData.PeliculaData;
+import ClasesData.SalaData;
+import ClasesModelo.Pelicula;
+import ClasesModelo.Sala;
+import java.sql.Connection;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author yamic
  */
 public class Proyecciones extends javax.swing.JInternalFrame {
+    private Connection con;
+    private DefaultTableModel modelo;
+    private ArrayList<Sala> listaSala;
+    private ArrayList<Pelicula> listaPelicula;
+    private SalaData salaData;
+    private PeliculaData peliculaData;
+    
 
     /**
      * Creates new form Proyeccion
      */
     public Proyecciones() {
         initComponents();
+        modelo = new DefaultTableModel();
+        salaData = new SalaData();
+        peliculaData = new PeliculaData();
+        listaSala = salaData.obtenerSalas();
+        listaPelicula = peliculaData.obtenerPeliculas();
+        cargarSalas();
+        armarCabecera();
+    }
+    
+    public void armarCabecera(){
+        ArrayList<Object> columnas = new ArrayList<>();
+        columnas.add("Carga de Pelicula");
+        columnas.add("Nombre");
+        
+        for(Object it:columnas){
+            modelo.addColumn(it);
+        }
+        tPelicula.setModel(modelo);
+    }
+    
+    public void cargarSalas() {
+        for (Sala s: listaSala)
+            jcbSala.addItem(s);
     }
 
     /**
@@ -30,9 +68,8 @@ public class Proyecciones extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jtfIdSala = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla1 = new javax.swing.JTable();
+        tPelicula = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -51,6 +88,7 @@ public class Proyecciones extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jtfIdProyeccion = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
+        jcbSala = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -66,8 +104,8 @@ public class Proyecciones extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 255));
         jLabel2.setText("Sala");
 
-        tabla1.setForeground(new java.awt.Color(0, 0, 255));
-        tabla1.setModel(new javax.swing.table.DefaultTableModel(
+        tPelicula.setForeground(new java.awt.Color(0, 0, 255));
+        tPelicula.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -78,11 +116,11 @@ public class Proyecciones extends javax.swing.JInternalFrame {
                 "Código de pelicula", "Nombre"
             }
         ));
-        tabla1.setGridColor(new java.awt.Color(0, 0, 255));
-        tabla1.setSelectionForeground(new java.awt.Color(0, 0, 255));
-        jScrollPane1.setViewportView(tabla1);
-        if (tabla1.getColumnModel().getColumnCount() > 0) {
-            tabla1.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tPelicula.setGridColor(new java.awt.Color(0, 0, 255));
+        tPelicula.setSelectionForeground(new java.awt.Color(0, 0, 255));
+        jScrollPane1.setViewportView(tPelicula);
+        if (tPelicula.getColumnModel().getColumnCount() > 0) {
+            tPelicula.getColumnModel().getColumn(1).setPreferredWidth(200);
         }
 
         jLabel3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
@@ -196,8 +234,8 @@ public class Proyecciones extends javax.swing.JInternalFrame {
                                 .addComponent(jtfIdProyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtfIdSala, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jcbSala, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -225,7 +263,7 @@ public class Proyecciones extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jtfIdSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -262,7 +300,7 @@ public class Proyecciones extends javax.swing.JInternalFrame {
                     .addComponent(jbModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -297,6 +335,7 @@ public class Proyecciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;
+    private javax.swing.JComboBox<Sala> jcbSala;
     private com.toedter.calendar.JDateChooser jdcFechaFin;
     private com.toedter.calendar.JDateChooser jdcFechaInicio;
     private javax.swing.JRadioButton jrbActivo;
@@ -304,7 +343,6 @@ public class Proyecciones extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfHoraFin;
     private javax.swing.JTextField jtfHoraInicio;
     private javax.swing.JTextField jtfIdProyeccion;
-    private javax.swing.JTextField jtfIdSala;
-    private javax.swing.JTable tabla1;
+    private javax.swing.JTable tPelicula;
     // End of variables declaration//GEN-END:variables
 }

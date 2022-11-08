@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -120,6 +121,37 @@ public class SalaData {
         }
         return s;
          
+    }
+    
+    
+    public ArrayList<Sala> obtenerSalas(){
+        
+        ArrayList<Sala> listaSalas=new ArrayList();
+        
+        String sql="SELECT * FROM sala WHERE estadoSala = 1";
+        
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            
+            ResultSet rs=ps.executeQuery();
+            
+            while(rs.next()){
+            
+                Sala s=new Sala();
+                
+                s.setIdSala(rs.getInt("idSala"));
+                s.setUbicacion(rs.getString("ubicacion"));
+                s.setLocalidad(rs.getString("localidad"));
+                s.setEstadoSala(rs.getBoolean("estadoSala"));
+                listaSalas.add(s);
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "SalaData Sentencia SQL erronea-obtenerSalas");
+        }
+    return listaSalas;
     }
         
   }

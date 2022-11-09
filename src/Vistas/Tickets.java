@@ -7,38 +7,94 @@
 package Vistas;
 
 import ClasesData.ClienteData;
+import ClasesData.PeliculaData;
+import ClasesData.ProyeccionData;
 import ClasesModelo.Cliente;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import ClasesModelo.Conexion;
 import ClasesData.TicketData;
+import ClasesModelo.Pelicula;
+import ClasesModelo.Proyeccion;
 import ClasesModelo.Ticket;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author yamic
  */
 public class Tickets extends javax.swing.JInternalFrame {
+    private DefaultTableModel modelo;
     private ClienteData clienteData;
+    private PeliculaData peliculaData;
+    private Pelicula pelicula;
+    private ProyeccionData proData;
     private Connection con;
     private TicketData ticketD;
     private ArrayList<Ticket> listarButacas;
+    private ArrayList<Proyeccion> listaProyeccion;
     
 
     /** Creates new form ticket */
     public Tickets() {
         initComponents();
+        peliculaData=new PeliculaData();
+        proData= new ProyeccionData();
+        modelo = new DefaultTableModel();
         this.con = Conexion.getConexion();
         this.clienteData = new ClienteData();
         this.ticketD= new TicketData();
         jdcFechaCompra.setDate( new Date());
-//        listarButacas = ticketD.butacasLibres(inicio);
+//       listarButacas = ticketD.butacasLibres(inicio);
+        armarCabecera();
+        cargarProyeccion();
+       
+        
+
     }
+    
+    public void armarCabecera(){
+        ArrayList<Object> columnas = new ArrayList<>();
+        columnas.add("Id proyeccion");
+        columnas.add("Nombre Peli");
+        columnas.add("N° de sala");
+        columnas.add("Fecha y Hora de Inicio");
+        columnas.add("Fecha y Hora de fin");
+        
+        
+        for(Object it:columnas){
+            modelo.addColumn(it);
+        }
+        tProyeccion.setModel(modelo);
+    }
+    
+    public void borrarFilas() {
+        
+        int a = modelo.getRowCount()-1;
+        for(int i= a; i>=0; i--  ){
+            modelo.removeRow(i);
+        }
+    }
+    
+    public void cargarProyeccion(){
+        borrarFilas();
+       listaProyeccion = (ArrayList<Proyeccion>) proData.listarProyeccion();
+       Proyeccion pro = new Proyeccion();
+         
+        for(Proyeccion p:listaProyeccion)          
+             modelo.addRow(new Object[]{p.getIdProyeccion(),p.getPelicula().getNombrePeli(),p.getSala().getUbicacion(),p.getInicioPro(),p.getFinPro()});
+            
+    }
+       
+
+   
+        
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -58,7 +114,7 @@ public class Tickets extends javax.swing.JInternalFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jbLimpiar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tabla2 = new javax.swing.JTable();
+        tProyeccion = new javax.swing.JTable();
         jtfDni = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -119,7 +175,7 @@ public class Tickets extends javax.swing.JInternalFrame {
         jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrar ticket.png"))); // NOI18N
         jbLimpiar.setText("Limpiar");
 
-        tabla2.setModel(new javax.swing.table.DefaultTableModel(
+        tProyeccion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -138,8 +194,8 @@ public class Tickets extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tabla2.setGridColor(new java.awt.Color(0, 0, 255));
-        jScrollPane2.setViewportView(tabla2);
+        tProyeccion.setGridColor(new java.awt.Color(0, 0, 255));
+        jScrollPane2.setViewportView(tProyeccion);
 
         jtfDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -311,14 +367,15 @@ public class Tickets extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(108, 108, 108)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbBuscar)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8)
                             .addComponent(jdcFechaCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)))
+                        .addGap(11, 11, 11))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbBuscar)))
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
@@ -447,7 +504,7 @@ public class Tickets extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfIdTicket;
     private javax.swing.JTextField jtfMonto;
     private javax.swing.JTextField jtfNombreCli;
-    private javax.swing.JTable tabla2;
+    private javax.swing.JTable tProyeccion;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -104,7 +104,7 @@
             </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiTicket">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiTickets">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="1"/>
@@ -115,7 +115,7 @@
                 <Property name="text" type="java.lang.String" value="Creacion de Ticket"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiTicketActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiTicketsActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

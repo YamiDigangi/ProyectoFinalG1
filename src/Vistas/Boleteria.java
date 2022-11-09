@@ -38,7 +38,7 @@ public class Boleteria extends javax.swing.JFrame {
         jmiSalas = new javax.swing.JMenuItem();
         jmiPeliculas = new javax.swing.JMenuItem();
         jmTicket = new javax.swing.JMenu();
-        jmiTicket = new javax.swing.JMenuItem();
+        jmiTickets = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -120,15 +120,15 @@ public class Boleteria extends javax.swing.JFrame {
         jmTicket.setText("Ticket");
         jmTicket.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
 
-        jmiTicket.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jmiTicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/ticket-add_25321.png"))); // NOI18N
-        jmiTicket.setText("Creacion de Ticket");
-        jmiTicket.addActionListener(new java.awt.event.ActionListener() {
+        jmiTickets.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jmiTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/ticket-add_25321.png"))); // NOI18N
+        jmiTickets.setText("Creacion de Ticket");
+        jmiTickets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiTicketActionPerformed(evt);
+                jmiTicketsActionPerformed(evt);
             }
         });
-        jmTicket.add(jmiTicket);
+        jmTicket.add(jmiTickets);
 
         jMenuBar1.add(jmTicket);
 
@@ -203,13 +203,13 @@ public class Boleteria extends javax.swing.JFrame {
         escritorio.add(p);
     }//GEN-LAST:event_jmiPeliculasActionPerformed
 
-    private void jmiTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiTicketActionPerformed
+    private void jmiTicketsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiTicketsActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         Tickets t = new Tickets();
         t.setVisible(true);
         escritorio.add(t);
-    }//GEN-LAST:event_jmiTicketActionPerformed
+    }//GEN-LAST:event_jmiTicketsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,7 +259,7 @@ public class Boleteria extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiPeliculas;
     private javax.swing.JMenuItem jmiProyecciones;
     private javax.swing.JMenuItem jmiSalas;
-    private javax.swing.JMenuItem jmiTicket;
+    private javax.swing.JMenuItem jmiTickets;
     // End of variables declaration//GEN-END:variables
 
 }

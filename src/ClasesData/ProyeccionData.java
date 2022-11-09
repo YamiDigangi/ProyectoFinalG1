@@ -159,39 +159,123 @@ public class ProyeccionData {
      return listaPelis;
     }
      
-         
-     public ArrayList<Sala> obtenerSalaProyeccion(int idPeli){
+     
+//     public ArrayList<Proyeccion> obtenerProyeccion(){
+//        
+//        ArrayList<Proyeccion> listaProyeccion = new ArrayList();
+//        
+//        String sql = "SELECT * FROM proyeccion WHERE estadoPro = 1";
+//        
+//        try {
+//            PreparedStatement ps=con.prepareStatement(sql);
+//            
+//            ResultSet rs=ps.executeQuery();
+//            
+//            Proyeccion pro;
+//            Pelicula p;
+//            Sala s;
+//            
+//            while(rs.next()){
+//                
+//                pro=new Proyeccion();
+//                p=new Pelicula();
+//                s=new Sala();
+//                
+//                
+//                pro.setIdProyeccion(rs.getInt("idProyeccion"));
+//                s.setIdSala(rs.getInt("idSala"));
+//                p.setIdPelicula(rs.getInt("idPelicula"));
+//                
+//                
+//                pro.setPelicula(p);
+//                pro.setSala(s);
+//                pro.setInicioPro(rs.getTimestamp("inicioPro"));
+//                pro.setFinPro(rs.getTimestamp("finPro"));
+//                pro.setEstadoPro(rs.getBoolean("estadoPro"));
+//                listaProyeccion.add(pro);
+//                        
+//            }
+//            
+//            ps.close();
+//            
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "ProyeccionData Sentencia SQL erronea-obtenerProyeccion"+ ex.getMessage());
+//        }
+//    return listaProyeccion;
+//    }
+//        
+//         
+//     public ArrayList<Sala> obtenerSalaProyeccion(int idPeli){
+//        
+//        ArrayList<Sala> listSala = new ArrayList();
+//        
+//        String sql="SELECT s.idSala, s.ubicacion, s.localidad, s.estadoSala FROM proyeccion p, sala s, pelicula pe WHERE pe.idPelicula = p.idProyeccion AND s.idSala = p.idSala AND p.idSala = ?";
+//        
+//        try {
+//            PreparedStatement ps=con.prepareStatement(sql);
+//            
+//            ps.setInt(1,idPeli);
+//            
+//            ResultSet rs=ps.executeQuery();
+//            
+//            Sala s;
+//            
+//            while(rs.next()){
+//            
+//                s = new Sala();
+//                
+//                s.setIdSala(rs.getInt("idSala"));
+//                s.setUbicacion(rs.getString("ubicacion"));
+//                s.setLocalidad(rs.getString("localidad"));
+//                s.setEstadoSala(rs.getBoolean("estadoSala"));
+//                                
+//                listSala.add(s);
+//            }
+//            
+//            
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "ProyeccionData Sentencia SQL erronea-obtenerSalaProyeccion" + ex.getMessage());
+//        }
+//     return listSala;
+//    }
+     
+     public List<Proyeccion> listarProyeccion(){
+        ArrayList<Proyeccion> listarProyeccion = new ArrayList<>();
         
-        ArrayList<Sala> listSala = new ArrayList();
-        
-        String sql="SELECT s.idSala, s.ubicacion, s.localidad, s.estadoSala FROM proyeccion p, sala s, pelicula pe WHERE pe.idPelicula = p.idProyeccion AND s.idSala = p.idSala AND p.idSala = ?";
+        String sql = "SELECT * FROM proyeccion WHERE estadoPro = true";
         
         try {
-            PreparedStatement ps=con.prepareStatement(sql);
-            
-            ps.setInt(1,idPeli);
-            
-            ResultSet rs=ps.executeQuery();
-            
-            Sala s;
-            
-            while(rs.next()){
-            
-                s = new Sala();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            SalaData sd = new SalaData();
+            PeliculaData pd = new PeliculaData();
+            while (rs.next()) {                
+                Proyeccion p = new Proyeccion();
+                p.setIdProyeccion(rs.getInt("idProyeccion"));
+                Sala s = sd.obtenerSalaPorId(rs.getInt("idSala"));
+                p.setSala(s);
+                Pelicula pe = pd.obtenerPelisPorId(rs.getInt("idPelicula"));
+                p.setPelicula(pe);
+                p.setInicioPro(rs.getTimestamp("inicioPro"));
+                p.setFinPro(rs.getTimestamp("finPro"));
+                p.setEstadoPro(rs.getBoolean("estadoPro"));
                 
-                s.setIdSala(rs.getInt("idSala"));
-                s.setUbicacion(rs.getString("ubicacion"));
-                s.setLocalidad(rs.getString("localidad"));
-                s.setEstadoSala(rs.getBoolean("estadoSala"));
-                                
-                listSala.add(s);
+                listarProyeccion.add(p);
             }
-            
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ProyeccionData Sentencia SQL erronea-obtenerSalaProyeccion" + ex.getMessage());
+            ps.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error al obtener proyeccion" + ex);
         }
-     return listSala;
+        
+        return listarProyeccion;
     }
+
+    
+
+     
+     
+     
+     
+     
 }
      

@@ -98,6 +98,34 @@ public class ProyeccionData {
         }
     }
        
+    public Proyeccion obtenerProyeccionPorId(int IdProyeccion) {
+        
+        String sql= "SELECT * FROM proyeccion WHERE IdProyeccion = ?";
+        
+        Proyeccion p = new Proyeccion();
+        
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            
+            ps.setInt(1, IdProyeccion);
+            
+            ResultSet rs=ps.executeQuery();
+            
+            if(rs.next()){
+                
+                p.setIdProyeccion(rs.getInt("IdProyeccion"));
+                                              
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ProyeccionData Sentencia SQL erronea-listaProyeccionPorId");
+        }
+        return p;
+         
+    }
+    
     
      public ArrayList<Pelicula> obtenerPeliculasProyectadas(int sala, Timestamp hora){
         

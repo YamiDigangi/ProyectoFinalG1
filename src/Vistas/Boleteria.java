@@ -39,6 +39,7 @@ public class Boleteria extends javax.swing.JFrame {
         jmiPeliculas = new javax.swing.JMenuItem();
         jmTicket = new javax.swing.JMenu();
         jmiTickets = new javax.swing.JMenuItem();
+        jmiATicket = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -130,6 +131,16 @@ public class Boleteria extends javax.swing.JFrame {
         });
         jmTicket.add(jmiTickets);
 
+        jmiATicket.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        jmiATicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrar ticket.png"))); // NOI18N
+        jmiATicket.setText("Analur Ticket");
+        jmiATicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiATicketActionPerformed(evt);
+            }
+        });
+        jmTicket.add(jmiATicket);
+
         jMenuBar1.add(jmTicket);
 
         jmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/salir.png"))); // NOI18N
@@ -211,6 +222,15 @@ public class Boleteria extends javax.swing.JFrame {
         escritorio.add(t);
     }//GEN-LAST:event_jmiTicketsActionPerformed
 
+    private void jmiATicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiATicketActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        AnularTicket an = new AnularTicket();
+        an.setVisible(true);
+        escritorio.add(an);
+    }//GEN-LAST:event_jmiATicketActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -254,6 +274,7 @@ public class Boleteria extends javax.swing.JFrame {
     private javax.swing.JMenu jmProgramacion;
     private javax.swing.JMenu jmSalir;
     private javax.swing.JMenu jmTicket;
+    private javax.swing.JMenuItem jmiATicket;
     private javax.swing.JMenu jmiCliente;
     private javax.swing.JMenuItem jmiNuevoCliente;
     private javax.swing.JMenuItem jmiPeliculas;

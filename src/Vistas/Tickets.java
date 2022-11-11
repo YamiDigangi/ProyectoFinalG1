@@ -19,6 +19,7 @@ import ClasesModelo.Pelicula;
 import ClasesModelo.Proyeccion;
 import ClasesModelo.Sala;
 import ClasesModelo.Ticket;
+import java.security.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -57,10 +58,9 @@ public class Tickets extends javax.swing.JInternalFrame {
         this.clienteData = new ClienteData();
         this.ticketD= new TicketData();
         jdcFechaCompra.setDate( new Date());
-       listarButacas = ticketD.butacasLibres(t.getProyeccion().getSala().getIdSala(),t.getProyeccion().getInicioPro());
         armarCabecera();
         cargarProyeccion();
-        cargarButacas();
+//        cargarButacas();
        
         
 
@@ -95,14 +95,14 @@ public class Tickets extends javax.swing.JInternalFrame {
        Proyeccion pro = new Proyeccion();
          
         for(Proyeccion p:listaProyeccion)          
-             modelo.addRow(new Object[]{p.getIdProyeccion(),p.getPelicula().getNombrePeli(),p.getSala().getUbicacion(),p.getInicioPro(),p.getFinPro()});
+             modelo.addRow(new Object[]{p.getIdProyeccion(),p.getPelicula().getNombrePeli(),p.getSala().getIdSala(),p.getInicioPro(),p.getFinPro()});
             
     }
     
-    public void cargarButacas(){
-       for (Butaca b: listarButacas)
-           jcbButaca.addItem(b);   
-    }
+//    public void cargarButacas(){
+//       for (Butaca b: listarButacas)
+//           jcbButaca.addItem(b);   
+//    }
        
 
    
@@ -242,6 +242,12 @@ public class Tickets extends javax.swing.JInternalFrame {
         jboxMetPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jboxMetPagoActionPerformed(evt);
+            }
+        });
+
+        jcbButaca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcbButacaMouseClicked(evt);
             }
         });
 
@@ -487,6 +493,27 @@ public class Tickets extends javax.swing.JInternalFrame {
 //        SimpleDateFormat fFecha = new SimpleDateFormat("dd-MM-yyyy");
 //        LocalDate fechaNacimiento = LocalDate.parse(fFecha.format(jdcFechaCompra.getDate()), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jcbButacaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbButacaMouseClicked
+        // TODO add your handling code here:
+        int filaElegida = tProyeccion.getSelectedRow();
+        
+        int idSalaa = (Integer) tProyeccion.getValueAt(filaElegida,2);
+        System.out.println(idSalaa);
+        Object iniciop = tProyeccion.getValueAt(filaElegida,3);
+//        System.out.println(iniciop);
+//        Timestamp pInicio = (Timestamp) tProyeccion.getValueAt(filaElegida,3);
+        
+//        ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
+        ArrayList<Butaca> listarButacas = (ArrayList<Butaca>) ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
+        
+        for (Butaca b : listarButacas) {
+            JOptionPane.showMessageDialog(null, b);
+            
+        }
+
+
+    }//GEN-LAST:event_jcbButacaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

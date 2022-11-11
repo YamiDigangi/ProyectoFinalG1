@@ -87,8 +87,6 @@ public class Proyecciones extends javax.swing.JInternalFrame {
         jcbSala = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jcbPelis = new javax.swing.JComboBox<>();
-        jbModificar = new javax.swing.JButton();
-        jbBuscar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -188,26 +186,6 @@ public class Proyecciones extends javax.swing.JInternalFrame {
         jLabel11.setForeground(new java.awt.Color(0, 0, 204));
         jLabel11.setText("Nombre Pelicula");
 
-        jbModificar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        jbModificar.setForeground(new java.awt.Color(0, 0, 255));
-        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/modificar con lapiz.png"))); // NOI18N
-        jbModificar.setText("Modificar");
-        jbModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbModificarActionPerformed(evt);
-            }
-        });
-
-        jbBuscar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        jbBuscar.setForeground(new java.awt.Color(0, 51, 204));
-        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupa chiquita.png"))); // NOI18N
-        jbBuscar.setText("Buscar");
-        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbBuscarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -220,15 +198,15 @@ public class Proyecciones extends javax.swing.JInternalFrame {
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jcbSala, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(37, 37, 37)
-                            .addComponent(jLabel9)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jtfIdProyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(113, 113, 113)
-                            .addComponent(jbBuscar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jcbSala, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtfIdProyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(224, 224, 224))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,9 +218,7 @@ public class Proyecciones extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jdcFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jcbPelis, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(91, 91, 91))
+                                    .addComponent(jcbPelis, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jdcFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -251,9 +227,7 @@ public class Proyecciones extends javax.swing.JInternalFrame {
                                         .addComponent(jtfHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jbGuardar)
-                                .addGap(39, 39, 39)
-                                .addComponent(jbModificar)
-                                .addGap(47, 47, 47)
+                                .addGap(221, 221, 221)
                                 .addComponent(jbSalir))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(153, 153, 153)
@@ -281,12 +255,11 @@ public class Proyecciones extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jtfIdProyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                    .addComponent(jtfIdProyeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jcbSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -316,10 +289,9 @@ public class Proyecciones extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jrbActivo))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
-                    .addComponent(jbModificar)
                     .addComponent(jbSalir))
                 .addGap(21, 21, 21))
         );
@@ -366,58 +338,6 @@ public class Proyecciones extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbGuardarActionPerformed
 
-    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-        // TODO add your handling code here:
-//        if (jtfId.getText() != null) {
-//
-//            int idPeli = Integer.parseInt(jtfId.getText());
-//
-//            String nombrePeli = jtfNombre.getText();
-//
-//            boolean estadoPeli= jBoxEstado.isEnabled();
-//
-//            Pelicula peli = new Pelicula(idPeli,nombrePeli,estadoPeli);
-//            peliculaData.modificarPelicula(peli);
-//        }
-//        jtfId.setText("");
-//        jtfNombre.setText("");
-//        jBoxEstado.setEnabled(false);
-
-    }//GEN-LAST:event_jbModificarActionPerformed
-
-    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        
-//        int idProyeccion = Integer.parseInt(jtfIdProyeccion.getText());
-//        Proyeccion p = proyeccionData.obtenerProyeccionPorId(idProyeccion);
-//        if (p.getIdProyeccion()>0){
-//            
-//            try{
-////                Timestamp diaHoraincio = Timestamp.valueOf(fh1);
-////                LocalDateTime fh1 = LocalDateTime.of(fechaNueva,horaInicio);
-////                LocalDate fechaNueva = jdcFechaInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//                
-//
-//        LocalTime horaInicio = LocalTime.parse(jtfHoraInicio.getText());
-//        LocalDate fechaNueva = jdcFechaInicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//        LocalDateTime fh1 = LocalDateTime.of(fechaNueva,horaInicio);
-//        Timestamp diaHoraincio = Timestamp.valueOf(fh1);
-//                
-//               jcbSala.setSelectedItem(p.getSala().getIdSala()+"");
-//               jtfIdProyeccion.setText(p.getIdProyeccion()+"");
-//               jcbPelis.setSelectedItem(p.getPelicula().getIdPelicula());
-//               jdcFechaInicio.setCalendar(p.getInicioPro(Timestamp.valueOf(fh1)));
-//               
-//               jboxEstado.setSelected(c.isEstado());
-//            } catch (NumberFormatException e) {
-//                JOptionPane.showMessageDialog(this, "Ud debe ingresar un Numero de Documento");                
-//                jtfDni.requestFocus();
-//            
-//            } 
-//            }else {
-//                 JOptionPane.showMessageDialog(this, "Cliente no encontrado");               
-//        }
-    }//GEN-LAST:event_jbBuscarActionPerformed
-
     private void jcbSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSalaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbSalaActionPerformed
@@ -437,9 +357,7 @@ public class Proyecciones extends javax.swing.JInternalFrame {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbGuardar;
-    private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;
     private javax.swing.JComboBox<Pelicula> jcbPelis;
     private javax.swing.JComboBox<Sala> jcbSala;

@@ -187,6 +187,11 @@ public class Tickets extends javax.swing.JInternalFrame {
         jbLimpiar.setForeground(new java.awt.Color(0, 0, 255));
         jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrar ticket.png"))); // NOI18N
         jbLimpiar.setText("Limpiar");
+        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarActionPerformed(evt);
+            }
+        });
 
         tProyeccion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,6 +215,11 @@ public class Tickets extends javax.swing.JInternalFrame {
         tProyeccion.setGridColor(new java.awt.Color(0, 0, 255));
         jScrollPane2.setViewportView(tProyeccion);
 
+        jtfDni.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfDniFocusLost(evt);
+            }
+        });
         jtfDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfDniActionPerformed(evt);
@@ -236,6 +246,12 @@ public class Tickets extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 255));
         jLabel6.setText("Metodo de pago:");
 
+        jtfMonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfMontoActionPerformed(evt);
+            }
+        });
+
         jboxMetPago.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jboxMetPago.setForeground(new java.awt.Color(0, 0, 204));
         jboxMetPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Debito", "Credito", "Mercado Pago" }));
@@ -248,6 +264,11 @@ public class Tickets extends javax.swing.JInternalFrame {
         jcbButaca.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jcbButacaMouseClicked(evt);
+            }
+        });
+        jcbButaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbButacaActionPerformed(evt);
             }
         });
 
@@ -514,6 +535,38 @@ public class Tickets extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_jcbButacaMouseClicked
+
+    private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
+        // TODO add your handling code here:
+        
+        jtfDni.setText("");
+        jtfNombreCli.setText("");
+        jtfApellidoCli.setText("");
+        jtfIdCliente.setText("");
+        jtfIdTicket.setText("");
+        jtfMonto.setText("");
+        
+    }//GEN-LAST:event_jbLimpiarActionPerformed
+
+    private void jtfDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfDniFocusLost
+        // TODO add your handling code here:
+          try {
+            Integer.parseInt(jtfDni.getText());
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Debe ingresar un numero");
+            jtfDni.setText("");
+            jtfDni.requestFocus();
+        }
+        
+    }//GEN-LAST:event_jtfDniFocusLost
+
+    private void jtfMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfMontoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfMontoActionPerformed
+
+    private void jcbButacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbButacaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbButacaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

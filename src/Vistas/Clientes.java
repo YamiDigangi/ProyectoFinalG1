@@ -278,6 +278,7 @@ public class Clientes extends javax.swing.JInternalFrame {
                jtfNombre.setText(c.getNombre());
                jtfApellido.setText(c.getApellido());
                jboxEstado.setSelected(c.isEstado());
+               
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Ud debe ingresar un Numero de Documento");                
                 jtfDni.requestFocus();

@@ -74,6 +74,12 @@ public class Peliculas extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 255));
         jLabel4.setText("Estado");
 
+        jtfId.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfIdFocusLost(evt);
+            }
+        });
+
         jBoxEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBoxEstadoActionPerformed(evt);
@@ -292,6 +298,18 @@ public class Peliculas extends javax.swing.JInternalFrame {
     private void jBoxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBoxEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBoxEstadoActionPerformed
+
+    private void jtfIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfIdFocusLost
+        // TODO add your handling code here:
+        try {
+            Integer.parseInt(jtfId.getText());
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Debe ingresar un numero");
+            jtfId.setText("");
+            jtfId.requestFocus();
+        }
+        
+    }//GEN-LAST:event_jtfIdFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

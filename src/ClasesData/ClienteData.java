@@ -101,7 +101,7 @@ public class ClienteData {
                 
             }
             
-            JOptionPane.showMessageDialog(null, cli);
+//            JOptionPane.showMessageDialog(null, cli);
             
             ps.close();
         } catch (SQLException ex) {

@@ -77,6 +77,17 @@ public class Salas extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 255));
         jLabel6.setText("Estado activo");
 
+        jtfId.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfIdFocusLost(evt);
+            }
+        });
+        jtfId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfIdActionPerformed(evt);
+            }
+        });
+
         jbGuardar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbGuardar.setForeground(new java.awt.Color(0, 0, 255));
         jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/guardar disco pequeño.png"))); // NOI18N
@@ -253,6 +264,7 @@ public class Salas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int idSala = Integer.parseInt(jtfId.getText());
         Sala sala = salaData.obtenerSalaPorId(idSala);
+        
         if (sala.getIdSala()>0){
             
             try{
@@ -261,7 +273,8 @@ public class Salas extends javax.swing.JInternalFrame {
                jtfLocalidad.setText(sala.getLocalidad());
                jcbEstado.setSelected(sala.isEstadoSala());
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Ud debe ingresar un Numero de sala");                
+                JOptionPane.showMessageDialog(this, "Ud debe ingresar un Numero de sala");
+                
                 jtfId.requestFocus();
             
             } 
@@ -269,6 +282,22 @@ public class Salas extends javax.swing.JInternalFrame {
                  JOptionPane.showMessageDialog(this, "Sala no encontrada");               
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jtfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfIdActionPerformed
+
+    private void jtfIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfIdFocusLost
+        // TODO add your handling code here:
+        try {
+            Integer.parseInt(jtfId.getText());
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Debe ingresar un numero");
+            jtfId.setText("");
+            jtfId.requestFocus();
+        }
+            
+    }//GEN-LAST:event_jtfIdFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

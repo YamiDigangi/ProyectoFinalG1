@@ -14,14 +14,17 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 import ClasesModelo.Conexion;
 import ClasesData.TicketData;
+import ClasesModelo.Butaca;
 import ClasesModelo.Pelicula;
 import ClasesModelo.Proyeccion;
+import ClasesModelo.Sala;
 import ClasesModelo.Ticket;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -36,13 +39,17 @@ public class Tickets extends javax.swing.JInternalFrame {
     private ProyeccionData proData;
     private Connection con;
     private TicketData ticketD;
-    private ArrayList<Ticket> listarButacas;
+    private ArrayList<Butaca> listarButacas;
     private ArrayList<Proyeccion> listaProyeccion;
+    private Sala sala;
+    private Proyeccion proyeccion;
+    private Ticket t;
     
 
     /** Creates new form ticket */
     public Tickets() {
         initComponents();
+        t = new Ticket();
         peliculaData=new PeliculaData();
         proData= new ProyeccionData();
         modelo = new DefaultTableModel();
@@ -50,9 +57,10 @@ public class Tickets extends javax.swing.JInternalFrame {
         this.clienteData = new ClienteData();
         this.ticketD= new TicketData();
         jdcFechaCompra.setDate( new Date());
-//       listarButacas = ticketD.butacasLibres(inicio);
+       listarButacas = ticketD.butacasLibres(t.getProyeccion().getSala().getIdSala(),t.getProyeccion().getInicioPro());
         armarCabecera();
         cargarProyeccion();
+        cargarButacas();
        
         
 
@@ -90,6 +98,11 @@ public class Tickets extends javax.swing.JInternalFrame {
              modelo.addRow(new Object[]{p.getIdProyeccion(),p.getPelicula().getNombrePeli(),p.getSala().getUbicacion(),p.getInicioPro(),p.getFinPro()});
             
     }
+    
+    public void cargarButacas(){
+       for (Butaca b: listarButacas)
+           jcbButaca.addItem(b);   
+    }
        
 
    
@@ -123,7 +136,7 @@ public class Tickets extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jtfMonto = new javax.swing.JTextField();
         jboxMetPago = new javax.swing.JComboBox<>();
-        jboxButaca = new javax.swing.JComboBox<>();
+        jcbButaca = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jtfIdTicket = new javax.swing.JTextField();
         jbSalir = new javax.swing.JButton();
@@ -333,7 +346,7 @@ public class Tickets extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jboxButaca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbButaca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jboxMetPago, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(141, 141, 141))
                     .addGroup(layout.createSequentialGroup()
@@ -395,7 +408,7 @@ public class Tickets extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7)
                     .addComponent(jtfIdTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jboxButaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbButaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -495,8 +508,8 @@ public class Tickets extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbLimpiar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<Ticket> jboxButaca;
     private javax.swing.JComboBox<String> jboxMetPago;
+    private javax.swing.JComboBox<Butaca> jcbButaca;
     private com.toedter.calendar.JDateChooser jdcFechaCompra;
     private javax.swing.JTextField jtfApellidoCli;
     private javax.swing.JTextField jtfDni;

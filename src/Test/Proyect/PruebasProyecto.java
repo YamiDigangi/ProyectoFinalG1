@@ -292,7 +292,7 @@ Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
   LocalDateTime ipro = LocalDateTime.of(2022, Month.OCTOBER, 30, 07, 00, 0);
   LocalDateTime fpro = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 00,00);
   
-  ArrayList<Butaca> list = new ArrayList();
+ // ArrayList<Butaca> list = new ArrayList();
     
 //    list = td.butacaOcupada(Timestamp.valueOf(ipro), Timestamp.valueOf(fpro));
     
@@ -303,14 +303,14 @@ Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
 //    
 ////////////////////////////////Butacas Libres////////////////////////////////
    
-//    ArrayList<Butaca> lists = new ArrayList();
-//    
-//    lists = td.butacasLibres(Timestamp.valueOf(ipro));
-//    
-//    for(Butaca but:lists) {
-//        
-//        JOptionPane.showMessageDialog(null, but);          
-//    }
+    ArrayList<Butaca> lists = new ArrayList();
+    
+    lists = td.butacasLibres(2,Timestamp.valueOf(ipro));
+    
+    for(Butaca but:lists) {
+        
+        JOptionPane.showMessageDialog(null, but);          
+    }
 //    
 //------------------------------------------------------------------------------
 }

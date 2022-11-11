@@ -8,6 +8,7 @@ package ClasesData;
 import ClasesModelo.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,6 +24,7 @@ public class TicketData {
 
     public TicketData() {
         this.con = Conexion.getConexion();
+        
         
     }
     
@@ -230,22 +232,27 @@ public class TicketData {
     }
     
     
-    public ArrayList<Butaca> butacasLibres(Timestamp inicio) {
+    public ArrayList<Butaca> butacasLibres(int sala, Timestamp inicio) {
         
         ArrayList<Butaca> but = new ArrayList();
-        String sql = "SELECT b.idButaca, b.fila,b.columna FROM butaca b WHERE b.idButaca NOT IN (SELECT t.idButaca from butaca b, proyeccion p, sala s, ticket t WHERE t.idProyeccion=p.idProyeccion and t.idButaca= b.idButaca and p.idSala = s.idSala and p.inicioPro = ?)";
+        String sql = "SELECT b.idButaca, b.fila,b.columna FROM butaca b WHERE b.idSala = ? AND b.idButaca NOT IN (SELECT t.idButaca from butaca b, proyeccion p, sala s, ticket t WHERE t.idProyeccion=p.idProyeccion AND t.idButaca= b.idButaca AND p.idSala = s.idSala AND s.idSala=b.idSala and p.inicioPro = ?)";
         
         
           try {
       
                PreparedStatement ps = con.prepareStatement(sql);
-               ps.setTimestamp(1, inicio);
+               ps.setInt(1, sala);
+               ps.setTimestamp(2, inicio);
                
                ResultSet rs = ps.executeQuery();
                
                 Butaca b;
-                while(rs.next()){
+                SalaData sd = new SalaData();
+                while(rs.next()){                   
                 b= new Butaca();
+                Sala s = sd.obtenerSalaPorId(rs.getInt("idSala"));
+                b.setSala(s);
+                
                 b.setIdButaca(rs.getInt("idButaca"));
                 but.add(b);
             }
@@ -260,7 +267,7 @@ public class TicketData {
     
     }
     
-    //
+    
     public ArrayList<Cliente> obtenerClientesPorFecha(Timestamp fechaCompra) {
 
         ArrayList<Cliente> listaC = new ArrayList<>();
@@ -298,6 +305,47 @@ public class TicketData {
         }
         return listaC;   
     }
+    
+    
+    
+//    public List<Butaca> obtenerButacasLibres(Proyeccion proyeccion) {
+//
+//        List<Butaca> lista = new ArrayList<>();
+//
+//        String sql = "SELECT * FROM butaca WHERE idSala = ? AND idButaca NOT IN(SELECT  t.idButaca from butaca b, proyeccion p, sala s, ticket t WHERE t.idProyeccion=p.idProyeccion AND t.idButaca= b.idButaca AND p.idSala = s.idSala AND s.idSala=b.idSala  AND p.inicioPro  BETWEEN ? AND ?)";
+//
+//        try {
+//            PreparedStatement ps = con.prepareStatement(sql);
+//
+//            ps.setInt(1, proyeccion.getSala().getIdSala());
+//            ps.setTimestamp(2, proyeccion.getInicioPro());
+//            ps.setTimestamp(3, proyeccion.getFinPro());
+//            
+//
+//            ResultSet rs = ps.executeQuery();
+//
+//            while (rs.next()) {
+//
+//                Butaca butaca = new Butaca();
+//
+//                butaca.setIdButaca(rs.getInt("idButaca"));
+//                butaca.setSala(sd.obtenerSalaPorId(rs.getInt("idSala")));
+//                butaca.setFila(rs.getString("fila"));
+//                butaca.setColumna(rs.getInt("columna"));
+//                
+//
+//                lista.add(butaca);
+//            }
+//
+//            ps.close();
+//
+//            //cargamos el combo box de butaca
+//            //podria ir en butaca
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "TicketData Sentencia SQL erronea/base de datos inactiva, error-obtenerButacasLibres");
+//        }
+//        return lista;
+//    }
     
     
 } 

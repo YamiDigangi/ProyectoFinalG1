@@ -213,6 +213,11 @@ public class Tickets extends javax.swing.JInternalFrame {
             }
         });
         tProyeccion.setGridColor(new java.awt.Color(0, 0, 255));
+        tProyeccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tProyeccionMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tProyeccion);
 
         jtfDni.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -510,29 +515,40 @@ public class Tickets extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jboxMetPagoActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-        // TODO add your handling code here:
-//        SimpleDateFormat fFecha = new SimpleDateFormat("dd-MM-yyyy");
-//        LocalDate fechaNacimiento = LocalDate.parse(fFecha.format(jdcFechaCompra.getDate()), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+//         TODO add your handling code here:
+
+        int idCliente = Integer.parseInt(jtfIdCliente.getText());
+        
+        int filaElegida = tProyeccion.getSelectedRow();
+        
+        int idPro = (Integer) tProyeccion.getValueAt(filaElegida,0);
+        
+        Butaca b = (Butaca) jcbButaca.getSelectedItem();
+        
+        
+        double monto = jtfMonto.getText();
+        
+        
+         
+        
+        
+        
+        LocalTime horafin = LocalTime.parse(jtfHoraFin.getText());
+        LocalDate fechaNueva2 = jdcFechaFin.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDateTime fh2 = LocalDateTime.of(fechaNueva2, horafin);
+        Timestamp diaHorafin = Timestamp.valueOf(fh2);
+        
+        
+        Proyeccion p = new Proyeccion(s, pel, diaHoraincio,diaHorafin , true);
+        jtfIdProyeccion.setText(p.getIdProyeccion()+"");
+        
+        proyeccionData.agregarProyeccion(p);
+
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jcbButacaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbButacaMouseClicked
         // TODO add your handling code here:
-        int filaElegida = tProyeccion.getSelectedRow();
         
-        int idSalaa = (Integer) tProyeccion.getValueAt(filaElegida,2);
-        System.out.println(idSalaa);
-        Object iniciop = tProyeccion.getValueAt(filaElegida,3);
-//        System.out.println(iniciop);
-//        Timestamp pInicio = (Timestamp) tProyeccion.getValueAt(filaElegida,3);
-        
-//        ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
-        ArrayList<Butaca> listarButacas = (ArrayList<Butaca>) ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
-        
-        for (Butaca b : listarButacas) {
-            JOptionPane.showMessageDialog(null, b);
-            
-        }
-
 
     }//GEN-LAST:event_jcbButacaMouseClicked
 
@@ -567,6 +583,24 @@ public class Tickets extends javax.swing.JInternalFrame {
     private void jcbButacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbButacaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbButacaActionPerformed
+
+    private void tProyeccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tProyeccionMouseClicked
+        // TODO add your handling code here:
+        int filaElegida = tProyeccion.getSelectedRow();
+        jcbButaca.removeAllItems();
+        int idSalaa = (Integer) tProyeccion.getValueAt(filaElegida,2);
+        System.out.println(idSalaa);
+        Object iniciop = tProyeccion.getValueAt(filaElegida,3);
+//        
+        
+//        ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
+        ArrayList<Butaca> listarButacas = (ArrayList<Butaca>) ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
+        System.out.println("Salida"+ listarButacas);
+        for (Butaca b : listarButacas) {
+            jcbButaca.addItem(b);
+        }
+
+    }//GEN-LAST:event_tProyeccionMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

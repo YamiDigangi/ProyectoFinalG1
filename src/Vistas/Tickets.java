@@ -22,6 +22,9 @@ import ClasesModelo.Ticket;
 import java.security.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -146,6 +149,9 @@ public class Tickets extends javax.swing.JInternalFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jtfIdCliente = new javax.swing.JTextField();
+        jtfHCompra = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jcbActivo = new javax.swing.JCheckBox();
 
         jLabel8.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 255));
@@ -326,6 +332,23 @@ public class Tickets extends javax.swing.JInternalFrame {
 
         jtfIdCliente.setEditable(false);
 
+        jtfHCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfHCompraActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel9.setText("Hora de compra");
+
+        jcbActivo.setText("Activo");
+        jcbActivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbActivoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -333,14 +356,23 @@ public class Tickets extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbBuscar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(157, 157, 157)
+                                .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbBuscar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel9))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel8)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jdcFechaCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jdcFechaCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jtfHCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel17)
@@ -353,8 +385,7 @@ public class Tickets extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jtfIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
@@ -380,7 +411,7 @@ public class Tickets extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jcbButaca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jboxMetPago, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(141, 141, 141))
+                        .addGap(135, 135, 135))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -392,9 +423,12 @@ public class Tickets extends javax.swing.JInternalFrame {
                 .addGap(76, 76, 76)
                 .addComponent(jbGuardar)
                 .addGap(92, 92, 92)
-                .addComponent(jbLimpiar)
-                .addGap(89, 89, 89)
-                .addComponent(jbSalir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcbActivo)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbLimpiar)
+                        .addGap(89, 89, 89)
+                        .addComponent(jbSalir)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -411,17 +445,22 @@ public class Tickets extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbBuscar)
+                            .addComponent(jLabel9))
+                        .addGap(16, 16, 16))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jdcFechaCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbBuscar)))
-                .addGap(16, 16, 16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfHCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jtfNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,7 +486,9 @@ public class Tickets extends javax.swing.JInternalFrame {
                     .addComponent(jtfMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jboxMetPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jcbActivo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -524,25 +565,32 @@ public class Tickets extends javax.swing.JInternalFrame {
         int idPro = (Integer) tProyeccion.getValueAt(filaElegida,0);
         
         Butaca b = (Butaca) jcbButaca.getSelectedItem();
+              
+        LocalTime hCompra = LocalTime.parse(jtfHCompra.getText());
+        LocalDate fCompra = jdcFechaCompra.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        
+        LocalDateTime fhCompra = LocalDateTime.of(fCompra, hCompra);
+        
+        java.sql.Timestamp diaHorafin = java.sql.Timestamp.valueOf(fhCompra);
+        
+        double monto = Double.parseDouble(jtfMonto.getText());
+        
+        String fp = (String)jboxMetPago.getSelectedItem();
+        
+        boolean activo = jcbActivo.isEnabled();
+        
+        Proyeccion pro = new Proyeccion(idCliente, idPro, b, diaHorafin, monto, fp,  activo);
         
         
-        double monto = jtfMonto.getText();
         
         
-         
+              
+                 
         
         
         
-        LocalTime horafin = LocalTime.parse(jtfHoraFin.getText());
-        LocalDate fechaNueva2 = jdcFechaFin.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDateTime fh2 = LocalDateTime.of(fechaNueva2, horafin);
-        Timestamp diaHorafin = Timestamp.valueOf(fh2);
         
-        
-        Proyeccion p = new Proyeccion(s, pel, diaHoraincio,diaHorafin , true);
-        jtfIdProyeccion.setText(p.getIdProyeccion()+"");
-        
-        proyeccionData.agregarProyeccion(p);
 
     }//GEN-LAST:event_jbGuardarActionPerformed
 
@@ -602,6 +650,14 @@ public class Tickets extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tProyeccionMouseClicked
 
+    private void jtfHCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfHCompraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfHCompraActionPerformed
+
+    private void jcbActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbActivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbActivoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -615,6 +671,7 @@ public class Tickets extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
@@ -623,10 +680,12 @@ public class Tickets extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbLimpiar;
     private javax.swing.JButton jbSalir;
     private javax.swing.JComboBox<String> jboxMetPago;
+    private javax.swing.JCheckBox jcbActivo;
     private javax.swing.JComboBox<Butaca> jcbButaca;
     private com.toedter.calendar.JDateChooser jdcFechaCompra;
     private javax.swing.JTextField jtfApellidoCli;
     private javax.swing.JTextField jtfDni;
+    private javax.swing.JTextField jtfHCompra;
     private javax.swing.JTextField jtfIdCliente;
     private javax.swing.JTextField jtfIdTicket;
     private javax.swing.JTextField jtfMonto;

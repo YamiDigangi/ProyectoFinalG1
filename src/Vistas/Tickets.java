@@ -19,7 +19,7 @@ import ClasesModelo.Pelicula;
 import ClasesModelo.Proyeccion;
 import ClasesModelo.Sala;
 import ClasesModelo.Ticket;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -53,7 +53,7 @@ public class Tickets extends javax.swing.JInternalFrame {
     /** Creates new form ticket */
     public Tickets() {
         initComponents();
-        t = new Ticket();
+//        t = new Ticket();
         peliculaData=new PeliculaData();
         proData= new ProyeccionData();
         modelo = new DefaultTableModel();
@@ -158,6 +158,7 @@ public class Tickets extends javax.swing.JInternalFrame {
         jLabel8.setText("fecha de compra");
 
         jdcFechaCompra.setForeground(new java.awt.Color(0, 0, 204));
+        jdcFechaCompra.setDoubleBuffered(false);
         jdcFechaCompra.setEnabled(false);
         jdcFechaCompra.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
 
@@ -558,21 +559,24 @@ public class Tickets extends javax.swing.JInternalFrame {
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
 //         TODO add your handling code here:
 
-        int idCliente = Integer.parseInt(jtfIdCliente.getText());
+//        int idCliente = Integer.parseInt(jtfIdCliente.getText());
+        int dni = Integer.parseInt(jtfDni.getText());
+        Cliente cli = clienteData.obtenerClientePorDni(dni);
         
         int filaElegida = tProyeccion.getSelectedRow();
         
         int idPro = (Integer) tProyeccion.getValueAt(filaElegida,0);
+        Proyeccion pro = proData.obtenerProyeccionPorId(idPro);
         
         Butaca b = (Butaca) jcbButaca.getSelectedItem();
               
         LocalTime hCompra = LocalTime.parse(jtfHCompra.getText());
         LocalDate fCompra = jdcFechaCompra.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDateTime fhCompra = LocalDateTime.of(fCompra,hCompra);
+        Timestamp dhCompra = Timestamp.valueOf(fhCompra);
+        
+        System.out.println(fhCompra);
 
-        
-        LocalDateTime fhCompra = LocalDateTime.of(fCompra, hCompra);
-        
-        java.sql.Timestamp diaHorafin = java.sql.Timestamp.valueOf(fhCompra);
         
         double monto = Double.parseDouble(jtfMonto.getText());
         
@@ -580,16 +584,10 @@ public class Tickets extends javax.swing.JInternalFrame {
         
         boolean activo = jcbActivo.isEnabled();
         
-        Proyeccion pro = new Proyeccion(idCliente, idPro, b, diaHorafin, monto, fp,  activo);
+        Ticket tic = new Ticket(cli,pro,b,dhCompra,monto,fp,true);
+         jtfIdTicket.setText(tic.getIdTicket()+"");
         
-        
-        
-        
-              
-                 
-        
-        
-        
+        ticketD.agregarTicket(tic);
         
 
     }//GEN-LAST:event_jbGuardarActionPerformed
@@ -637,11 +635,8 @@ public class Tickets extends javax.swing.JInternalFrame {
         int filaElegida = tProyeccion.getSelectedRow();
         jcbButaca.removeAllItems();
         int idSalaa = (Integer) tProyeccion.getValueAt(filaElegida,2);
-        System.out.println(idSalaa);
         Object iniciop = tProyeccion.getValueAt(filaElegida,3);
-//        
-        
-//        ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
+
         ArrayList<Butaca> listarButacas = (ArrayList<Butaca>) ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
         System.out.println("Salida"+ listarButacas);
         for (Butaca b : listarButacas) {

@@ -217,15 +217,15 @@ public class PruebasProyecto {
 
 ////////////////////////AGREGAR TICKET//////////////////////////////////////////
 
-LocalDateTime fcom1 = LocalDateTime.of(2022, Month.OCTOBER, 29, 14, 00, 0);
-LocalDateTime fcom2 = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 00, 0);
-LocalDateTime fcom3 = LocalDateTime.of(2022, Month.OCTOBER, 30, 16, 00, 0);
-
-Ticket t1 = new Ticket(c1,pro1,b1,Timestamp.valueOf(fcom1),500,"Debito",true);
-Ticket t2 = new Ticket(c2,pro2,b2,Timestamp.valueOf(fcom2),500,"Contado",true);
-Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
-
- TicketData td= new TicketData();
+//LocalDateTime fcom1 = LocalDateTime.of(2022, Month.OCTOBER, 29, 14, 00, 0);
+//LocalDateTime fcom2 = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 00, 0);
+//LocalDateTime fcom3 = LocalDateTime.of(2022, Month.OCTOBER, 30, 16, 00, 0);
+//
+//Ticket t1 = new Ticket(c1,pro1,b1,Timestamp.valueOf(fcom1),500,"Debito",true);
+//Ticket t2 = new Ticket(c2,pro2,b2,Timestamp.valueOf(fcom2),500,"Contado",true);
+//Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
+//
+// TicketData td= new TicketData();
 
       //td.agregarTicket(t1);
      
@@ -305,7 +305,7 @@ Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
    
     ArrayList<Butaca> lists = new ArrayList();
     
-    lists = td.butacasLibres(2,Timestamp.valueOf(ipro));
+//    lists = td.butacasLibres(2,Timestamp.valueOf(ipro));
     
     for(Butaca but:lists) {
         

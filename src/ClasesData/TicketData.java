@@ -7,6 +7,7 @@ package ClasesData;
 
 import ClasesModelo.*;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -36,7 +37,7 @@ public class TicketData {
             ps.setInt(1, ticket.getCliente().getIdCliente());
             ps.setInt(2, ticket.getProyeccion().getIdProyeccion());
             ps.setInt(3, ticket.getButaca().getIdButaca());
-            ps.setTimestamp(4, ticket.getFechaCompra());
+            ps.setDate(4, Date.valueOf(ticket.getFechaCompra()));
             ps.setDouble(5, ticket.getMonto());
             ps.setString(6, ticket.getFormaPago());
             ps.setBoolean(7, ticket.isEstadoTicket());
@@ -87,7 +88,7 @@ public class TicketData {
             ps.setInt(1, ticket.getCliente().getIdCliente());
             ps.setInt(2, ticket.getProyeccion().getIdProyeccion());
             ps.setInt(3, ticket.getButaca().getIdButaca());
-            ps.setTimestamp(4, ticket.getFechaCompra());
+            ps.setDate(4, Date.valueOf(ticket.getFechaCompra()));
             ps.setDouble(5, ticket.getMonto());
             ps.setString(6, ticket.getFormaPago());
             ps.setBoolean(7, ticket.isEstadoTicket());
@@ -104,13 +105,13 @@ public class TicketData {
     }
       
     
-    public ArrayList<Ticket> ticketEmitidosPorFecha (Timestamp fechaCompra){
+    public ArrayList<Ticket> ticketEmitidosPorFecha (LocalDate fechaCompra){
         ArrayList<Ticket> listaTicket = new ArrayList();
         String sql = "SELECT * FROM ticket WHERE fechaCompra = ?";
                 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setTimestamp(1, fechaCompra);
+            ps.setDate(1, Date.valueOf(fechaCompra));
             
             ResultSet rs = ps.executeQuery();
             
@@ -134,7 +135,7 @@ public class TicketData {
                 t.setButaca(b);
                 
                 t.setIdTicket(rs.getInt("idTicket"));
-                t.setFechaCompra(rs.getTimestamp("fechaCompra"));
+                t.setFechaCompra(rs.getDate("fechaCompra").toLocalDate());
                 t.setMonto(rs.getDouble("monto"));
                 t.setFormaPago(rs.getString("formaPago"));
                 t.setEstadoTicket(rs.getBoolean("estadoTicket"));
@@ -181,7 +182,7 @@ public class TicketData {
                 t.setButaca(b);
                 
                 t.setIdTicket(rs.getInt("idTicket"));
-                t.setFechaCompra(rs.getTimestamp("fechaCompra"));
+                t.setFechaCompra(rs.getDate("fechaCompra").toLocalDate());
                 t.setMonto(rs.getDouble("monto"));
                 t.setFormaPago(rs.getString("formaPago"));
                 t.setEstadoTicket(rs.getBoolean("estadoTicket"));

@@ -110,14 +110,9 @@
               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               <Component id="jbGuardar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jcbActivo" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="jbLimpiar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                      <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="jbLimpiar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+              <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -190,9 +185,7 @@
                   <Component id="jboxMetPago" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="8" max="32767" attributes="0"/>
-              <Component id="jcbActivo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jbGuardar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="jbLimpiar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
@@ -589,14 +582,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Hora de compra"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="jcbActivo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Activo"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbActivoActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

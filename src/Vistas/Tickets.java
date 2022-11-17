@@ -151,7 +151,6 @@ public class Tickets extends javax.swing.JInternalFrame {
         jtfIdCliente = new javax.swing.JTextField();
         jtfHCompra = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jcbActivo = new javax.swing.JCheckBox();
 
         jLabel8.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 255));
@@ -343,13 +342,6 @@ public class Tickets extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 255));
         jLabel9.setText("Hora de compra");
 
-        jcbActivo.setText("Activo");
-        jcbActivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbActivoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -424,12 +416,9 @@ public class Tickets extends javax.swing.JInternalFrame {
                 .addGap(76, 76, 76)
                 .addComponent(jbGuardar)
                 .addGap(92, 92, 92)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jcbActivo)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jbLimpiar)
-                        .addGap(89, 89, 89)
-                        .addComponent(jbSalir)))
+                .addComponent(jbLimpiar)
+                .addGap(89, 89, 89)
+                .addComponent(jbSalir)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -487,9 +476,7 @@ public class Tickets extends javax.swing.JInternalFrame {
                     .addComponent(jtfMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jboxMetPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(jcbActivo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -570,21 +557,21 @@ public class Tickets extends javax.swing.JInternalFrame {
         
         Butaca b = (Butaca) jcbButaca.getSelectedItem();
               
-        LocalTime hCompra = LocalTime.parse(jtfHCompra.getText());
+//        LocalTime hCompra = LocalTime.parse(jtfHCompra.getText());
         LocalDate fCompra = jdcFechaCompra.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDateTime fhCompra = LocalDateTime.of(fCompra,hCompra);
-        Timestamp dhCompra = Timestamp.valueOf(fhCompra);
+//        LocalDateTime fhCompra = LocalDateTime.of(fCompra,hCompra);
+//        Timestamp dhCompra = Timestamp.valueOf(fhCompra);
         
-        System.out.println(fhCompra);
+//        System.out.println(fhCompra);
 
         
         double monto = Double.parseDouble(jtfMonto.getText());
         
         String fp = (String)jboxMetPago.getSelectedItem();
         
-        boolean activo = jcbActivo.isEnabled();
+//        boolean activo = jcbActivo.isEnabled();
         
-        Ticket tic = new Ticket(cli,pro,b,dhCompra,monto,fp,true);
+        Ticket tic = new Ticket(cli,pro,b,fCompra,monto,fp,true);
          jtfIdTicket.setText(tic.getIdTicket()+"");
         
         ticketD.agregarTicket(tic);
@@ -649,10 +636,6 @@ public class Tickets extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfHCompraActionPerformed
 
-    private void jcbActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbActivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcbActivoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -675,7 +658,6 @@ public class Tickets extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbLimpiar;
     private javax.swing.JButton jbSalir;
     private javax.swing.JComboBox<String> jboxMetPago;
-    private javax.swing.JCheckBox jcbActivo;
     private javax.swing.JComboBox<Butaca> jcbButaca;
     private com.toedter.calendar.JDateChooser jdcFechaCompra;
     private javax.swing.JTextField jtfApellidoCli;

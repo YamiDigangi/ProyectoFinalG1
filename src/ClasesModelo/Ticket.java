@@ -17,7 +17,7 @@ public class Ticket {
     private Cliente cliente;
     private Proyeccion proyeccion;
     private Butaca butaca;
-    private Timestamp fechaCompra;
+    private LocalDate fechaCompra;
     private double monto;
     private String formaPago;
     private boolean estadoTicket;
@@ -25,7 +25,7 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(int idTicket, Cliente cliente, Proyeccion proyeccion, Butaca butaca, Timestamp fechaCompra, double monto, String formaPago, boolean estadoTicket) {
+    public Ticket(int idTicket, Cliente cliente, Proyeccion proyeccion, Butaca butaca, LocalDate fechaCompra, double monto, String formaPago, boolean estadoTicket) {
         this.idTicket = idTicket;
         this.cliente = cliente;
         this.proyeccion = proyeccion;
@@ -36,7 +36,7 @@ public class Ticket {
         this.estadoTicket = estadoTicket;
     }
 
-    public Ticket(Cliente cliente, Proyeccion proyeccion, Butaca butaca, Timestamp fechaCompra, double monto, String formaPago, boolean estadoTicket) {
+    public Ticket(Cliente cliente, Proyeccion proyeccion, Butaca butaca, LocalDate fechaCompra, double monto, String formaPago, boolean estadoTicket) {
         this.cliente = cliente;
         this.proyeccion = proyeccion;
         this.butaca = butaca;
@@ -78,11 +78,11 @@ public class Ticket {
         this.butaca = butaca;
     }
 
-    public Timestamp getFechaCompra() {
+    public LocalDate getFechaCompra() {
         return fechaCompra;
     }
 
-    public void setFechaCompra(Timestamp fechaCompra) {
+    public void setFechaCompra(LocalDate fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
 

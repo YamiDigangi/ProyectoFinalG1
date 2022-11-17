@@ -546,7 +546,7 @@ public class Tickets extends javax.swing.JInternalFrame {
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
 //         TODO add your handling code here:
 
-//        int idCliente = Integer.parseInt(jtfIdCliente.getText());
+
         int dni = Integer.parseInt(jtfDni.getText());
         Cliente cli = clienteData.obtenerClientePorDni(dni);
         
@@ -557,19 +557,11 @@ public class Tickets extends javax.swing.JInternalFrame {
         
         Butaca b = (Butaca) jcbButaca.getSelectedItem();
               
-//        LocalTime hCompra = LocalTime.parse(jtfHCompra.getText());
         LocalDate fCompra = jdcFechaCompra.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//        LocalDateTime fhCompra = LocalDateTime.of(fCompra,hCompra);
-//        Timestamp dhCompra = Timestamp.valueOf(fhCompra);
-        
-//        System.out.println(fhCompra);
-
-        
+    
         double monto = Double.parseDouble(jtfMonto.getText());
         
         String fp = (String)jboxMetPago.getSelectedItem();
-        
-//        boolean activo = jcbActivo.isEnabled();
         
         Ticket tic = new Ticket(cli,pro,b,fCompra,monto,fp,true);
          jtfIdTicket.setText(tic.getIdTicket()+"");
@@ -625,7 +617,7 @@ public class Tickets extends javax.swing.JInternalFrame {
         Object iniciop = tProyeccion.getValueAt(filaElegida,3);
 
         ArrayList<Butaca> listarButacas = (ArrayList<Butaca>) ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
-        System.out.println("Salida"+ listarButacas);
+//        System.out.println("Salida"+ listarButacas);
         for (Butaca b : listarButacas) {
             jcbButaca.addItem(b);
         }

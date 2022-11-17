@@ -236,7 +236,7 @@ public class TicketData {
     public ArrayList<Butaca> butacasLibres(int sala, Timestamp inicio) {
         
         ArrayList<Butaca> but = new ArrayList();
-        String sql = "SELECT b.idButaca FROM butaca b WHERE b.idSala = ? AND b.idButaca NOT IN (SELECT t.idButaca from butaca b, proyeccion p, sala s, ticket t WHERE t.idProyeccion=p.idProyeccion AND t.idButaca= b.idButaca AND p.idSala = s.idSala AND s.idSala=b.idSala and p.inicioPro = ?)";
+        String sql = "SELECT b.idButaca, b.fila, b.columna FROM butaca b WHERE b.idSala = ? AND b.idButaca NOT IN (SELECT t.idButaca from butaca b, proyeccion p, sala s, ticket t WHERE t.idProyeccion=p.idProyeccion AND t.idButaca= b.idButaca AND p.idSala = s.idSala AND s.idSala=b.idSala and p.inicioPro = ?)";
         
         
           try {
@@ -251,7 +251,9 @@ public class TicketData {
                 while(rs.next()){                   
                 b= new Butaca();
                 b.setIdButaca(rs.getInt("idButaca"));
-              
+                b.setFila(rs.getString("fila"));
+                b.setColumna(rs.getInt("columna"));
+                           
                
                 but.add(b);
             }

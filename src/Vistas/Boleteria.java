@@ -39,6 +39,7 @@ public class Boleteria extends javax.swing.JFrame {
         jmiPeliculas = new javax.swing.JMenuItem();
         jmTicket = new javax.swing.JMenu();
         jmiTickets = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenu();
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -130,6 +131,16 @@ public class Boleteria extends javax.swing.JFrame {
         });
         jmTicket.add(jmiTickets);
 
+        jMenuItem1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrar ticket.png"))); // NOI18N
+        jMenuItem1.setText("Anulacion de Ticket");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jmTicket.add(jMenuItem1);
+
         jMenuBar1.add(jmTicket);
 
         jmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/salir.png"))); // NOI18N
@@ -211,6 +222,15 @@ public class Boleteria extends javax.swing.JFrame {
         escritorio.add(t);
     }//GEN-LAST:event_jmiTicketsActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        AnularTicket nullTicket = new AnularTicket();
+        nullTicket.setVisible(true);
+        escritorio.add(nullTicket);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -251,6 +271,7 @@ public class Boleteria extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jmProgramacion;
     private javax.swing.JMenu jmSalir;
     private javax.swing.JMenu jmTicket;

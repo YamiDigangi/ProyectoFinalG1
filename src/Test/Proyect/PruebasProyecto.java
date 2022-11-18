@@ -8,7 +8,9 @@ package Test.Proyect;
 import ClasesData.*;
 import ClasesModelo.*;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -31,13 +33,13 @@ public class PruebasProyecto {
                         
  ///////////////////// AGREGAR CLIENTE///////////////////////////////////////////
  
-        Cliente c1 = new Cliente(33029917,"Santiago","Farioli",true);
+        Cliente c1 = new Cliente(32029917,"Santiago","Farioli",true);
         Cliente c2 = new Cliente(33089673,"Javier","Torres",true);
-        Cliente c3= new Cliente(123456,"Yamila Belen","Di Gangi",true);
+        Cliente c3= new Cliente(3,39105927,"Yamila Belen","Di Gangi",true);
         
         ClienteData cd = new ClienteData();
         
- //       cd.agregarCliente(c1);
+//        cd.agregarCliente(c1);
  //-----------------------------------------------------------------------------
  
  /////////////////////BORRAR CLIENTE///////////////////////////////////////////       
@@ -70,7 +72,7 @@ public class PruebasProyecto {
       
         PeliculaData pd = new PeliculaData();
       
-//        pd.altaPelicula(p1);
+//        pd.altaPelicula(p2);
 //------------------------------------------------------------------------------
 
 ////////////////////////BAJA PELICULA///////////////////////////////////////////
@@ -101,12 +103,12 @@ public class PruebasProyecto {
 ///////////////////////ALTA SALA////////////////////////////////////////////////
 
         Sala s1 = new Sala("Sala Uno", "San Luis", true);
-        Sala s2 = new Sala("Sala Dos", "San Luis", true);
+        Sala s2 = new Sala(9,"Sala Dos", "San Luis", true);
         Sala s3 = new Sala("Sala Tres", "San Luis", true);
         
         SalaData sd = new SalaData();
   
-//      sd.altaSala(s1);
+//      sd.altaSala(s2);
 
 //------------------------------------------------------------------------------
 
@@ -129,13 +131,13 @@ public class PruebasProyecto {
 //////////////////////AGREGAR BUTACA////////////////////////////////////////////
  
         Butaca b1= new Butaca(s1,"A",3);
-        Butaca b2= new Butaca(s2,"A",3);
+        Butaca b2= new Butaca(64,s2,"A",3);
         Butaca b3= new Butaca(s3,"A",3);
      
      
         ButacaData b = new ButacaData();
 
-//      b.agregarButaca(b1)
+//       b.agregarButaca(b2);
         
 //------------------------------------------------------------------------------        
 
@@ -161,14 +163,14 @@ public class PruebasProyecto {
      LocalDateTime fin3 = LocalDateTime.of(2022, Month.NOVEMBER, 01, 12, 00, 00);
       
       
-     Proyeccion pro1 = new Proyeccion(s2,p2,Timestamp.valueOf(ini1),Timestamp.valueOf(fin1),true);
+     Proyeccion pro1 = new Proyeccion(100,s2,p2,Timestamp.valueOf(ini1),Timestamp.valueOf(fin1),true);
      Proyeccion pro2 = new Proyeccion(s1,p1,Timestamp.valueOf(ini2),Timestamp.valueOf(fin2),true);
      Proyeccion pro3 = new Proyeccion(s3,p3,Timestamp.valueOf(ini3),Timestamp.valueOf(fin3),true);
 
      ProyeccionData proD= new ProyeccionData();
 
 
-//      proD.agregarProyeccion(pro1);
+////      proD.agregarProyeccion(pro1);
 
 //------------------------------------------------------------------------------
       
@@ -219,15 +221,16 @@ public class PruebasProyecto {
 
 //LocalDateTime fcom1 = LocalDateTime.of(2022, Month.OCTOBER, 29, 14, 00, 0);
 //LocalDateTime fcom2 = LocalDateTime.of(2022, Month.OCTOBER, 30, 10, 00, 0);
-//LocalDateTime fcom3 = LocalDateTime.of(2022, Month.OCTOBER, 30, 16, 00, 0);
-//
-//Ticket t1 = new Ticket(c1,pro1,b1,Timestamp.valueOf(fcom1),500,"Debito",true);
+// LocalDate fcom3 = LocalDate.of(2022, Month.OCTOBER, 30);
+
+ Ticket t1 = new Ticket(c3,pro1,b2,LocalDate.of(2022,11,15),500,"Debito",true);
+        System.out.println("ticket:" + t1);
 //Ticket t2 = new Ticket(c2,pro2,b2,Timestamp.valueOf(fcom2),500,"Contado",true);
 //Ticket t3 = new Ticket(c1,pro3,b3,Timestamp.valueOf(fcom3),500,"Credito",true);
 //
-// TicketData td= new TicketData();
+ TicketData td= new TicketData();
 
-      //td.agregarTicket(t1);
+//      td.agregarTicket(t1);
      
             
      
@@ -241,13 +244,13 @@ public class PruebasProyecto {
    
 ////////////////////////Ticket Emitidos Por Fecha///////////////////////////////
 
-//    LocalDateTime hora = LocalDateTime.of(2022, Month.NOVEMBER, 07, 11, 40,04);
+//    LocalDate fecha = LocalDate.of(2022, Month.NOVEMBER, 9);
 //    
-//     ArrayList<Ticket> lista = new ArrayList();
-//     
-//    lista = td.ticketEmitidosPorFecha(Timestamp.valueOf(hora));
-//    
-//        for (Ticket t: lista) {
+    ArrayList<Ticket> lista = new ArrayList();
+//
+//   lista = td.ticketEmitidosPorFecha(LocalDate.of(2022, Month.NOVEMBER,9));
+//        System.out.println(lista);
+//       for (Ticket t: lista) {
 //            
 //            JOptionPane.showMessageDialog(null, t);
 //            
@@ -307,11 +310,12 @@ public class PruebasProyecto {
     
 //    lists = td.butacasLibres(2,Timestamp.valueOf(ipro));
     
-    for(Butaca but:lists) {
-        
-        JOptionPane.showMessageDialog(null, but);          
-    }
+//    for(Butaca but:lists) {
+//        
+//        JOptionPane.showMessageDialog(null, but);          
+//    }
 //    
 //------------------------------------------------------------------------------
 }
 }
+

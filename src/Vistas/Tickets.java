@@ -53,7 +53,6 @@ public class Tickets extends javax.swing.JInternalFrame {
     /** Creates new form ticket */
     public Tickets() {
         initComponents();
-//        t = new Ticket();
         peliculaData=new PeliculaData();
         proData= new ProyeccionData();
         modelo = new DefaultTableModel();
@@ -63,7 +62,6 @@ public class Tickets extends javax.swing.JInternalFrame {
         jdcFechaCompra.setDate( new Date());
         armarCabecera();
         cargarProyeccion();
-//        cargarButacas();
        
         
 
@@ -618,7 +616,7 @@ public class Tickets extends javax.swing.JInternalFrame {
         int idSalaa = (Integer) tProyeccion.getValueAt(filaElegida,2);
         Object iniciop = tProyeccion.getValueAt(filaElegida,3);
 
-        ArrayList<Butaca> listarButacas = (ArrayList<Butaca>) ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
+        listarButacas = (ArrayList<Butaca>) ticketD.butacasLibres(idSalaa, (java.sql.Timestamp) iniciop);
 //        System.out.println("Salida"+ listarButacas);
         for (Butaca b : listarButacas) {
             jcbButaca.addItem(b);

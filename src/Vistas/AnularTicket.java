@@ -40,18 +40,20 @@ public class AnularTicket extends javax.swing.JInternalFrame {
         initComponents();
         modelo = new DefaultTableModel();
         this.con = Conexion.getConexion();
+        ticketD = new TicketData();
         armarCabecera();
+        
 
 
     }
     
     public void armarCabecera(){
         ArrayList<Object> columnas = new ArrayList<>();
-        columnas.add("Numero de ticket");
-        columnas.add("Nombre pelicula");
+        columnas.add("Nº de ticket");
         columnas.add("Dni cliente");
         columnas.add("Nombre cliente");
         columnas.add("Apellido cliente");
+        columnas.add("Nº Proyeccion");
         
         
         for(Object it:columnas){
@@ -130,6 +132,11 @@ public class AnularTicket extends javax.swing.JInternalFrame {
         jbSalir.setForeground(new java.awt.Color(0, 0, 204));
         jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/salir.png"))); // NOI18N
         jbSalir.setText("SALIR");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,15 +194,22 @@ public class AnularTicket extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
        borrarFilas();  
        LocalDate fechaTicket = jdcFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//       SimpleDateFormat fFecha = new SimpleDateFormat("dd-MM-yyyy");
+//       LocalDate fechaCompra = LocalDate.parse(fFecha.format(jdcFecha.getDate()), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
        System.out.println("fecha elejida: " + fechaTicket);  
-       listaTicket = (ArrayList<Ticket>) ticketD.ticketEmitidosPorFecha(Date.valueOf(fechaTicket).toLocalDate());
+       listaTicket = (ArrayList<Ticket>) ticketD.ticketEmitidosPorFecha(fechaTicket);
        System.out.println("lista" + listaTicket);
        Ticket tic = new Ticket();
          
         for(Ticket t : listaTicket)          
-             modelo.addRow(new Object[]{t.getIdTicket(),t.getProyeccion().getPelicula().getNombrePeli(),t.getCliente().getDni(),t.getCliente().getNombre(),t.getCliente().getApellido()});
-          
+             modelo.addRow(new Object[]{t.getIdTicket(),t.getCliente().getDni(),t.getCliente().getNombre(),t.getCliente().getApellido(),t.getProyeccion().getIdProyeccion()});
+          System.out.println("listaaa" + listaTicket);
     }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

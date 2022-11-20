@@ -244,7 +244,6 @@ public class PruebasProyecto {
    
 ////////////////////////Ticket Emitidos Por Fecha///////////////////////////////
 
-//    LocalDate fecha = LocalDate.of(2022, Month.NOVEMBER, 9);
 //    
     ArrayList<Ticket> lista = new ArrayList();
 //

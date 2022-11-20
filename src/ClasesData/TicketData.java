@@ -114,19 +114,18 @@ public class TicketData {
             ps.setDate(1, Date.valueOf(fechaCompra));
             
             ResultSet rs = ps.executeQuery();
-            
-            Ticket t;
-            Cliente c;         
-            Proyeccion p;
+            ClienteData cd = new ClienteData();
+            ProyeccionData proD = new ProyeccionData();
+            Ticket t;      
             Butaca b;
             
+            
             while(rs.next()){
-                t = new Ticket();
-                c = new Cliente();         
-                p = new Proyeccion();
+                t = new Ticket();     
                 b = new Butaca();
-       
+                Cliente c = cd.obtenerClientePorId(rs.getInt("idCliente"));
                 c.setIdCliente(rs.getInt("idCliente"));
+                Proyeccion p = proD.obtenerProyeccionPorId(rs.getInt("idProyeccion"));
                 p.setIdProyeccion(rs.getInt("idProyeccion"));
                 b.setIdButaca(rs.getInt("idButaca"));
                 

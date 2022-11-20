@@ -109,4 +109,30 @@ public class ClienteData {
         }
      return cli;
     }
+    
+        public Cliente obtenerClientePorId(int idCliente) {
+        String sql= "SELECT * FROM Cliente WHERE idCliente = ?";
+        Cliente c = new Cliente();
+        
+        try{
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, idCliente);
+            ResultSet rs=ps.executeQuery();
+            
+            if(rs.next()){       
+                c.setIdCliente(idCliente);
+                c.setDni(rs.getInt("dni"));
+                c.setNombre(rs.getString("nombre"));
+                c.setApellido(rs.getString("apellido"));
+                c.setEstado(rs.getBoolean("estado"));
+                
+            }
+        ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "SalaData Sentencia SQL erronea-obtenerSalaPorId"+ex.getMessage());
+        }
+        return c;
+         
+    }
 }

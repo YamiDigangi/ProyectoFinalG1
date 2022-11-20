@@ -127,6 +127,11 @@ public class AnularTicket extends javax.swing.JInternalFrame {
         jbAnular.setForeground(new java.awt.Color(0, 0, 204));
         jbAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrar ticket.png"))); // NOI18N
         jbAnular.setText("ANULAR");
+        jbAnular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAnularActionPerformed(evt);
+            }
+        });
 
         jbSalir.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(0, 0, 204));
@@ -210,6 +215,14 @@ public class AnularTicket extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularActionPerformed
+        // TODO add your handling code here:
+        int filaElegida = jTabla.getSelectedRow();
+        int idTickett = (Integer) jTabla.getValueAt(filaElegida,0);
+        ticketD.borrarTicket(idTickett);
+
+    }//GEN-LAST:event_jbAnularActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

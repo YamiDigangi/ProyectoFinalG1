@@ -127,7 +127,7 @@ public class ProyeccionData {
     }
     
     
-     public ArrayList<Pelicula> obtenerPeliculasProyectadas(int sala, Timestamp hora){
+    public ArrayList<Pelicula> obtenerPeliculasProyectadas(int sala, Timestamp hora){
         
         ArrayList<Pelicula> listaPelis = new ArrayList();
         
@@ -158,54 +158,8 @@ public class ProyeccionData {
         }
      return listaPelis;
     }
-     
-     
-//     public ArrayList<Proyeccion> obtenerProyeccion(){
-//        
-//        ArrayList<Proyeccion> listaProyeccion = new ArrayList();
-//        
-//        String sql = "SELECT * FROM proyeccion WHERE estadoPro = 1";
-//        
-//        try {
-//            PreparedStatement ps=con.prepareStatement(sql);
-//            
-//            ResultSet rs=ps.executeQuery();
-//            
-//            Proyeccion pro;
-//            Pelicula p;
-//            Sala s;
-//            
-//            while(rs.next()){
-//                
-//                pro=new Proyeccion();
-//                p=new Pelicula();
-//                s=new Sala();
-//                
-//                
-//                pro.setIdProyeccion(rs.getInt("idProyeccion"));
-//                s.setIdSala(rs.getInt("idSala"));
-//                p.setIdPelicula(rs.getInt("idPelicula"));
-//                
-//                
-//                pro.setPelicula(p);
-//                pro.setSala(s);
-//                pro.setInicioPro(rs.getTimestamp("inicioPro"));
-//                pro.setFinPro(rs.getTimestamp("finPro"));
-//                pro.setEstadoPro(rs.getBoolean("estadoPro"));
-//                listaProyeccion.add(pro);
-//                        
-//            }
-//            
-//            ps.close();
-//            
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "ProyeccionData Sentencia SQL erronea-obtenerProyeccion"+ ex.getMessage());
-//        }
-//    return listaProyeccion;
-//    }
-//        
-//         
-     public ArrayList<Sala> obtenerSalaProyeccion(int idPeli){
+          
+    public ArrayList<Sala> obtenerSalaProyeccion(int idPeli){
         
         ArrayList<Sala> listSala = new ArrayList();
         
@@ -239,7 +193,7 @@ public class ProyeccionData {
      return listSala;
     }
      
-     public List<Proyeccion> listarProyeccion(){
+    public List<Proyeccion> listarProyeccion(){
         ArrayList<Proyeccion> listarProyeccion = new ArrayList<>();
         
         String sql = "SELECT * FROM proyeccion WHERE estadoPro = true";
@@ -270,12 +224,46 @@ public class ProyeccionData {
         return listarProyeccion;
     }
 
+    public ArrayList<Proyeccion> obtenerProyeccionPorInicioProyeccion(Timestamp inicioPro) {
     
+       //String sql="SELECT * FROM `proyeccion` WHERE inicioPro BETWEEN ? AND ?";
 
-     
-     
-     
-     
+       ArrayList<Proyeccion> listarProyeccion = new ArrayList<>();
+       String sql= "SELECT * FROM proyeccion WHERE inicioPro >= ? AND estadoPro = 1 order by inicioPro";
+        
+                
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setTimestamp(1,inicioPro);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            SalaData sd = new SalaData();
+            PeliculaData pd = new PeliculaData();
+            
+            while (rs.next()) {                
+                Proyeccion p = new Proyeccion();
+                p.setIdProyeccion(rs.getInt("idProyeccion"));
+                Sala s = sd.obtenerSalaPorId(rs.getInt("idSala"));
+                p.setSala(s);
+                Pelicula pe = pd.obtenerPelisPorId(rs.getInt("idPelicula"));
+                p.setPelicula(pe);
+                p.setInicioPro(rs.getTimestamp("inicioPro"));
+                p.setFinPro(rs.getTimestamp("finPro"));
+                p.setEstadoPro(rs.getBoolean("estadoPro"));
+                
+                listarProyeccion.add(p);           
+            }
+      
+            ps.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error al obtener proyeccion" + ex.getMessage());
+        }
+        
+        return listarProyeccion;
+    }
+
      
 }
      

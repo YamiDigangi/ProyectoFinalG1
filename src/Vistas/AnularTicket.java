@@ -102,7 +102,7 @@ public class AnularTicket extends javax.swing.JInternalFrame {
 
         jbBuscar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jbBuscar.setForeground(new java.awt.Color(0, 0, 204));
-        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupa chiquita.png"))); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupaChiquita.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +125,7 @@ public class AnularTicket extends javax.swing.JInternalFrame {
 
         jbAnular.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jbAnular.setForeground(new java.awt.Color(0, 0, 204));
-        jbAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrar ticket.png"))); // NOI18N
+        jbAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrarTicket.png"))); // NOI18N
         jbAnular.setText("ANULAR");
         jbAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +157,7 @@ public class AnularTicket extends javax.swing.JInternalFrame {
                         .addComponent(jLabel2)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jbBuscar)
                             .addGap(48, 48, 48))))
@@ -183,9 +183,8 @@ public class AnularTicket extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)))
-                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbAnular)
                     .addComponent(jbSalir))

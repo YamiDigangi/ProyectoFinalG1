@@ -88,7 +88,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
 
         jbGuardar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbGuardar.setForeground(new java.awt.Color(0, 0, 255));
-        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/disco duro animado.png"))); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/discoDuroAnimado.png"))); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
 
         jbModificar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbModificar.setForeground(new java.awt.Color(0, 0, 255));
-        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/modificar con lapiz.png"))); // NOI18N
+        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/modificarConLapiz.png"))); // NOI18N
         jbModificar.setText("Modificar");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +120,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
 
         jbBuscar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbBuscar.setForeground(new java.awt.Color(0, 0, 255));
-        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupa chiquita.png"))); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupaChiquita.png"))); // NOI18N
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +161,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(215, 215, 215)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 27, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
@@ -204,7 +204,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jBoxEstado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbSalir)

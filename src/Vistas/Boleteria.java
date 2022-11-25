@@ -35,6 +35,7 @@ public class Boleteria extends javax.swing.JFrame {
         jmiNuevoCliente = new javax.swing.JMenuItem();
         jmProgramacion = new javax.swing.JMenu();
         jmiProyecciones = new javax.swing.JMenuItem();
+        jMAnularProyec = new javax.swing.JMenuItem();
         jmiSalas = new javax.swing.JMenuItem();
         jmiPeliculas = new javax.swing.JMenuItem();
         jmTicket = new javax.swing.JMenu();
@@ -46,11 +47,10 @@ public class Boleteria extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        escritorio.setBackground(new java.awt.Color(255, 255, 255));
+        escritorio.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel1.setBackground(new java.awt.Color(255, 0, 204));
-        jLabel1.setForeground(new java.awt.Color(255, 51, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/fondo minions.jpg"))); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/fondoMinions.jpg"))); // NOI18N
 
         escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -58,19 +58,24 @@ public class Boleteria extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jmiCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/usuarios hombre y mujer.png"))); // NOI18N
+        jmiCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/usuariosHombreYMujer.png"))); // NOI18N
         jmiCliente.setText("Cliente");
         jmiCliente.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
 
         jmiNuevoCliente.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jmiNuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/agregar usuario.png"))); // NOI18N
+        jmiNuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/agregarUsuario.png"))); // NOI18N
         jmiNuevoCliente.setText("Nuevo Cliente");
         jmiNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,12 +86,12 @@ public class Boleteria extends javax.swing.JFrame {
 
         jMenuBar1.add(jmiCliente);
 
-        jmProgramacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/cine .png"))); // NOI18N
+        jmProgramacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/cine.png"))); // NOI18N
         jmProgramacion.setText("Programacion");
         jmProgramacion.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
 
         jmiProyecciones.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jmiProyecciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/pryector negro.png"))); // NOI18N
+        jmiProyecciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/pryectorNegro.png"))); // NOI18N
         jmiProyecciones.setText("Proyecciones");
         jmiProyecciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +99,15 @@ public class Boleteria extends javax.swing.JFrame {
             }
         });
         jmProgramacion.add(jmiProyecciones);
+
+        jMAnularProyec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/pryectorNegro.png"))); // NOI18N
+        jMAnularProyec.setText("Anular Proyección");
+        jMAnularProyec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMAnularProyecActionPerformed(evt);
+            }
+        });
+        jmProgramacion.add(jMAnularProyec);
 
         jmiSalas.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jmiSalas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/stage_theater_show_performance_cinema_icon_190832 - copia.png"))); // NOI18N
@@ -106,7 +120,7 @@ public class Boleteria extends javax.swing.JFrame {
         jmProgramacion.add(jmiSalas);
 
         jmiPeliculas.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jmiPeliculas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/rollo de pelicula.png"))); // NOI18N
+        jmiPeliculas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/rolloDePelicula.png"))); // NOI18N
         jmiPeliculas.setText("Peliculas");
         jmiPeliculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +131,7 @@ public class Boleteria extends javax.swing.JFrame {
 
         jMenuBar1.add(jmProgramacion);
 
-        jmTicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/ticket de colores.png"))); // NOI18N
+        jmTicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/ticketDeColores.png"))); // NOI18N
         jmTicket.setText("Ticket");
         jmTicket.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
 
@@ -132,7 +146,7 @@ public class Boleteria extends javax.swing.JFrame {
         jmTicket.add(jmiTickets);
 
         jMenuItem1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrar ticket.png"))); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrarTicket.png"))); // NOI18N
         jMenuItem1.setText("Anulacion de Ticket");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,6 +245,16 @@ public class Boleteria extends javax.swing.JFrame {
         escritorio.add(nullTicket);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMAnularProyecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAnularProyecActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        AnularProyecciones anularProyec = new AnularProyecciones();
+        anularProyec.setVisible(true);
+        escritorio.add(anularProyec);
+       
+    }//GEN-LAST:event_jMAnularProyecActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,6 +284,7 @@ public class Boleteria extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Boleteria().setVisible(true);
             }
@@ -270,6 +295,7 @@ public class Boleteria extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuItem jMAnularProyec;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jmProgramacion;

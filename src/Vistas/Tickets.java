@@ -167,7 +167,7 @@ public class Tickets extends javax.swing.JInternalFrame {
 
         jbBuscar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jbBuscar.setForeground(new java.awt.Color(0, 0, 255));
-        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/buscar usuario.png"))); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/buscarUsuario.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +177,7 @@ public class Tickets extends javax.swing.JInternalFrame {
 
         jbGuardar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jbGuardar.setForeground(new java.awt.Color(0, 0, 255));
-        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/disco duro animado.png"))); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/discoDuroAnimado.png"))); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +189,7 @@ public class Tickets extends javax.swing.JInternalFrame {
 
         jbLimpiar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
         jbLimpiar.setForeground(new java.awt.Color(0, 0, 255));
-        jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrar ticket.png"))); // NOI18N
+        jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/borrarTicket.png"))); // NOI18N
         jbLimpiar.setText("Limpiar");
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,8 +418,8 @@ public class Tickets extends javax.swing.JInternalFrame {
                 .addGap(92, 92, 92)
                 .addComponent(jbLimpiar)
                 .addGap(89, 89, 89)
-                .addComponent(jbSalir)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jbSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(129, 129, 129))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -476,11 +476,11 @@ public class Tickets extends javax.swing.JInternalFrame {
                     .addComponent(jtfMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jboxMetPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbGuardar)
+                    .addComponent(jbLimpiar)
+                    .addComponent(jbSalir))
                 .addGap(41, 41, 41))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()

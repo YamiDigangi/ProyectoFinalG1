@@ -90,7 +90,7 @@ public class Salas extends javax.swing.JInternalFrame {
 
         jbGuardar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbGuardar.setForeground(new java.awt.Color(0, 0, 255));
-        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/guardar disco pequeño.png"))); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/guardarDiscoPequeño.png"))); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +100,7 @@ public class Salas extends javax.swing.JInternalFrame {
 
         jbModificar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jbModificar.setForeground(new java.awt.Color(0, 0, 255));
-        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/modificar con lapiz.png"))); // NOI18N
+        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/modificarConLapiz.png"))); // NOI18N
         jbModificar.setText("Modificar");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +132,7 @@ public class Salas extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupa chiquita.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupaChiquita.png"))); // NOI18N
         jButton1.setText("BUSACAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,18 +170,17 @@ public class Salas extends javax.swing.JInternalFrame {
                                     .addComponent(jtfUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                                        .addGap(54, 54, 54)
                                         .addComponent(jButton1))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(33, 33, 33)
-                                .addComponent(jcbEstado)))
-                        .addGap(84, 84, 84))
+                                .addComponent(jcbEstado))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +205,7 @@ public class Salas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
                     .addComponent(jcbEstado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)

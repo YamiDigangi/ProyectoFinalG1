@@ -110,6 +110,7 @@ public class AnularTicket extends javax.swing.JInternalFrame {
             }
         });
 
+        jTabla.setForeground(new java.awt.Color(0, 0, 204));
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -121,6 +122,7 @@ public class AnularTicket extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTabla.setGridColor(new java.awt.Color(0, 0, 204));
         jScrollPane1.setViewportView(jTabla);
 
         jbAnular.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
@@ -184,7 +186,7 @@ public class AnularTicket extends javax.swing.JInternalFrame {
                         .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbAnular)
                     .addComponent(jbSalir))

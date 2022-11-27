@@ -100,6 +100,7 @@ public class Boleteria extends javax.swing.JFrame {
         });
         jmProgramacion.add(jmiProyecciones);
 
+        jMAnularProyec.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jMAnularProyec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/pryectorNegro.png"))); // NOI18N
         jMAnularProyec.setText("Anular Proyección");
         jMAnularProyec.addActionListener(new java.awt.event.ActionListener() {

@@ -76,9 +76,9 @@ public class AnularProyecciones extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jdcCalendar = new com.toedter.calendar.JDateChooser();
+        jbSalir = new javax.swing.JButton();
+        jbAnular = new javax.swing.JButton();
+        jdcFecha = new com.toedter.calendar.JDateChooser();
 
         jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 204));
@@ -114,23 +114,23 @@ public class AnularProyecciones extends javax.swing.JInternalFrame {
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 204));
 
-        jButton2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 204));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/salir.png"))); // NOI18N
-        jButton2.setText("SALIR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbSalir.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        jbSalir.setForeground(new java.awt.Color(0, 0, 204));
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/salir.png"))); // NOI18N
+        jbSalir.setText("SALIR");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbSalirActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 204));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/delete_4219.png"))); // NOI18N
-        jButton3.setText("ANULAR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbAnular.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        jbAnular.setForeground(new java.awt.Color(0, 0, 204));
+        jbAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/delete_4219.png"))); // NOI18N
+        jbAnular.setText("ANULAR");
+        jbAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbAnularActionPerformed(evt);
             }
         });
 
@@ -140,13 +140,13 @@ public class AnularProyecciones extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(82, 82, 82)
-                .addComponent(jdcCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(132, 132, 132)
-                .addComponent(jButton3)
+                .addComponent(jbAnular)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(jbSalir)
                 .addGap(120, 120, 120))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
@@ -172,28 +172,28 @@ public class AnularProyecciones extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jbBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jdcCalendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jdcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(37, 37, 37)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
+                    .addComponent(jbAnular)
+                    .addComponent(jbSalir))
                 .addGap(0, 65, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
-        
-        LocalDate fechaInicio = jdcCalendar.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        borrarFilas();
+        LocalDate fechaInicio = jdcFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         
         LocalDateTime fh = LocalDateTime.of(fechaInicio,LocalTime.of(0, 0));
         
@@ -210,22 +210,22 @@ public class AnularProyecciones extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbBuscarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularActionPerformed
         // TODO add your handling code here:
         int filaElegida = jTable.getSelectedRow();
         int idProyec = (Integer) jTable.getValueAt(filaElegida,0);
         proyecData.borrarProyeccion(idProyec);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbAnularActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable;
+    private javax.swing.JButton jbAnular;
     private javax.swing.JButton jbBuscar;
-    private com.toedter.calendar.JDateChooser jdcCalendar;
+    private javax.swing.JButton jbSalir;
+    private com.toedter.calendar.JDateChooser jdcFecha;
     // End of variables declaration//GEN-END:variables
 }

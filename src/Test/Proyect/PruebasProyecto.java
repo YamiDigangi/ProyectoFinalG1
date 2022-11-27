@@ -230,7 +230,7 @@ public class PruebasProyecto {
 //
  TicketData td= new TicketData();
 
-//      td.agregarTicket(t1);
+      td.agregarTicket(t1);
      
             
      

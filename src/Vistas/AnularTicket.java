@@ -200,8 +200,6 @@ public class AnularTicket extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
        borrarFilas();  
        LocalDate fechaTicket = jdcFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//       SimpleDateFormat fFecha = new SimpleDateFormat("dd-MM-yyyy");
-//       LocalDate fechaCompra = LocalDate.parse(fFecha.format(jdcFecha.getDate()), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
        System.out.println("fecha elejida: " + fechaTicket);  
        listaTicket = (ArrayList<Ticket>) ticketD.ticketEmitidosPorFecha(fechaTicket);
        System.out.println("lista" + listaTicket);

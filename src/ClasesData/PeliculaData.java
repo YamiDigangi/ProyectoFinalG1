@@ -96,7 +96,7 @@ public class PeliculaData {
         
     public Pelicula obtenerPelisPorId(int IdPelicula) {
         
-        String sql= "SELECT * FROM pelicula WHERE IdPelicula = ?";
+        String sql= "SELECT * FROM pelicula WHERE IdPelicula = ? AND estadoPeli = 1";
         
         Pelicula peli = new Pelicula();
         

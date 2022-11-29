@@ -107,7 +107,7 @@ public class TicketData {
     
     public ArrayList<Ticket> ticketEmitidosPorFecha (LocalDate fechaCompra){
         ArrayList<Ticket> listaTicket = new ArrayList();
-        String sql = "SELECT * FROM ticket WHERE fechaCompra = ?";
+        String sql = "SELECT * FROM ticket WHERE fechaCompra = ? AND estadoTicket = true";
                 
         try {
             PreparedStatement ps = con.prepareStatement(sql);

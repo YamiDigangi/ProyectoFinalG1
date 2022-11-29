@@ -99,7 +99,7 @@ public class SalaData {
     
     
     public Sala obtenerSalaPorId(int idSala) {
-        String sql= "SELECT * FROM sala WHERE idSala = ?";
+        String sql= "SELECT * FROM sala WHERE idSala = ? AND estadoSala = 1";
         Sala s = new Sala();
         
         try{

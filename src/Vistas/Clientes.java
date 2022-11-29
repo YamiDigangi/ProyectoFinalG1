@@ -38,12 +38,10 @@ public class Clientes extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jtfId = new javax.swing.JTextField();
         jtfDni = new javax.swing.JTextField();
         jtfNombre = new javax.swing.JTextField();
         jtfApellido = new javax.swing.JTextField();
-        jboxEstado = new javax.swing.JCheckBox();
         jbBuscar = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
         jbActualizar = new javax.swing.JButton();
@@ -78,10 +76,6 @@ public class Clientes extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 255));
         jLabel5.setText("Apellido");
-
-        jLabel6.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel6.setText("Estado activo:");
 
         jtfId.setEnabled(false);
         jtfId.addActionListener(new java.awt.event.ActionListener() {
@@ -151,21 +145,13 @@ public class Clientes extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jboxEstado)
-                        .addGap(0, 435, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jtfApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbBuscar)
-                        .addGap(122, 122, 122))))
+                .addGap(124, 124, 124)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jtfApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtfNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbBuscar)
+                .addGap(122, 122, 122))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -202,31 +188,24 @@ public class Clientes extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jbBuscar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jtfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jboxEstado)))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jbBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jtfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbActualizar)
@@ -250,10 +229,9 @@ public class Clientes extends javax.swing.JInternalFrame {
        int dni = Integer.parseInt(jtfDni.getText());
        String nombre = jtfNombre.getText();
        String apellido = jtfApellido.getText();
-       boolean estado = jboxEstado.isEnabled();
        
        
-       Cliente cliente = new Cliente(dni, nombre, apellido, estado);     
+       Cliente cliente = new Cliente(dni, nombre, apellido, true);     
        clienteData.agregarCliente(cliente);
        jtfId.setText(cliente.getIdCliente()+"");
        
@@ -261,7 +239,6 @@ public class Clientes extends javax.swing.JInternalFrame {
        jtfId.setText("");
        jtfNombre.setText("");
        jtfApellido.setText("");
-       jboxEstado.setEnabled(false);
        
        
     }//GEN-LAST:event_jbGuardarActionPerformed
@@ -277,7 +254,6 @@ public class Clientes extends javax.swing.JInternalFrame {
                jtfDni.setText(c.getDni()+"");
                jtfNombre.setText(c.getNombre());
                jtfApellido.setText(c.getApellido());
-               jboxEstado.setSelected(c.isEstado());
                
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Ud debe ingresar un Numero de Documento");                
@@ -305,9 +281,9 @@ public class Clientes extends javax.swing.JInternalFrame {
             int dni = Integer.parseInt(jtfDni.getText());
             String nombre = jtfNombre.getText();
             String apellido = jtfApellido.getText();
-            boolean estado= jboxEstado.isEnabled();
+
             
-            Cliente cliente = new Cliente(idCliente,dni,nombre,apellido,estado);
+            Cliente cliente = new Cliente(idCliente,dni,nombre,apellido,true);
             clienteData.modificarCliente(cliente);
         }
         
@@ -315,12 +291,15 @@ public class Clientes extends javax.swing.JInternalFrame {
         jtfId.setText("");
         jtfNombre.setText("");
         jtfApellido.setText("");
-        jboxEstado.setEnabled(false);
     }//GEN-LAST:event_jbActualizarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
         int idCliente = Integer.parseInt(jtfId.getText());
         clienteData.borrarCliente(idCliente);
+        jtfDni.setText("");
+        jtfId.setText("");
+        jtfNombre.setText("");
+        jtfApellido.setText("");
     }//GEN-LAST:event_jbBorrarActionPerformed
 
 
@@ -330,7 +309,6 @@ public class Clientes extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JButton jbActualizar;
@@ -338,7 +316,6 @@ public class Clientes extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JCheckBox jboxEstado;
     private javax.swing.JTextField jtfApellido;
     private javax.swing.JTextField jtfDni;
     private javax.swing.JTextField jtfId;

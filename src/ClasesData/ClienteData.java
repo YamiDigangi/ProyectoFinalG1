@@ -85,7 +85,7 @@ public class ClienteData {
     }
     
     public Cliente obtenerClientePorDni(int dni){
-     String sql= "SELECT * FROM cliente WHERE dni = ?";
+     String sql= "SELECT * FROM cliente WHERE dni = ? AND estado = 1";
         Cliente cli = new Cliente();
         try {
             PreparedStatement ps = con.prepareStatement(sql);

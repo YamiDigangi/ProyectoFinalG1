@@ -199,15 +199,12 @@ public class AnularTicket extends javax.swing.JInternalFrame {
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
        borrarFilas();  
-       LocalDate fechaTicket = jdcFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-       System.out.println("fecha elejida: " + fechaTicket);  
+       LocalDate fechaTicket = jdcFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(); 
        listaTicket = (ArrayList<Ticket>) ticketD.ticketEmitidosPorFecha(fechaTicket);
-       System.out.println("lista" + listaTicket);
        Ticket tic = new Ticket();
          
         for(Ticket t : listaTicket)          
              modelo.addRow(new Object[]{t.getIdTicket(),t.getCliente().getDni(),t.getCliente().getNombre(),t.getCliente().getApellido(),t.getProyeccion().getIdProyeccion()});
-          System.out.println("listaaa" + listaTicket);
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed

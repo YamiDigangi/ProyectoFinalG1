@@ -41,10 +41,8 @@ public class Peliculas extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jtfId = new javax.swing.JTextField();
         jtfNombre = new javax.swing.JTextField();
-        jBoxEstado = new javax.swing.JCheckBox();
         jbGuardar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jbModificar = new javax.swing.JButton();
@@ -70,19 +68,9 @@ public class Peliculas extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 255));
         jLabel3.setText("Nombre");
 
-        jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel4.setText("Estado");
-
         jtfId.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jtfIdFocusLost(evt);
-            }
-        });
-
-        jBoxEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBoxEstadoActionPerformed(evt);
             }
         });
 
@@ -162,8 +150,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -175,9 +162,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
                         .addComponent(jtfNombre)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBoxEstado))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -186,7 +171,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -196,11 +181,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jBoxEstado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbSalir)
@@ -226,14 +207,14 @@ public class Peliculas extends javax.swing.JInternalFrame {
             
             String nombrePeli = jtfNombre.getText();
             
-            boolean estadoPeli= jBoxEstado.isEnabled();
+//            boolean estadoPeli= jBoxEstado.isEnabled();
             
-            Pelicula peli = new Pelicula(idPeli,nombrePeli,estadoPeli);
+            Pelicula peli = new Pelicula(idPeli,nombrePeli,true);
             peliculaData.modificarPelicula(peli);
         }
         jtfId.setText("");
         jtfNombre.setText("");
-        jBoxEstado.setEnabled(false);
+//        jBoxEstado.setEnabled(false);
     
     }//GEN-LAST:event_jbModificarActionPerformed
 
@@ -242,10 +223,10 @@ public class Peliculas extends javax.swing.JInternalFrame {
             
             String nombrePeli = jtfNombre.getText();
             
-            boolean estadoPeli= jBoxEstado.isEnabled();
+//            boolean estadoPeli= jBoxEstado.isEnabled();
             
         
-        Pelicula pelicula =new Pelicula(nombrePeli, estadoPeli);
+        Pelicula pelicula =new Pelicula(nombrePeli, true);
         
         peliculaData.altaPelicula(pelicula);
         
@@ -254,7 +235,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
         
         jtfId.setText("");
         jtfNombre.setText("");
-        jBoxEstado.setEnabled(false);
+//        jBoxEstado.setEnabled(false);
                          
     }//GEN-LAST:event_jbGuardarActionPerformed
 
@@ -264,6 +245,8 @@ public class Peliculas extends javax.swing.JInternalFrame {
         
         
         peliculaData.borrarPelis(idPeli);
+        jtfId.setText("");
+        jtfNombre.setText("");
         
     }//GEN-LAST:event_jbBorrarActionPerformed
 
@@ -278,7 +261,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
             try{
                jtfId.setText(peli.getIdPelicula()+"");
                jtfNombre.setText(peli.getNombrePeli());
-               jBoxEstado.setSelected(peli.isEstadoPeli());
+//               jBoxEstado.setSelected(peli.isEstadoPeli());
                
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Ud debe ingresar un Código de Pelicula");                
@@ -290,10 +273,6 @@ public class Peliculas extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jbBuscarActionPerformed
-
-    private void jBoxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBoxEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBoxEstadoActionPerformed
 
     private void jtfIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfIdFocusLost
         // TODO add your handling code here:
@@ -309,11 +288,9 @@ public class Peliculas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jBoxEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbBuscar;

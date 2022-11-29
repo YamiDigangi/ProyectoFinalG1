@@ -41,17 +41,15 @@ public class Salas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jtfId = new javax.swing.JTextField();
         jtfUbicacion = new javax.swing.JTextField();
         jtfLocalidad = new javax.swing.JTextField();
-        jcbEstado = new javax.swing.JCheckBox();
         jbGuardar = new javax.swing.JButton();
         jbModificar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jbBorrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jbBuscar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -72,10 +70,6 @@ public class Salas extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 255));
         jLabel4.setText("Localidad");
-
-        jLabel6.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel6.setText("Estado activo");
 
         jtfId.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -130,13 +124,13 @@ public class Salas extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupaChiquita.png"))); // NOI18N
-        jButton1.setText("BUSACAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbBuscar.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
+        jbBuscar.setForeground(new java.awt.Color(0, 0, 204));
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupaChiquita.png"))); // NOI18N
+        jbBuscar.setText("BUSACAR");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbBuscarActionPerformed(evt);
             }
         });
 
@@ -159,22 +153,16 @@ public class Salas extends javax.swing.JInternalFrame {
                         .addGap(76, 76, 76)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
+                        .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtfLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtfUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(54, 54, 54)
-                                        .addComponent(jButton1))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jcbEstado))))
+                                .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(jbBuscar))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +180,7 @@ public class Salas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -201,11 +189,7 @@ public class Salas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtfLocalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jcbEstado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,16 +209,15 @@ public class Salas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String ubicacion =jtfUbicacion.getText();
         String localidad =jtfLocalidad.getText();
-        boolean estadoSala =jcbEstado.isEnabled();
+
         
-        Sala sala=new Sala(ubicacion,localidad,estadoSala);
+        Sala sala=new Sala(ubicacion,localidad,true);
         salaData.altaSala(sala);
         jtfId.setText(sala.getIdSala()+"");
 
         
         jtfUbicacion.setText("");
         jtfLocalidad.setText("");
-        jcbEstado.setEnabled(false);
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
@@ -243,23 +226,25 @@ public class Salas extends javax.swing.JInternalFrame {
             int idSala = Integer.parseInt(jtfId.getText());
             String ubicacion = jtfUbicacion.getText();
             String localidad = jtfLocalidad.getText();
-            boolean estadoSala= jcbEstado.isEnabled();
             
-            Sala sala = new Sala(idSala,ubicacion,localidad,estadoSala);
+            Sala sala = new Sala(idSala,ubicacion,localidad,true);
             salaData.modificarSala(sala);
         }
         jtfId.setText("");
         jtfUbicacion.setText("");
         jtfLocalidad.setText("");
-        jcbEstado.setEnabled(false);
+
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
         int idSala = Integer.parseInt(jtfId.getText());
         salaData.bajaSala(idSala);
+        jtfId.setText("");
+        jtfUbicacion.setText("");
+        jtfLocalidad.setText("");
     }//GEN-LAST:event_jbBorrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
         int idSala = Integer.parseInt(jtfId.getText());
         Sala sala = salaData.obtenerSalaPorId(idSala);
@@ -270,7 +255,6 @@ public class Salas extends javax.swing.JInternalFrame {
                jtfId.setText(sala.getIdSala()+"");
                jtfUbicacion.setText(sala.getUbicacion());
                jtfLocalidad.setText(sala.getLocalidad());
-               jcbEstado.setSelected(sala.isEstadoSala());
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Ud debe ingresar un Numero de sala");
                 
@@ -280,7 +264,7 @@ public class Salas extends javax.swing.JInternalFrame {
             }else {
                  JOptionPane.showMessageDialog(this, "Sala no encontrada");               
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jtfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdActionPerformed
         // TODO add your handling code here:
@@ -300,18 +284,16 @@ public class Salas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbBorrar;
+    private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JCheckBox jcbEstado;
     private javax.swing.JTextField jtfId;
     private javax.swing.JTextField jtfLocalidad;
     private javax.swing.JTextField jtfUbicacion;

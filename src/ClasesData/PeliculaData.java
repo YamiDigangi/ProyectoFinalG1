@@ -125,7 +125,7 @@ public class PeliculaData {
     
      public Pelicula obtenerPelisPorNombre(String nombrePeli) {
         
-        String sql= "SELECT * FROM pelicula WHERE nombrePeli Like '%?%' AND estadoPeli = 1;";
+        String sql= "SELECT * FROM pelicula WHERE nombrePeli Like ? AND estadoPeli = 1";
         
         Pelicula peli = new Pelicula();
         
@@ -138,8 +138,10 @@ public class PeliculaData {
             
             if(rs.next()){
                 
-                peli.setIdPelicula(rs.getInt("IdPelicula"));
+                
+                peli.setIdPelicula(rs.getInt("idPelicula"));
                 peli.setNombrePeli(rs.getString("nombrePeli"));
+                
                                 
             }
             
@@ -151,6 +153,8 @@ public class PeliculaData {
         return peli;
          
     }
+     
+     
     
     public void modificarPelicula(Pelicula pelicula){
         String sql="UPDATE pelicula SET nombrePeli = ?, estadoPeli = ? WHERE idPelicula = ?";

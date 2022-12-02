@@ -66,8 +66,9 @@ public class Boleteria extends javax.swing.JFrame {
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jmiCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/usuariosHombreYMujer.png"))); // NOI18N

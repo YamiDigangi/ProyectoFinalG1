@@ -49,7 +49,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jbBuscar = new javax.swing.JButton();
         jbBorrar = new javax.swing.JButton();
-        jbBuscar1 = new javax.swing.JButton();
+        jbBuscarPorNombre = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -127,13 +127,13 @@ public class Peliculas extends javax.swing.JInternalFrame {
             }
         });
 
-        jbBuscar1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
-        jbBuscar1.setForeground(new java.awt.Color(0, 0, 255));
-        jbBuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupaChiquita.png"))); // NOI18N
-        jbBuscar1.setText("Buscar");
-        jbBuscar1.addActionListener(new java.awt.event.ActionListener() {
+        jbBuscarPorNombre.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
+        jbBuscarPorNombre.setForeground(new java.awt.Color(0, 0, 255));
+        jbBuscarPorNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImgVistas/lupaChiquita.png"))); // NOI18N
+        jbBuscarPorNombre.setText("Buscar");
+        jbBuscarPorNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbBuscar1ActionPerformed(evt);
+                jbBuscarPorNombreActionPerformed(evt);
             }
         });
 
@@ -173,7 +173,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(27, 27, 27)
-                            .addComponent(jbBuscar1))))
+                            .addComponent(jbBuscarPorNombre))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -195,7 +195,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
                             .addComponent(jLabel3)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbBuscarPorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
@@ -302,24 +302,25 @@ public class Peliculas extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jtfIdFocusLost
 
-    private void jbBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscar1ActionPerformed
+    private void jbBuscarPorNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarPorNombreActionPerformed
         String nombrePeli = jtfNombre.getText();
         Pelicula pelis = peliculaData.obtenerPelisPorNombre(nombrePeli);
-        if (pelis.getNombrePeli()== nombrePeli){
+        
+        if (pelis.getNombrePeli().equals(nombrePeli)){
             
-//            try{
+            try{
                jtfId.setText(pelis.getIdPelicula()+"");
                jtfNombre.setText(pelis.getNombrePeli());
                
-//            } catch (NumberFormatException e) {
-//                JOptionPane.showMessageDialog(this, "Ud debe ingresar un Código de Pelicula");                
-//                jtfId.requestFocus();
-//            
-//            } 
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Ud debe ingresar un Código de Pelicula");                
+                jtfId.requestFocus();
+            
+            } 
             }else {
                  JOptionPane.showMessageDialog(this, "Película no encontrada");               
         }
-    }//GEN-LAST:event_jbBuscar1ActionPerformed
+    }//GEN-LAST:event_jbBuscarPorNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -329,7 +330,7 @@ public class Peliculas extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbBuscar;
-    private javax.swing.JButton jbBuscar1;
+    private javax.swing.JButton jbBuscarPorNombre;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;

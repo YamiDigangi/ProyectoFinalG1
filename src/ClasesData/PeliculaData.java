@@ -123,6 +123,35 @@ public class PeliculaData {
          
     }
     
+     public Pelicula obtenerPelisPorNombre(String nombrePeli) {
+        
+        String sql= "SELECT * FROM pelicula WHERE nombrePeli = ? AND estadoPeli = 1";
+        
+        Pelicula peli = new Pelicula();
+        
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            
+            ps.setString(1, nombrePeli);
+            
+            ResultSet rs=ps.executeQuery();
+            
+            if(rs.next()){
+                
+                peli.setIdPelicula(rs.getInt("IdPelicula"));
+                peli.setNombrePeli(rs.getString("nombrePeli"));
+                                
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "PeliculaData Sentencia SQL erronea-ObtenerPeliPorNombre"+ex.getMessage());
+        }
+        return peli;
+         
+    }
+    
     public void modificarPelicula(Pelicula pelicula){
         String sql="UPDATE pelicula SET nombrePeli = ?, estadoPeli = ? WHERE idPelicula = ?";
         try {

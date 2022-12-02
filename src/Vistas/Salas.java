@@ -5,7 +5,9 @@
  */
 package Vistas;
 
+import ClasesData.ButacaData;
 import ClasesData.SalaData;
+import ClasesModelo.Butaca;
 import ClasesModelo.Conexion;
 import ClasesModelo.Sala;
 import java.sql.Connection;
@@ -18,15 +20,16 @@ import javax.swing.JOptionPane;
 public class Salas extends javax.swing.JInternalFrame {
     private SalaData salaData;
     private Connection con;
+    private Butaca but;
     /**
      * Creates new form Sala
      */
     public Salas() {
         initComponents();
-        
         this.con = Conexion.getConexion();
         this.salaData = new SalaData();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,12 +212,20 @@ public class Salas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String ubicacion =jtfUbicacion.getText();
         String localidad =jtfLocalidad.getText();
-
+        String fila = "A";
+        int columna = 1;
         
         Sala sala=new Sala(ubicacion,localidad,true);
         salaData.altaSala(sala);
         jtfId.setText(sala.getIdSala()+"");
-
+        
+        ButacaData butD = new ButacaData();
+        while (columna <=4){
+        but = new Butaca(sala,fila,columna);
+        columna++;
+        butD.agregarButaca(but);
+        }
+        
         
         jtfUbicacion.setText("");
         jtfLocalidad.setText("");
@@ -277,7 +288,7 @@ public class Salas extends javax.swing.JInternalFrame {
         }catch (NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Debe ingresar un numero");
             jtfId.setText("");
-            jtfId.requestFocus();
+//            jtfId.requestFocus();
         }
             
     }//GEN-LAST:event_jtfIdFocusLost

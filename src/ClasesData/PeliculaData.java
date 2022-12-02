@@ -125,7 +125,7 @@ public class PeliculaData {
     
      public Pelicula obtenerPelisPorNombre(String nombrePeli) {
         
-        String sql= "SELECT * FROM pelicula WHERE nombrePeli = ? AND estadoPeli = 1";
+        String sql= "SELECT * FROM pelicula WHERE nombrePeli Like '%?%' AND estadoPeli = 1;";
         
         Pelicula peli = new Pelicula();
         

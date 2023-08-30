@@ -125,14 +125,14 @@ public class PeliculaData {
     
      public Pelicula obtenerPelisPorNombre(String nombrePeli) {
         
-        String sql= "SELECT * FROM pelicula WHERE nombrePeli Like ? AND estadoPeli = 1";
+        String sql= "SELECT * FROM pelicula WHERE nombrePeli Like "+"'"+nombrePeli+"%' AND estadoPeli = 1";
         
         Pelicula peli = new Pelicula();
         
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             
-            ps.setString(1, nombrePeli);
+//            ps.setString(1, nombrePeli);
             
             ResultSet rs=ps.executeQuery();
             
